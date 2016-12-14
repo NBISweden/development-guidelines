@@ -149,7 +149,7 @@ have a README file that contains at least
     subdirectory).
     * A reference to the INSTALL and LICENSE/COPYING files.
 
-* **INSTALL** (plain text or Markdomn-formatted). Unless the software is
+* **INSTALL** (plain text or Markdown-formatted). Unless the software is
 trivial to install (e.g. just copy one file), then an INSTALL document
 should be added in which a user may find the following:
     * External dependencies (including specific versions, where
@@ -347,11 +347,11 @@ Avoid "force push" unless it makes everyone’s life easier.
 If a "live" checkout of the repository needs to exist somewhere, for
 example to run a public web service, then
 
-    * Don’t do development in the live checkout.
-    * Do development and testing in a private checkout.
-    * Only ever do "git pull" in the live checkout.
-    * A live service with active users should run a stable release from
-    the master branch.
+* Don’t do development in the live checkout.
+* Do development and testing in a private checkout.
+* Only ever do "git pull" in the live checkout.
+* A live service with active users should run a stable release from
+the master branch.
 
 ## How we do code reviews
 
@@ -382,11 +382,14 @@ reviewer should have their own personal GitHub accounts.
 
 1. The code is written on a separate branch, for example on a
 `feature/some_name` branch off of the main development branch.
+
 2. The author feels that the code is correct and finished and pushes the
 branch to GitHub one last time before the actual review.
+
 3. The author creates a "pull request" for the branch by switching to
 the branch on the GitHub web pages and clicking the button labelled “New
 pull request”.
+
 4. The author finds one or several reviewers for the pull request and
 assigns them to it.  A reviewer may be found
     * By asking one of the already designated reviewers connected to the
@@ -394,6 +397,7 @@ assigns them to it.  A reviewer may be found
     * By asking in the "code-review-forum" in the NBIS Slack.
     * By meeting up with or contacting any other colleague that is not
     directly involved with the code that is being reviewed.
+
 5. If needed, the author gives the reviewer(s) some background on the
 project, and what the code under review is supposed to do etc. Having a
 fixed group of reviewers for a project would minimize the need for this
@@ -405,86 +409,98 @@ messages themselves already provide)
     * With the pull request.
     * On separate commits (?).
     * On separate lines in the commits.
+
 6. If there’s more than one reviewer, one of the reviewers is designated
 as the "main" reviewer. This reviewer will later do one extra thing (see
 below).
+
 7. The reviewer(s) looks at the code, specifically at the bits of code
 that the specified pull request is about.
+
 8. The reviewer(s) leaves comments and/or questions in the code by
 clicking individual lines in the web viewer. Note that these comments
 are public.
+
 9. The reviewer(s) leaves a summary of their review by clicking "Review
 changes" and submits it as feedback
     * without explicitly approving the pull request (it’s just feedback)
     * explicitly approving the pull request (it all look good), or
     * explicitly rejecting the pull request (there’s something that
     needs to be discussed and/or fixed).
+
 10. If no reviews are rejecting the pull request, the designated
 "main" reviewer will merge the pull request and delete the feature (or
 whatever) branch. Note: this is the reviewer’s job, not the author’s
 job. *The code review process ends here*.
+
 11. If there are things that need to be modified, further commits to the
 same feature branch may be necessary. These commits are automatically
 added to the existing pull request.
+
 12. The author asks the reviewer(s) to have a further look at the new
 changes. The process continues from step 7.
 
 ### General stuff about code reviews
 
-* Just as with making commits often, it is better to review often in small chunks.
+Just as with making commits often, it is better to review often in small
+chunks.
 
-* It’s a good idea to allocate code reviewers for a project, so that the same people (or person) can do all the reviewing. This probably works best if the authors and the reviewer(s) work in the same organisational team.
+It’s a good idea to allocate code reviewers for a project, so that the
+same people (or person) can do all the reviewing. This probably works
+best if the authors and the reviewer(s) work in the same organisational
+team.
 
-* Do not ask to have more than 400 lines of code reviewed in one go. Smaller chunks are better.
+Do not ask to have more than 400 lines of code reviewed in one
+go. Smaller chunks are better.
 
-* A review doesn't need to take much time. In some cases 5-10 minutes (or even less!) will be enough if the pull request is of reasonably small size.
+A review doesn't need to take much time. In some cases 5-10 minutes (or
+even less!) will be enough if the pull request is of reasonably small
+size.
 
-* The reviewer is not expected to check out the code for testing, only to read it on the GitHub website. Testing is something that the author and/or a designated test user should do.
+The reviewer is not expected to check out the code for testing, only
+to read it on the GitHub website. Testing is something that the author
+and/or a designated test user should do.
 
-* The reviewer reviews the code from his/her own understanding of it. There is actually no requirement that the reviewer knows the ins and outs of the specific programming language used. The purpose of the review from such a reviewer is to make sure that the logic of the code (with its comments!) is intelligible enough to be able to say "that’ll probably work" (this is not a useless review!).
+The reviewer reviews the code from his/her own understanding of
+it. There is actually no requirement that the reviewer knows the ins
+and outs of the specific programming language used. The purpose of the
+review from such a reviewer is to make sure that the logic of the code
+(with its comments!) is intelligible enough to be able to say "that’ll
+probably work" (this is not a useless review!).
 
-The following is adapted from [https://github.com/thoughtbot/guides/tree/master/code-review](https://github.com/thoughtbot/guides/tree/master/code-review)
+The following is adapted from
+[https://github.com/thoughtbot/guides/tree/master/code-review](https://github.com/thoughtbot/guides/tree/master/code-review)
 
-About communication (both author and reviewer):
+About communication (both author and reviewer)
 
 * Ask questions and ask for clarifications. Do not make demands.
-
 * Many development decisions are based upon personal opinions. Discuss tradeoffs.
-
-* Avoid selective ownership of code. The code should not be referred to as "mine", “yours” or “not yours”.
-
+* Avoid selective ownership of code. The code should not be referred to
+as "mine", “yours” or “not yours”.
 * Assume good intent and well-meaning.
-
 * Be humble. Everyone can be wrong, even both of you at once. Do not try to "show off".
-
 * Be explicit. Make sure that both of you know what thing you’re talking about.
-
 * Do not use sarcasm. Keep a good and friendly tone.
-
-* Keep an alive discussion (on Slack or in person, for example) if something needs to be discussed. Do not lock yourselves away.
+* Keep an alive discussion (on Slack or in person, for example) if
+something needs to be discussed. Do not lock yourselves away.
 
 About communication (author):
 
 * The review is adding something to your project. Acknowledge this.
-
 * The review is all about the code, not at all about you as a person.
-
 * Try to respond to every comment.
-
 * Seek to understand the perspective of the reviewer(s).
 
 About communication (reviewer):
 
 * Do the review promptly.
-
-* Communicate what ideas (proposed changes) you feel strongly about, and which ones you don’t.
-
+* Communicate what ideas (proposed changes) you feel strongly about, and
+which ones you don’t.
 * Identify ways in which a simpler solution to the problem may be had.
-
-* Let the author have the last call on the final implementation, and move philosophical, academic or otherwise unrelated technical discussions to an alternate forum.
-
+* Let the author have the last call on the final implementation,
+and move philosophical, academic or otherwise unrelated technical
+discussions to an alternate forum.
 * Seek to understand the perspective of the author.
-
 * Sign off the final review with a thumbs up or some other positive remark.
 
 TEXT ABOVE WILL BE EXPANDED
