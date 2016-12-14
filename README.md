@@ -288,18 +288,18 @@ development branch, and its feature branch is deleted. In larger project
 feature branches and undergo review before merging (see below). This may
 be highly beneficial for small projects too, obviously (do this!).
 
-A **hotfix** branch is a essentially a branch that implements a
-bugfix to a release. In terms of branching, it is thus very similar
-to a “feature” branch but for the master branch rather than for the
-development branch. A hotfix should fix critical errors that were not
-caught in testing before the release was made. A hotfix branch is
-typically called `hotfix/some_name`. Hotfixes should not implement new
-behaviour, unless this is needed to fix a critical bug. Hotfixes need
-to undergo review before they are merged back into the master *and*
-development branches.
+A **hotfix** branch (often called `hotfix/some_name`) is a essentially
+a branch that implements a bugfix to a release. In terms of branching,
+it is thus very similar to a feature branch but for the master branch
+rather than for the development branch. A hotfix should fix critical
+errors that were not caught in testing before the release was made.
+Hotfixes should not implement new behaviour, unless this is needed to
+fix a critical bug. Hotfixes need to undergo review before they are
+merged back into the master *and* development branches.
 
 The master and development branches are never deleted, while the others
-are transient.
+are transient (temporary, for the duration of the development and review
+of the feature or hotfix).
 
 The benefits of this type of branching model in development are
 
