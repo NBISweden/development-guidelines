@@ -36,7 +36,25 @@ that we don’t feel that we lose too much velocity trying to adhere to
 these guidelines. If you feel that they slow things down too much, we
 need to review them. These things are not set in stone.
 
-[[TOC]]
+Table of Contents
+=================
+
+  * [Coding Guidelines for NBIS Developers](#coding-guidelines-for-nbis-developers)
+    * [Things to be aware of when writing code](#things-to-be-aware-of-when-writing-code)
+      * [Intent](#intent)
+      * [Comments in code](#comments-in-code)
+      * [Readability](#readability)
+      * [Best programming practices](#best-programming-practices)
+      * [Documentation and packaging](#documentation-and-packaging)
+        * [Files bundled with a piece of software](#files-bundled-with-a-piece-of-software)
+      * [Sensitive data](#sensitive-data)
+      * [Testing](#testing)
+    * [How we use GitHub](#how-we-use-github)
+    * [How we use Git](#how-we-use-git)
+    * [General stuff about working with Git](#general-stuff-about-working-with-git)
+    * [How we do code reviews](#how-we-do-code-reviews)
+      * [Code reviewing steps](#code-reviewing-steps)
+      * [General stuff about code reviews](#general-stuff-about-code-reviews)
 
 ## Things to be aware of when writing code
 
