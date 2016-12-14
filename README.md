@@ -249,7 +249,7 @@ With Git-Flow, branches are categorised into
 * One or several **feature** branches.
 * One or several **hotfix** branches.
 
-The code on the master branch (often called `master` or `release`) is
+The code on the **master** branch (often called `master` or `release`) is
 stable, properly tested and is the version of the code that a typical
 user should pick. No changes are made directly on the master branch
 (but see below).
@@ -263,7 +263,7 @@ the software on the master branch. We do not follow this, but you are
 free to do so if you think it make more sense, for example in a highly
 distributed project with many active users/developers.
 
-The code on the development branch (often called `develop`) should
+The code on the **development** branch (often called `develop`) should
 be working, but without guarantees. For small projects, development
 might well happen directly on the development branch and the code here
 may therefore sometimes be broken (this should ideally never happen
@@ -271,7 +271,7 @@ though). When the development branch is deemed “done” and has undergone
 testing and review, it is merged into the master branch. The release is
 then tagged with an appropriate release version.
 
-A feature branch (often called `feature/some_name` where `some_name` is
+A **feature** branch (often called `feature/some_name` where `some_name` is
 a very short descriptive name of the feature) is branched off from the
 main development branch when a new “feature” is being implemented. A
 new feature is any logically connected set of changes to the code base
@@ -288,14 +288,15 @@ development branch, and its feature branch is deleted. In larger project
 feature branches and undergo review before merging (see below). This may
 be highly beneficial for small projects too, obviously (do this!).
 
-A "hotfix" is a essentially a bugfix to a release. In terms of
-branching, it is thus very similar to a “feature” but for the master
-branch rather than for the development branch. A hotfix should fix
-critical errors that were not caught in testing before the release was
-made. A hotfix branch is typically called `hotfix/some_name`. Hotfixes
-should not implement new behaviour, unless this is needed to fix a
-critical bug. Hotfixes need to undergo review before they are merged
-back into the master *and* development branches.
+A **hotfix** branch is a essentially a branch that implements a
+bugfix to a release. In terms of branching, it is thus very similar
+to a “feature” branch but for the master branch rather than for the
+development branch. A hotfix should fix critical errors that were not
+caught in testing before the release was made. A hotfix branch is
+typically called `hotfix/some_name`. Hotfixes should not implement new
+behaviour, unless this is needed to fix a critical bug. Hotfixes need
+to undergo review before they are merged back into the master *and*
+development branches.
 
 The master and development branches are never deleted, while the others
 are transient.
@@ -471,7 +472,7 @@ probably work" (this is not a useless review!).
 The following is adapted from
 [https://github.com/thoughtbot/guides/tree/master/code-review](https://github.com/thoughtbot/guides/tree/master/code-review)
 
-About communication (both author and reviewer)
+About communication (both author and reviewer):
 
 * Ask questions and ask for clarifications. Do not make demands.
 * Many development decisions are based upon personal opinions. Discuss tradeoffs.
