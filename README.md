@@ -1,212 +1,369 @@
-Coding Guidelines
+# Coding Guidelines for NBIS Developers
 
-for NBIS Developers
-
-This document is is currently a work in progress, and presents practical guidelines for developers and others at NBIS who write or contribute to software. The guidelines cover:
+This document is is currently a work in progress, and presents practical
+guidelines for developers and others at NBIS who write or contribute to
+software. The guidelines cover:
 
 * coding style and documentation,
-
 * licensing, packaging and distribution of software,
-
 * how we use Git and GitHub in large and small projects, and
-
 * how we do code reviews.
 
-This is a reference document, and as such you are expected to dip into it to read the parts that you need to know something about.
+This is a reference document, and as such you are expected to dip into
+it to read the parts that you need to know something about.
 
-* If you only occasionally write code, or if you write code outside of the NBIS system developers’ team, you should read the full text of this document at least once, but there is no expectation that you will remember it all.
+* If you only occasionally write code, or if you write code outside
+of the NBIS system developers’ team, you should read the full text of
+this document at least once, but there is no expectation that you will
+remember it all.
+* If you are a member of the NBIS system developers’ team, you should
+make yourself familiar with these guidelines.
+* In any case, these are *guidelines*, not hard rules. Apart from the
+restrictions placed upon NBIS by our funding agencies, we do not force
+these guidelines on you or on ourselves. We do however think that they
+would help to streamline our workflow, improve teamwork and benefit both
+ourselves individually as well as the "products" that we produce as
+developers.
 
-* If you are a member of the NBIS system developers’ team, you should make yourself familiar with these guidelines.
+The NBIS team of system developers are more than happy to try to answer
+any questions you may have about the contents of this document. We are
+available on Slack. The "code-review-forum" channel is a good place to
+ask.
 
-* In any case, these are *guidelines*, not hard rules. Apart from the restrictions placed upon NBIS by our funding agencies, we do not force these guidelines on you or on ourselves. We do however think that they would help to streamline our workflow, improve teamwork and benefit both ourselves individually as well as the "products" that we produce as developers.
-
-The NBIS team of system developers are more than happy to try to answer any questions you may have about the contents of this document. We are available on Slack. The "code-review-forum" channel is a good place to ask.
-
-Remember, these guidelines are supposed to make everything we produce better, so that we can say *"I was a part of that!"*. It is important that we don’t feel that we lose too much velocity trying to adhere to these guidelines. If you feel that they slow things down too much, we need to review them. These things are not set in stone.
+Remember, these guidelines are supposed to make everything we produce
+better, so that we can say *"I was a part of that!"*. It is important
+that we don’t feel that we lose too much velocity trying to adhere to
+these guidelines. If you feel that they slow things down too much, we
+need to review them. These things are not set in stone.
 
 [[TOC]]
 
-### Things to be aware of when writing code
+## Things to be aware of when writing code
 
-* Intent
+### Intent
 
-    * Names of variable, functions, methods etc. should be clear and descriptive, not cryptic.For example, function names might be a verb or a question: get_gene_name(), find_downstream_feature(), is_circular(), or has_multiple_flurbs().
+Names of variable, functions, methods etc. should be clear and
+descriptive, not cryptic. For example, function names might be a
+verb or a question: `get_gene_name()`, `find_downstream_feature()`,
+`is_circular()`, or `has_multiple_flurbs()`.
 
-    * Whether you use CamelCase or any other standard for naming variables and functions is less important, as long as it adheres to the naming conventions of the language, and is consistent within the project.
+Whether you use CamelCase or any other standard for naming variables
+and functions is less important, as long as it adheres to the naming
+conventions of the language, and is consistent within the project.
 
-    * Avoid global variables if the language allows you to do so. Global variables should otherwise be documented in the code and ideally "stand out" (using upper-case variable names is a common way to do this).
+Avoid global variables if the language allows you to do so. Global
+variables should otherwise be documented in the code and ideally "stand
+out" (using upper-case variable names is a common way to do this).
 
-* Comments in code
+### Comments in code
 
-    * Comments should explain *why* the code does what it does. *What* it does should ideally already be evident from the code itself. If the code is cryptic and can’t easily be simplified, explanations might well be needed.
+Comments should explain *why* the code does what it does. *What* it
+does should ideally already be evident from the code itself. If the code
+is cryptic and can’t easily be simplified, explanations might well be
+needed.
 
-    * A good comment clarifies intent.
+A good comment clarifies intent.
 
-* Readability
+### Readability
 
-    * Use consistent indentation.
+Use consistent indentation.
 
-    * Make use of horizontal whitespace (code paragraphs/blocks). There is no benefit of compacting code into as few lines as possible (unless you’re doing assembly programming for some custom chip, which we don’t do).
+Make use of horizontal whitespace (code paragraphs/blocks). There is
+no benefit of compacting code into as few lines as possible (unless
+you’re doing assembly programming for some custom chip, which we don’t
+do).
 
-    * Avoid long lines (>75-80 characters) if possible.
+Avoid long lines (>75-80 characters) if possible.
 
-        * Benefits co-developers editing code in Emacs/Vim over SSH and/or in narrower windows (commonly around 80 characters wide).
+* Benefits co-developers editing code in Emacs/Vim over SSH
+and/or in narrower windows (commonly around 80 characters wide).
+* Often makes pull requests smaller.
+* Makes the code more readable.
 
-        * Often makes pull requests smaller.
+Use a tool for automatic indentation if the editor you’re using does
+not do it for you, e.g. `clang-format` or `indent` for C or C++ code,
+`perltidy` for Perl code, (insert others here, please).
 
-        * Makes the code more readable.
+If you have to choose between a efficient but cryptic or non-intuitive
+way of doing something and a less efficient or more verbose way of
+solving the same problem, either provide ample documentation to the
+non-intuitive approach or do it less efficiently and leave a comment
+pointing this out.
 
-    * Use a tool for automatic indentation if the editor you’re using does not do it for you, e.g. clang-format or indent for C or C++ code, perltidy for Perl code, (insert others here, please).
+The bottlenecks in the type of programs we’re writing are *usually*
+network access or disk access, not memory access or CPU. To aid in
+making the code readable, avoid complicated optimizations. This is
+not an invitation to write slow code but to write code that is easily
+understood and therefore maintainable.
 
-    * If you have to choose between a efficient but cryptic or non-intuitive way of doing something and a less efficient or more verbose way of solving the same problem, either provide ample documentation to the non-intuitive approach or do it less efficiently and leave a comment pointing this out.
+### Best programming practices
+Acquaintance yourself with, and follow, the best practices for the
+programming language(s) that you are using.
+* Google has [a good set of best
+practices](https://github.com/google/styleguide) for different languages
+which can be a good jump off point.
+* For Perl: [Perl Best Practices](http://shop.oreilly.com/product/9780596001735.do)
+    (O’Reilly book).
+* (Further references here, please)
 
-    * The bottlenecks in the type of programs we’re writing are *usually* network access or disk access, not memory access or CPU. To aid in making the code readable, avoid complicated optimizations. This is not an invitation to write slow code but to write code that is easily understood and therefore maintainable.
+If the project has any kind of best practices (explicit or implicit),
+follow these.
 
-* Best programming practices
+Follow the best practices agreed upon within the organisation
+(NBIS/ELIXIR).
 
-    * Acquaintance yourself with, and follow, the best practices for the programming language(s) that you are using.
+### Documentation and packaging
+Public interfaces should be documented.
 
-        * Google has a good set of best practices for different languages which can be a good jump off point [https://github.com/google/styleguide](https://github.com/google/styleguide)
+Public interfaces include any method, function, subroutine or any
+similar interface that a user’s code may call. It also includes command
+line flags and other command line arguments that are available for the
+user to use.
+* If a standard way of documenting an interface is given by the
+language (e.g. JavaDoc in Java, or POD for use with perldoc in
+Perl), use that.
+* If the language does not support generation of interface
+documentation from structured inline comments or similar, you may
+choose to use something like Doxygen, or some other tool/framework
+that is popular for documentation of that specific language or type
+of code. REST APIs, for example, may be documented using Swagger.
+* At the very least, the code itself should provide comments that
+explains the function and calling sequence of each public interface.
 
-        * For Perl: Perl Best Practices (O’Reilly book) [http://shop.oreilly.com/product/9780596001735.do](http://shop.oreilly.com/product/9780596001735.do)
+The documentation, in whatever form it exists, should be publically
+available, packaged together with the software, and easy (trivial) for a
+developer to get to.
 
-        * (Further references here, please)
+It is better to write the documentation in close proximity of the code
+than to separate it out into a separate file, or worse, a wiki.
 
-    * If the project has any kind of best practices (explicit or implicit), follow these.
+#### Files bundled with a piece of software
 
-    * Follow the best practices agreed upon within the organisation (NBIS/ELIXIR).
+README (plain text or Markdown-formatted).
+: Every project should have a README file that contains at least
 
-* Documentation and packaging
+    * "What this is".
+    * How to run/invoke the software.
+    * Short example(s) (may be included in a separate "examples"
+    subdirectory).
+    * The README should make the reader aware of the INSTALL and
+    LICENSE/COPYING files.
 
-    * Public interfaces should be documented.Public interfaces include any method, function, subroutine or any similar interface that a user’s code may call. It also includes command line flags and other command line arguments that are available for the user to use.
+INSTALL (plain text or Markdomn-formatted).
+: Unless the software is trivial to install (e.g. just copy one file),
+then an INSTALL document should be added in which a user may find the
+following:
 
-        * If a standard way of documenting an interface is given by the language (e.g. JavaDoc in Java, or POD for use with perldoc in Perl), use that.
+    * External dependencies (including specific versions, where
+    applicable).
+    * Step-by-step instructions for how to install.
+    * If appropriate, how to test the installation to make sure it works.
 
-        * If the language does not support generation of interface documentation from structured inline comments or similar, you may choose to use something like Doxygen, or some other tool/framework that is popular for documentation of that specific language or type of code. REST APIs, for example, may be documented using Swagger.
+LICENSE or COPYING (plain text).
 
-        * At the very least, the code itself should provide comments that explains the function and calling sequence of each public interface.
+: When at all possible, NBIS software will be licensed under an Open
+Source license. If this, for whatever reason, is not possible, you need
+to consult (insert name/group here) before making the code public on
+GitHub or elsewhere. See also the text in the introduction to the next
+section regarding Open Source and our code as Public Record.
 
-        * The documentation, in whatever form it exists, should be publically available, packaged together with the software, and easy (trivial) for a developer to get to.
+The preferred Open Source license that we promote is the *GNU
+        General Public License version 3* (GPLv3). Use this license
+        unless there is a reason to do otherwise.
 
-        * It is better to write the documentation in close proximity of the code than to separate it out into a separate file, or worse, a wiki.
+Examples of other Open Source licenses includes the MIT
+        license, the 3-clause BSD license, and the "simplified" 2-clause
+        BSD license.
+See [http://choosealicense.com](http://choosealicense.com)
 
-    * README(.txt/.md)Every project should have a README file that contains at least
-
-        * "What this is".
-
-        * How to run/invoke the software.
-
-        * Short example(s) (may be included in a separate "examples" subdirectory).
-
-        * The README should make the reader aware of the INSTALL and LICENSE/COPYING files.
-
-    * INSTALL(.txt/.md)Unless the software is trivial to install (e.g. just copy one file), then an INSTALL document should be added in which a user may find the following:
-
-        * External dependencies (including specific versions, where applicable).
-
-        * Step-by-step instructions for how to install.
-
-        * If appropriate, how to test the installation to make sure it works.
-
-    * LICENSE(.txt) or COPYING(.txt) 
-
-        * When at all possible, NBIS software will be licensed under an Open Source license. If this, for whatever reason, is not possible, you need to consult (insert name/group here) before making the code public on GitHub or elsewhere. See also the text in the introduction to the next section regarding Open Source and our code as Public Record.
-
-        * The preferred Open Source license that we promote is the *GNU General Public License version 3* (GPLv3). Use this license unless there is a reason to do otherwise.
-
-        * Examples of other Open Source licenses includes the MIT license, the 3-clause BSD license, and the "simplified" 2-clause BSD license.
-
-        * See [http://choosealicense.com](http://choosealicense.com)
-
-* Sensitive dataSensitive data includes like passwords, usernames, server names, and data protected by law.
-
-    * Do not ever put sensitive data in files that are pushed to GitHub or made public in any other way.
-
-    * Do not *ever* put sensitive data in files that are pushed to GitHub or made public in any other way. It’s worth repeating! Always try to place your sensitive data outside directories that are pushed to GitHub (to avoid mistakes). Design your code so sensitive data are read from separate folders or files not included in the git repo.
-
-    * Some types of data may even only exist in certain folders or on certain machines. Do not proliferate this kind of data, *not even internally*. Also avoid putting this type of data in Dropbox, Google Drive or in similar cloud storage.
-
-    * If a password is published by mistake, *you need to change the password* (with everything that this entails). It is *not* enough to remove/reverse the commit or submit a new commit with the password removed.
-
+### Sensitive data
+Sensitive data includes like passwords, usernames, server names, and
+data protected by law.
+    * Do not ever put sensitive data in files that are pushed to GitHub
+    or made public in any other way.
+    * Do not *ever* put sensitive data in files that are pushed to
+    GitHub or made public in any other way. It’s worth repeating! Always
+    try to place your sensitive data outside directories that are pushed
+    to GitHub (to avoid mistakes). Design your code so sensitive data
+    are read from separate folders or files not included in the git
+    repo.
+    * Some types of data may even only exist in certain folders or on
+    certain machines. Do not proliferate this kind of data, *not even
+    internally*. Also avoid putting this type of data in Dropbox, Google
+    Drive or in similar cloud storage.
+    * If a password is published by mistake, *you need to change the
+    password* (with everything that this entails). It is *not* enough to
+    remove/reverse the commit or submit a new commit with the password
+    removed.
     * Code should use placeholders that point to:
-
-        * Local read-protected files, possibly located outside of the Git repository file structure to avoid accidental inclusion as part of the repository,
-
+        * Local read-protected files, possibly located outside of the
+        Git repository file structure to avoid accidental inclusion as
+        part of the repository,
         * Environment variables,
-
         * or some sort of secured (possibly remote) storage.
+    * The documentation (README/INSTALL, whichever is most appropriate)
+    should mention how to instantiate those variables/files, etc.
 
-    * The documentation (README/INSTALL, whichever is most appropriate) should mention how to instantiate those variables/files, etc.
+* Testing
+    * (TODO: Write me)
 
-* Robustness test
+## How we use GitHub
 
-    * Test running of the code before releasing: blind test.
+In order to maximize exposure, and to facilitate collaborations with
+users and other organizations, we have opted to use GitHub and the
+infrastructure that GitHub provides for publishing all our publically
+accessible software. This also means that we will be using Git (rather
+than Subversion, Mercurial, CVS or any other code revision system) for
+keeping track of source code and documents relating to software that we
+make available on GitHub.
 
-### How we use GitHub
+GitHub provides excellent support for doing code reviews (more on that
+below), collecting issues (bug reports) connected with a project, and
+for organising work tasks ("projects" in GitHub speak).
 
-In order to maximize exposure, and to facilitate collaborations with users and other organizations, we have opted to use GitHub and the infrastructure that GitHub provides for publishing all our publically accessible software. This also means that we will be using Git (rather than Subversion, Mercurial, CVS or any other code revision system) for keeping track of source code and documents relating to software that we make available on GitHub.
+On GitHub, we have an Educational Account called "NBISweden"
+(NBIS was taken) which acts like an umbrella for all our various
+repositories. Code repositories are public (available to the world),
+but we have the ability to create private repositories that are only
+available to members of NBISweden, *but only if there are very special
+circumstances that require this*. The ELIXIR Open Source Principles say
+“Start a project in the open from the very first day, in a publicly
+accessible, version controlled repository [...] The longer a project is
+run in a closed manner, the harder it is to open source it later”.
 
-GitHub provides excellent support for doing code reviews (more on that below), collecting issues (bug reports) connected with a project, and for organising work tasks ("projects" in GitHub speak).
+The source code that we produce are Public Records, and as such should
+be made publically available as Open Source. This is a requirement
+within ELIXIR and for projects funded by the Swedish government.
 
-On GitHub, we have an Educational Account called "NBISweden" (NBIS was taken) which acts like an umbrella for all our various repositories. Code repositories are public (available to the world), but we have the ability to create private repositories that are only available to members of NBISweden, *but only if there are very special circumstances that require this*. The ELIXIR Open Source Principles say “Start a project in the open from the very first day, in a publicly accessible, version controlled repository [...] The longer a project is run in a closed manner, the harder it is to open source it later”.
+To contribute to NBISweden repositories, or to create repositories
+there, you will need to set up a GitHub account for yourself and let the
+admins of NBISweden know. Current admins include *Mikael Borg*, *Jonas
+Hagberg*, and *Johan Viklund*.
 
-The source code that we produce are Public Records, and as such should be made publically available as Open Source. This is a requirement within ELIXIR and for projects funded by the Swedish government.
+## How we use Git
 
-To contribute to NBISweden repositories, or to create repositories there, you will need to set up a GitHub account for yourself and let the admins of NBISweden know. Current admins include *Mikael Borg*, *Jonas Hagberg*, and *Johan Viklund*. 
-
-### How we use Git
-
-When appropriate, we use the *Git-Flow branching model*. This is a way of using Git branches as a help in the development cycle.
+When appropriate, we use the *Git-Flow branching model*. This is a way
+of using Git branches as a help in the development cycle.
 
 For more in-depth descriptions of Git-Flow, see
-
 * [http://nvie.com/posts/a-successful-git-branching-model/](http://nvie.com/posts/a-successful-git-branching-model/)
-
 * [http://danielkummer.github.io/git-flow-cheatsheet/](http://danielkummer.github.io/git-flow-cheatsheet/)
 
 With Git-Flow, branches are categorised into
 
-* A **master** branch.The code on the master branch (often called "master" or “release”) is stable, properly tested and is the version of the code that a typical user should pick. No changes are made directly on the master branch (but see below).Strictly speaking, Git-Flow makes a distinction between a “master” and a “release” branch where the release branch contains the next release-in-making, branched off from the development branch. Bugfixes (only) are made to the release branch which is then reviewed and merged into the master *and* development branches, creating a new release of the software on the master branch. We do not follow this, but you are free to do so if you think it make more sense, for example in a highly distributed project with many active users/developers.
+* A **master** branch.
 
-* A main **development** branch.The code on the development branch (often called "develop") should be working, but without guarantees. For small projects, development might well happen directly on the development branch and the code here may therefore sometimes be broken (this should ideally never happen though). When the development branch is deemed “done” and has undergone testing and review, it is merged into the master branch. The release is then tagged with an appropriate release version.
+The code on the master branch (often called "master" or “release”) is
+stable, properly tested and is the version of the code that a typical
+user should pick. No changes are made directly on the master branch
+(but see below).
 
-* One or several **feature** branches.A feature branch (often called "feature/some_name" where “some_name” is a very short descriptive name of the feature) is branched off from the main development branch when a new “feature” is being implemented. A new feature is any logically connected set of changes to the code base regardless of how many files are being changed.Examples of features may be implementing command line parsing, adding support for a new type of input data format, fixing a non-critical bug for the next release, or updating the documentation (because you forgot to do that when you changed the code, didn’t you?).Once the feature is finished, it is merged back into the main development branch, and its feature branch is deleted. In larger project (more than a single developer), new features should be implemented in feature branches and undergo review before merging (see below). This may be highly beneficial for small projects too, obviously (do this!).
+Strictly speaking, Git-Flow makes a distinction between a “master”
+and a “release” branch where the release branch contains the next
+release-in-making, branched off from the development branch. Bugfixes
+(only) are made to the release branch which is then reviewed and merged
+into the master *and* development branches, creating a new release of
+the software on the master branch. We do not follow this, but you are
+free to do so if you think it make more sense, for example in a highly
+distributed project with many active users/developers.
 
-* One or several **hotfix** branches.A "hotfix" is a essentially a bugfix to a release. In terms of branching, it is thus very similar to a “feature” but for the master branch rather than for the development branch. A hotfix should fix critical errors that were not caught in testing before the release was made. A hotfix branch is typically called “hotfix/some_name”. Hotfixes should not implement new behaviour, unless this is needed to fix a critical bug. Hotfixes need to undergo review before they are merged back into the master *and* development branches.
+* A main **development** branch.
 
-The master and development branches are never deleted, while the others are transient.
+The code on the development branch (often called "develop") should
+be working, but without guarantees. For small projects, development
+might well happen directly on the development branch and the code here
+may therefore sometimes be broken (this should ideally never happen
+though). When the development branch is deemed “done” and has undergone
+testing and review, it is merged into the master branch. The release is
+then tagged with an appropriate release version.
+
+* One or several **feature** branches.
+
+A feature branch (often called "feature/some_name" where “some_name” is
+a very short descriptive name of the feature) is branched off from the
+main development branch when a new “feature” is being implemented. A
+new feature is any logically connected set of changes to the code base
+regardless of how many files are being changed.
+
+Examples of features may be implementing command line parsing, adding
+support for a new type of input data format, fixing a non-critical bug
+for the next release, or updating the documentation (because you forgot
+to do that when you changed the code, didn’t you?).
+
+Once the feature is finished, it is merged back into the main
+development branch, and its feature branch is deleted. In larger project
+(more than a single developer), new features should be implemented in
+feature branches and undergo review before merging (see below). This may
+be highly beneficial for small projects too, obviously (do this!).
+
+* One or several **hotfix** branches.
+
+A "hotfix" is a essentially a bugfix to a release. In terms of
+branching, it is thus very similar to a “feature” but for the master
+branch rather than for the development branch. A hotfix should fix
+critical errors that were not caught in testing before the release was
+made. A hotfix branch is typically called “hotfix/some_name”. Hotfixes
+should not implement new behaviour, unless this is needed to fix a
+critical bug. Hotfixes need to undergo review before they are merged
+back into the master *and* development branches.
+
+The master and development branches are never deleted, while the others
+are transient.
 
 The benefits of this type of branching model in development are
+* Co-developers work on separate branches, and do not "step on each
+other’s toes" during the development process, even if they push their
+work back to GitHub.
+* Co-developers and users have a stable master branch to use (for doing
+work in the case of the user, and as reference to their own coding in
+the case of the developer).
+* Features in "feature" branches are independent of each other. Any
+conflicts are resolved when merging.
 
-* Co-developers work on separate branches, and do not "step on each other’s toes" during the development process, even if they push their work back to GitHub.
+There are a host of different graphical user interfaces that helps
+keeping track of Git and the various branches in a project. SourceTree
+is a good free one for macOS, for example.
 
-* Co-developers and users have a stable master branch to use (for doing work in the case of the user, and as reference to their own coding in the case of the developer).
+## General stuff about working with Git
 
-* Features in "feature" branches are independent of each other. Any conflicts are resolved when merging.
+* Commit often.
 
-There are a host of different graphical user interfaces that helps keeping track of Git and the various branches in a project. SourceTree is a good free one for macOS, for example.
+Commit often, possibly several times a day. It’s easier to roll back
+a small commit than to roll back large commits. This also makes the
+code easier to review (see below) as each commit carries its own commit
+message. Remember to push the commits to GitHub every once in awhile
+too.
 
-### General stuff about working with Git
+* Write a helpful commit message with each commit that describes what
+the changes are and possibly even why they were necessary.
 
-* Commit often.Commit often, possibly several times a day. It’s easier to roll back a small commit than to roll back large commits. This also makes the code easier to review (see below) as each commit carries its own commit message. Remember to push the commits to GitHub every once in awhile too.
+The commit messages may be seen as meta-comments on the code that are
+incredibly helpful for anyone who wants to know how this piece of
+software is working, including colleagues (current and future) and
+external users.
 
-* Write a helpful commit message with each commit that describes what the changes are and possibly even why they were necessary.The commit messages may be seen as meta-comments on the code that are incredibly helpful for anyone who wants to know how this piece of software is working, including colleagues (current and future) and external users.
+* Each commit should ideally contain changes that are functionally
+connected/related.
 
-* Each commit should ideally contain changes that are functionally connected/related.For example, changes to the command line parsing code, changes to the documentation, and changes to some unrelated comments may be split into three commits.Learn how to "cherry pick" chunks of changed files to do multiple separate commits of unrelated things. This is done using “git commit -p ...”.
+For example, changes to the command line parsing code, changes to the
+documentation, and changes to some unrelated comments may be split into
+three commits.
+
+Learn how to "cherry pick" chunks of changed files to do multiple
+separate commits of unrelated things. This is done using `git commit -p
+...`.
 
 * Avoid "force push" unless it makes everyone’s life easier.
 
-* If a "live" checkout of the repository needs to exist somewhere, for example to run a public web service, then
-
+* If a "live" checkout of the repository needs to exist somewhere, for
+example to run a public web service, then
     * Don’t do development in the live checkout.
-
     * Do development and testing in a private checkout.
-
     * Only ever do "git pull" in the live checkout.
+    * A live service with active users should run a stable release from
+    the master branch.
 
-    * A live service with active users should run a stable release from the master branch.
-
-### How we do code reviews
+## How we do code reviews
 
 Through reviewing each other’s code, we believe that we will produce better code, that we will learn more about programming, that we will learn more about what our colleagues are actually doing, and that teamwork across NBIS is improved.
 
@@ -228,7 +385,9 @@ Code reviewing steps:
 
 3. The author creates a "pull request" for the branch by switching to the branch on the GitHub web pages and clicking the button labelled “New pull request”.
 
-4. The author finds one or several reviewers for the pull request and assigns them to it.A reviewer may be found
+4. The author finds one or several reviewers for the pull request and assigns them to it.
+
+A reviewer may be found
 
     1. By asking one of the already designated reviewers connected to the project, if such a group of people has been created.
 
@@ -236,7 +395,9 @@ Code reviewing steps:
 
     3. By meeting up with or contacting any other colleague that is not directly involved with the code that is being reviewed.
 
-5. If needed, the author gives the reviewer(s) some background on the project, and what the code under review is supposed to do etc. Having a fixed group of reviewers for a project would minimize the need for this step.This may be done in a face-to-face meeting, on Slack, or in any other way that is convenient. It’s also possible for the author to leave comments on GitHub (in addition to the meta-comments that the commit messages themselves already provide)
+5. If needed, the author gives the reviewer(s) some background on the project, and what the code under review is supposed to do etc. Having a fixed group of reviewers for a project would minimize the need for this step.
+
+This may be done in a face-to-face meeting, on Slack, or in any other way that is convenient. It’s also possible for the author to leave comments on GitHub (in addition to the meta-comments that the commit messages themselves already provide)
 
     4. With the pull request.
 
