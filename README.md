@@ -497,7 +497,7 @@ review from such a reviewer is to make sure that the logic of the code
 probably work" (this is not a useless review!).
 
 The following is adapted from
-[https://github.com/thoughtbot/guides/tree/master/code-review](https://github.com/thoughtbot/guides/tree/master/code-review)
+[thoughtbot/guides/code-review](https://github.com/thoughtbot/guides/tree/master/code-review)
 
 About communication (both author and reviewer):
 
@@ -536,10 +536,6 @@ TEXT ABOVE WILL BE EXPANDED
 ALL TEXT BELOW WILL EITHER BE DELETED OR MERGED INTO TEXT ABOVE
 
 -- Andreas
-
-Reference 
-
-* [https://github.com/thoughtbot/guides/tree/master/code-review](https://github.com/thoughtbot/guides/tree/master/code-review)
 
 Elixir best practice
 
