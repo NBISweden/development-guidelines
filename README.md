@@ -67,7 +67,7 @@ descriptive, not cryptic. For example, function names might be a
 verb or a question: `get_gene_name()`, `find_downstream_feature()`,
 `is_circular()`, or `has_multiple_flurbs()`.
 
-It is common practice to name simple loop varibles `i`, `j`, `k`,
+It is common practice to name simple loop varibles `i`, `j`, and `k`,
 so there's no need to give them silly names like `the_index` unless
 it's neccesary for some reason or other.  Variable with longer scope
 should have slightly more informative names, like `filename_map`,
