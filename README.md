@@ -131,6 +131,9 @@ follow these.
 Follow the best practices agreed upon within the organisation
 (NBIS/ELIXIR).
 
+* [ELIXIR best practices](https://github.com/SoftDev4LS)
+* [Good Enough Practices for Scientific Computing](http://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
+
 ### Documentation and packaging
 
 Public interfaces should be documented.
@@ -530,18 +533,3 @@ and move philosophical, academic or otherwise unrelated technical
 discussions to an alternate forum.
 * Seek to understand the perspective of the author.
 * Sign off the final review with a thumbs up or some other positive remark.
-
-TEXT ABOVE WILL BE EXPANDED
-
-ALL TEXT BELOW WILL EITHER BE DELETED OR MERGED INTO TEXT ABOVE
-
--- Andreas
-
-Elixir best practice
-
-* [https://github.com/SoftDev4LS](https://github.com/SoftDev4LS)
-
-* [https://drive.google.com/open?id=0Bw_p-HKWUjHoNG0xLW96VjQ5SjA](https://drive.google.com/open?id=0Bw_p-HKWUjHoNG0xLW96VjQ5SjA)
-
- [https://github.com/swcarpentry/good-enough-practices-in-scientific-computing](https://github.com/swcarpentry/good-enough-practices-in-scientific-computing)
-
