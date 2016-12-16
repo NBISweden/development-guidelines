@@ -282,12 +282,6 @@ Hagberg*, and *Johan Viklund*.
 When appropriate, we use the *Git-Flow branching model*. This is a way
 of using Git branches as a help in the development cycle.
 
-For more in-depth descriptions of Git-Flow, see
-
-* [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
-* [Git-Flow Cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/)
-* [Using git-flow to automate your git branching workflow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
-
 With Git-Flow, branches are categorised into
 
 * A **master** branch.
@@ -367,6 +361,12 @@ The GitHub user Vincent Driessen ("nvie" on GitHub), who actually came
 up with Git-Flow in the first place, has a set of Git extensions that
 makes it easy to work with Git-Flow from the command line.  See his
 [nvie/gitflow](https://github.com/nvie/gitflow) repository.
+
+For more in-depth descriptions of Git-Flow, see
+
+* [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
+* [Git-Flow Cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/)
+* [Using git-flow to automate your git branching workflow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
 
 ## General stuff about working with Git
 
