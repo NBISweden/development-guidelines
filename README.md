@@ -374,6 +374,18 @@ incredibly helpful for anyone who wants to know how this piece of
 software is working, including colleagues (current and future) and
 external users.
 
+Some tips about writing helpful commit messages (from
+[How to Write a Git Commit Message](http://chris.beams.io/posts/git-commit/)):
+
+1 Separate subject (the first line of the message) from body with a blank line.
+2 Limit the subject line to 50 characters.
+3 Capitalize the subject line.
+4 Do not end the subject line with a period.
+5 Use the [imperative mood](https://en.wikipedia.org/wiki/Imperative_mood)
+in the subject line.
+6 Wrap the body at 72 characters.
+7 Use the body to explain what and why vs. how.
+
 Each commit should ideally contain changes that are functionally
 connected/related.
 
