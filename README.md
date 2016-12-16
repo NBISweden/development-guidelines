@@ -380,11 +380,6 @@ Write a [helpful commit message](#helpful-commit-messages) with each
 commit that describes what the changes are and possibly even why they
 were necessary.
 
-The commit messages may be seen as meta-comments on the code that are
-incredibly helpful for anyone who wants to know how this piece of
-software is working, including colleagues (current and future) and
-external users.
-
 Each commit should ideally contain changes that are functionally
 connected/related.
 
@@ -408,6 +403,11 @@ example to run a public web service, then
 the master branch.
 
 ### Helpful commit messages
+
+The commit messages may be seen as meta-comments on the code that are
+incredibly helpful for anyone who wants to know how this piece of
+software is working, including colleagues (current and future) and
+external users.
 
 Some tips about writing helpful commit messages:
 
