@@ -134,7 +134,7 @@ Follow the best practices agreed upon within the organisation
 * [ELIXIR best practices](https://github.com/SoftDev4LS)
 * [Good Enough Practices for Scientific Computing](http://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
 
-### Documentation and packaging
+### Documentation, licensing and packaging
 
 Public interfaces should be documented.
 
@@ -161,6 +161,26 @@ developer to get to.
 It is better to write the documentation in close proximity of the code
 than to separate it out into a separate file, or worse, a wiki.
 
+#### Licensing
+
+When at all possible, NBIS software will be licensed under an Open
+Source license. If this, for whatever reason, is not possible, you
+need to consult (insert name/group here) before making the code public
+on GitHub or elsewhere. See also the text in the introduction to the
+section "(How we use GitHub)[#how-we-use-github]" regarding Open Source
+and our code as Public Record.
+
+The preferred Open Source license that we promote is the
+(*GNU General Public License version 3* (GPLv3))[https://opensource.org/licenses/GPL-3.0].
+Use this license unless there is a reason to do otherwise.  Examples of
+other Open Source licenses includes the
+(MIT license)[https://opensource.org/licenses/MIT],
+(the "new"/"revised" 3-clause BSD license)[https://opensource.org/licenses/BSD-3-Clause],
+and
+(the "simplified" 2-clause BSD license)[https://opensource.org/licenses/BSD-2-Clause].
+
+See also [http://choosealicense.com](http://choosealicense.com)
+
 #### Files bundled with a piece of software
 
 * **README** (plain text or Markdown-formatted). Every project should
@@ -179,17 +199,8 @@ should be added in which a user may find the following:
     * Step-by-step instructions for how to install.
     * If appropriate, how to test the installation to make sure it works.
 
-* **LICENSE** or **COPYING** (plain text). When at all possible, NBIS
-software will be licensed under an Open Source license. If this, for
-whatever reason, is not possible, you need to consult (insert name/group
-here) before making the code public on GitHub or elsewhere. See also the
-text in the introduction to the section "How we use GitHub" regarding
-Open Source and our code as Public Record.  The preferred Open Source
-license that we promote is the *GNU General Public License version 3*
-(GPLv3). Use this license unless there is a reason to do otherwise.
-Examples of other Open Source licenses includes the MIT license, the
-3-clause BSD license, and the "simplified" 2-clause BSD license.  See
-[http://choosealicense.com](http://choosealicense.com)
+* **LICENSE** or **COPYING** (plain text).  This is simply a plain text
+file containing the license text.
 
 ### Sensitive data
 
