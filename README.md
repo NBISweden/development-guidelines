@@ -332,9 +332,10 @@ the case of the developer).
 * Features in "feature" branches are independent of each other. Any
 conflicts are resolved when merging.
 
-There are a host of different graphical user interfaces that helps
-keeping track of Git and the various branches in a project. SourceTree
-is a good free one for macOS, for example.
+There are a host of different graphical user interfaces that
+helps keeping track of Git and the various branches in a
+project. [SourceTree](https://www.sourcetreeapp.com) is a good free one
+for macOS and Windows, for example.
 
 ## General stuff about working with Git
 
