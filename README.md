@@ -144,9 +144,10 @@ user to use.
 (e.g. JavaDoc in Java, or POD for use with `perldoc` in Perl), use that.
 * If the language does not support generation of interface documentation
 from structured inline comments or similar, you may choose to use
-something like Doxygen, or some other tool/framework that is popular for
-documentation of that specific language or type of code. REST APIs, for
-example, may be documented using Swagger.
+something like [Doxygen](http://www.doxygen.org/), or some other
+tool/framework that is popular for documentation of that specific
+language or type of code. REST APIs, for example, may be documented
+using [Swagger](http://swagger.io/).
 * At the very least, the code itself should provide comments that
 explains the function and calling sequence of each public interface.
 
