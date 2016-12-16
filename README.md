@@ -27,8 +27,8 @@ developers.
 
 The NBIS team of system developers are more than happy to try to answer
 any questions you may have about the contents of this document. We are
-available on Slack. The "code-review-forum" channel is a good place to
-ask.
+available on the NBIS Slack. The "code-review-forum" channel is a good
+place to ask.
 
 Remember, these guidelines are supposed to make everything we produce
 better, so that we can say *"I was a part of that!"*. It is important
