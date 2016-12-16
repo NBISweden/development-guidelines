@@ -53,6 +53,7 @@ Table of Contents
     * [How we use GitHub](#how-we-use-github)
     * [How we use Git](#how-we-use-git)
     * [General stuff about working with Git](#general-stuff-about-working-with-git)
+      * [Helpful commit messages](#helpful-commit-messages)
     * [How we do code reviews](#how-we-do-code-reviews)
       * [Code reviewing steps](#code-reviewing-steps)
       * [General stuff about code reviews](#general-stuff-about-code-reviews)
@@ -366,8 +367,9 @@ code easier to review (see below) as each commit carries its own commit
 message. Remember to push the commits to GitHub every once in awhile
 too.
 
-Write a helpful commit message with each commit that describes what
-the changes are and possibly even why they were necessary.
+Write a [helpful commit message](#helpful-commit-messages) with each
+commit that describes what the changes are and possibly even why they
+were necessary.
 
 The commit messages may be seen as meta-comments on the code that are
 incredibly helpful for anyone who wants to know how this piece of
@@ -395,6 +397,22 @@ example to run a public web service, then
 * Only ever do "git pull" in the live checkout.
 * A live service with active users should run a stable release from
 the master branch.
+
+### Helpful commit messages
+
+Some tips about writing helpful commit messages:
+
+1. Separate subject (the first line of the message) from body with a blank line.
+2. Limit the subject line to 50 characters.
+3. Capitalize the subject line.
+4. Do not end the subject line with a period.
+5. Use the [imperative mood](https://en.wikipedia.org/wiki/Imperative_mood)
+in the subject line.
+6. Wrap the body at 72 characters.
+7. Use the body to explain what and why vs. how.
+
+For an in-depth explanation of the above points, please see [How to
+Write a Git Commit Message](http://chris.beams.io/posts/git-commit/).
 
 ## How we do code reviews
 
