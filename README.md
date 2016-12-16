@@ -168,17 +168,17 @@ When at all possible, NBIS software will be licensed under an Open
 Source license. If this, for whatever reason, is not possible, you
 need to consult (insert name/group here) before making the code public
 on GitHub or elsewhere. See also the text in the introduction to the
-section "(How we use GitHub)[#how-we-use-github]" regarding Open Source
+section "[How we use GitHub](#how-we-use-github)" regarding Open Source
 and our code as Public Record.
 
 The preferred Open Source license that we promote is the
-(*GNU General Public License version 3* (GPLv3))[https://opensource.org/licenses/GPL-3.0].
+[*GNU General Public License version 3* (GPLv3)](https://opensource.org/licenses/GPL-3.0).
 Use this license unless there is a reason to do otherwise.  Examples of
 other Open Source licenses includes the
-(MIT license)[https://opensource.org/licenses/MIT],
-(the "new"/"revised" 3-clause BSD license)[https://opensource.org/licenses/BSD-3-Clause],
+[MIT license](https://opensource.org/licenses/MIT),
+[the "new"/"revised" 3-clause BSD license](https://opensource.org/licenses/BSD-3-Clause),
 and
-(the "simplified" 2-clause BSD license)[https://opensource.org/licenses/BSD-2-Clause].
+[the "simplified" 2-clause BSD license](https://opensource.org/licenses/BSD-2-Clause).
 
 See also [http://choosealicense.com](http://choosealicense.com)
 
