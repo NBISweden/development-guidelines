@@ -259,8 +259,8 @@ of using Git branches as a help in the development cycle.
 
 For more in-depth descriptions of Git-Flow, see
 
-* [http://nvie.com/posts/a-successful-git-branching-model/](http://nvie.com/posts/a-successful-git-branching-model/)
-* [http://danielkummer.github.io/git-flow-cheatsheet/](http://danielkummer.github.io/git-flow-cheatsheet/)
+* [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
+* [Git-Flow Cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/)
 
 With Git-Flow, branches are categorised into
 
