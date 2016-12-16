@@ -232,15 +232,16 @@ GitHub provides excellent support for doing code reviews (more on that
 below), collecting issues (bug reports) connected with a project, and
 for organising work tasks ("projects" in GitHub speak).
 
-On GitHub, we have an Educational Account called "NBISweden"
-("NBIS" was taken) which acts like an umbrella for all our various
-repositories. Code repositories are public (available to the world),
-but we have the ability to create private repositories that are only
-available to members of NBISweden, *but only if there are very special
-circumstances that require this*. The ELIXIR Open Source Principles say
-“Start a project in the open from the very first day, in a publicly
-accessible, version controlled repository [...] The longer a project is
-run in a closed manner, the harder it is to open source it later”.
+On GitHub, we have an Educational Account called
+"[NBISweden](https://github.com/NBISweden)" ("NBIS" was taken)
+which acts like an umbrella for all our various repositories. Code
+repositories are public (available to the world), but we have the
+ability to create private repositories that are only available to
+members of NBISweden, *but only if there are very special circumstances
+that require this*. The ELIXIR Open Source Principles say “Start a
+project in the open from the very first day, in a publicly accessible,
+version controlled repository [...] The longer a project is run in a
+closed manner, the harder it is to open source it later”.
 
 The source code that we produce are Public Records, and as such should
 be made publically available as Open Source. This is a requirement
