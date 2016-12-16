@@ -261,6 +261,7 @@ For more in-depth descriptions of Git-Flow, see
 
 * [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
 * [Git-Flow Cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/)
+* [Using git-flow to automate your git branching workflow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
 
 With Git-Flow, branches are categorised into
 
@@ -336,6 +337,11 @@ There are a host of different graphical user interfaces that
 helps keeping track of Git and the various branches in a
 project. [SourceTree](https://www.sourcetreeapp.com) is a good free one
 for macOS and Windows, for example.
+
+The GitHub user Vincent Driessen ("nvie" on GitHub, and who actually
+came up with Git-Flow in the first place) has a set of Git extensions
+that makes it easy to work with Git-Flow from the command line.  See his
+[nvie/gitflow](https://github.com/nvie/gitflow) repository.
 
 ## General stuff about working with Git
 
@@ -534,10 +540,6 @@ ALL TEXT BELOW WILL EITHER BE DELETED OR MERGED INTO TEXT ABOVE
 Reference 
 
 * [https://github.com/thoughtbot/guides/tree/master/code-review](https://github.com/thoughtbot/guides/tree/master/code-review)
-
-* [https://github.com/nvie/gitflow](https://github.com/nvie/gitflow)
-
-* [http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
 
 Elixir best practice
 
