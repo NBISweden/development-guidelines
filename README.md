@@ -341,9 +341,9 @@ helps keeping track of Git and the various branches in a
 project. [SourceTree](https://www.sourcetreeapp.com) is a good free one
 for macOS and Windows, for example.
 
-The GitHub user Vincent Driessen ("nvie" on GitHub, and who actually
-came up with Git-Flow in the first place) has a set of Git extensions
-that makes it easy to work with Git-Flow from the command line.  See his
+The GitHub user Vincent Driessen ("nvie" on GitHub), who actually came
+up with Git-Flow in the first place, has a set of Git extensions that
+makes it easy to work with Git-Flow from the command line.  See his
 [nvie/gitflow](https://github.com/nvie/gitflow) repository.
 
 ## General stuff about working with Git
