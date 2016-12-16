@@ -53,6 +53,7 @@ Table of Contents
     * [How we use GitHub](#how-we-use-github)
     * [How we use Git](#how-we-use-git)
     * [General stuff about working with Git](#general-stuff-about-working-with-git)
+      * [Helpful commit messages](#helpful-commit-messages)
     * [How we do code reviews](#how-we-do-code-reviews)
       * [Code reviewing steps](#code-reviewing-steps)
       * [General stuff about code reviews](#general-stuff-about-code-reviews)
