@@ -45,6 +45,7 @@ Table of Contents
       * [Comments in code](#comments-in-code)
       * [Readability](#readability)
       * [Best programming practices](#best-programming-practices)
+      * [What programming language to use](#what-programming-language-to-use)
       * [Documentation, licensing and packaging](#documentation-licensing-and-packaging)
         * [Licensing](#licensing)
         * [Files bundled with a piece of software](#files-bundled-with-a-piece-of-software)
