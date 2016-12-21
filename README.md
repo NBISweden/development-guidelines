@@ -67,9 +67,9 @@ descriptive, not cryptic. For example, function names might be a
 verb or a question: `get_gene_name()`, `find_downstream_feature()`,
 `is_circular()`, or `has_multiple_flurbs()`.
 
-It is common practice to name simple loop varibles `i`, `j`, and `k`,
+It is common practice to name simple loop variables `i`, `j`, and `k`,
 so there's no need to give them silly names like `the_index` unless
-it's neccesary for some reason or other.  Variable with longer scope
+it's necessary for some reason or other.  Variable with longer scope
 should have slightly more informative names, like `filename_map`,
 `common_prefix`, `current_gene`, `feature_length` etc. (basically a
 similar rule as for functions).  Avoid calling arrays `array` and hashes
@@ -194,7 +194,7 @@ using [Swagger](http://swagger.io/).
 * At the very least, the code itself should provide comments that
 explains the function and calling sequence of each public interface.
 
-The documentation, in whatever form it exists, should be publically
+The documentation, in whatever form it exists, should be publicly
 available, packaged together with the software, and easy (trivial) for a
 developer to get to.
 
@@ -276,7 +276,7 @@ should mention how to instantiate those variables/files, etc.
 
 In order to maximize exposure, and to facilitate collaborations with
 users and other organizations, we have opted to use GitHub and the
-infrastructure that GitHub provides for publishing all our publically
+infrastructure that GitHub provides for publishing all our publicly
 accessible software. This also means that we will be using Git (rather
 than Subversion, Mercurial, CVS or any other code revision system) for
 keeping track of source code and documents relating to software that we
@@ -298,7 +298,7 @@ version controlled repository [...] The longer a project is run in a
 closed manner, the harder it is to open source it later”.
 
 The source code that we produce are Public Records, and as such should
-be made publically available as Open Source. This is a requirement
+be made publicly available as Open Source. This is a requirement
 within ELIXIR and for projects funded by the Swedish government.
 
 To contribute to NBISweden repositories, or to create repositories
@@ -349,7 +349,7 @@ regardless of how many files are being changed.
 Examples of features may be implementing command line parsing, adding
 support for a new type of input data format, fixing a non-critical bug
 for the next release, or updating the documentation (because you forgot
-to do that when you changed the code, didn’t you?).
+to do that when you changed the code, didn't you?).
 
 Once the feature is finished, it is merged back into the main
 development branch, and its feature branch is deleted. In larger project
@@ -571,12 +571,15 @@ The following is adapted from
 About communication (both author and reviewer):
 
 * Ask questions and ask for clarifications. Do not make demands.
-* Many development decisions are based upon personal opinions. Discuss tradeoffs.
+* Many development decisions are based upon personal opinions. Discuss
+trade-offs.
 * Avoid selective ownership of code. The code should not be referred to
 as "mine", “yours” or “not yours”.
 * Assume good intent and well-meaning.
-* Be humble. Everyone can be wrong, even both of you at once. Do not try to "show off".
-* Be explicit. Make sure that both of you know what thing you’re talking about.
+* Be humble. Everyone can be wrong, even both of you at once. Do not try
+to "show off".
+* Be explicit. Make sure that both of you know what thing you’re talking
+about.
 * Do not use sarcasm. Keep a good and friendly tone.
 * Keep an alive discussion (on Slack or in person, for example) if
 something needs to be discussed. Do not lock yourselves away.
