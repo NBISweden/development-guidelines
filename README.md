@@ -145,6 +145,35 @@ Follow the best practices agreed upon within the organisation
 * [ELIXIR best practices](https://github.com/SoftDev4LS)
 * [Good Enough Practices for Scientific Computing](http://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
 
+### What programming language to use
+
+We don't have any _specific_ guideline for what programming languages
+NBIS software should be written in.  However, keep in mind that any
+software that you produce will need to be maintained by yourself and by
+your colleagues (current and future), and that we do not want to end up
+with unmaintainable software.
+
+Therefore:  For a brand new project, use a major programming language
+that we have expertise for within NBIS.
+
+At the time of writing, GitHub tells us that our "top languages" in our
+NBISweden repositories are
+
+* Python
+* Shell
+* Java
+* Perl
+* HTML (language, really?)
+
+Based on this we can say that there exists expertise in NBIS for writing
+and maintaining software written in these languages.  We also have
+people with good knowledge of R, Ruby, JavaScript and C, although these
+languages are not currently well represented in our GitHub repositories.
+
+You should obviously also consider the availability of utility libraries
+and the like for the language that you use, as well as your own
+proficiency in the language and the proficiency of any team members.
+
 ### Documentation, licensing and packaging
 
 Public interfaces should be documented.
