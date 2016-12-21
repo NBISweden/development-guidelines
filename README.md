@@ -225,7 +225,7 @@ GitHub or made public in any other way.
 * Some types of data may even only exist in certain folders or on
 certain machines. Do not proliferate this kind of data, *not even
 internally*. Also avoid putting this type of data in Dropbox, Google
-Drive or in similar cloud storage.
+Drive or in similar cloud storage or shared network drive.
 * If a password is published by mistake, *you need to change the
 password* (with everything that this entails). It is *not* enough to
 remove/reverse the commit or submit a new commit with the password
