@@ -70,7 +70,7 @@ verb or a question: `get_gene_name()`, `find_downstream_feature()`,
 
 It is common practice to name simple loop variables `i`, `j`, and `k`,
 so there's no need to give them silly names like `the_index` unless
-it's necessary for some reason or other.  Variable with longer scope
+it's necessary for some reason or other.  Variables with longer scope
 should have slightly more informative names, like `filename_map`,
 `common_prefix`, `current_gene`, `feature_length` etc. (basically a
 similar rule as for functions).  Avoid calling arrays `array` and hashes
