@@ -143,8 +143,10 @@ follow these.
 Follow the best practices agreed upon within the organisation
 (NBIS/ELIXIR).
 
-* [ELIXIR best practices](https://github.com/SoftDev4LS)
+* [ELIXIR best practices](https://github.com/SoftDev4Research)
+    * [F1000 paper](https://f1000research.com/articles/6-876/v1)
 * [Good Enough Practices for Scientific Computing](http://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
+
 
 ### What programming language to use
 
