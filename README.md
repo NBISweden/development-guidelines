@@ -417,7 +417,7 @@ connected/related.  For example, changes to the command line parsing
 code, changes to the documentation, and changes to some unrelated
 comments may be split into three commits.
 
-Learn how to "cherry pick" chunks of changed files to do multiple
+Learn how to select chunks of changed files to do multiple
 separate commits of unrelated things. This is done using `git commit -p
 ...`.
 
