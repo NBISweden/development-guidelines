@@ -9,8 +9,7 @@ software. The guidelines cover:
 * how we use Git and GitHub in large and small projects, and
 * how we do code reviews.
 
-This is a reference document, and as such you are expected to dip into
-it to read the parts that you need to know something about.
+This is a reference document that guild people who have following situation.
 
 * If you only occasionally write code, or if you write code outside
 of the NBIS system developers' team, you should read the full text of
