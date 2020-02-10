@@ -162,9 +162,7 @@ NBISweden repositories are
 
 * Python
 * Shell
-* Java
 * Perl
-* HTML (language, really?)
 
 Based on this we can say that there exists expertise in NBIS for writing
 and maintaining software written in these languages.  We also have
