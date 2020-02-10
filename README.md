@@ -6,8 +6,8 @@ software. The guidelines cover:
 
 * coding style and documentation,
 * licensing, packaging and distribution of software,
-* how we use Git and GitHub in large and small projects, and
-* how we do code reviews.
+* the use of Git and GitHub in large and small projects, and
+* code reviews.
 
 This is a reference document, and as such you are expected to dip into
 it to read the parts that you need to know something about.
@@ -27,7 +27,7 @@ developers.
 
 The NBIS team of system developers are more than happy to try to answer
 any questions you may have about the contents of this document. We are
-available on the NBIS Slack. The "code-review-forum" channel is a good
+available on the NBIS Slack. The `#code-review-forum` channel is a good
 place to ask.
 
 Remember, these guidelines are supposed to make everything we produce
@@ -164,9 +164,7 @@ NBISweden repositories are
 
 * Python
 * Shell
-* Java
 * Perl
-* HTML (language, really?)
 
 Based on this we can say that there exists expertise in NBIS for writing
 and maintaining software written in these languages.  We also have
@@ -227,16 +225,17 @@ See also [http://choosealicense.com](http://choosealicense.com)
 #### Files bundled with a piece of software
 
 * **README** (plain text or Markdown-formatted). Every project should
-have a README file that contains at least
+have a `README` or `README.md` file that contains at least
     * "What this is".
     * How to run/invoke the software.
     * Short example(s) (may be included in a separate "examples"
     subdirectory).
-    * A reference to the INSTALL and LICENSE/COPYING files.
+    * A reference to the `INSTALL` and `LICENSE`/`COPYING` files.
 
-* **INSTALL** (plain text or Markdown-formatted). Unless the software is
-trivial to install (e.g. just copy one file), then an INSTALL document
-should be added in which a user may find the following:
+* **INSTALL** (plain text or Markdown-formatted). Unless the software
+is trivial to install (e.g. just copy one file), then an `INSTALL` or
+`INSTALL.md` document should be added in which a user may find the
+following:
     * External dependencies (including specific versions, where
     applicable).
     * Step-by-step instructions for how to install.
@@ -268,7 +267,7 @@ removed.
     part of the repository,
     * Environment variables,
     * or some sort of secured (possibly remote) storage.
-* The documentation (README/INSTALL, whichever is most appropriate)
+* The documentation (`README`/`INSTALL`, whichever is most appropriate)
 should mention how to instantiate those variables/files, etc.
 
 ### Testing
@@ -306,8 +305,8 @@ within ELIXIR and for projects funded by the Swedish government.
 
 To contribute to NBISweden repositories, or to create repositories
 there, you will need to set up a GitHub account for yourself and let the
-admins of NBISweden know. Current admins include *Mikael Borg*, *Jonas
-Hagberg*, and *Johan Viklund*.
+admins of NBISweden know. Current admins include *Jonas Hagberg* and
+*Johan Viklund*.
 
 ## How we use Git
 
