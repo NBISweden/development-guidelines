@@ -305,8 +305,8 @@ within ELIXIR and for projects funded by the Swedish government.
 
 To contribute to NBISweden repositories, or to create repositories
 there, you will need to set up a GitHub account for yourself and let the
-admins of NBISweden know. Current admins include *Mikael Borg*, *Jonas
-Hagberg*, and *Johan Viklund*.
+admins of NBISweden know. Current admins include *Jonas Hagberg* and
+*Johan Viklund*.
 
 ## How we use Git
 
