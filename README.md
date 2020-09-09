@@ -61,6 +61,59 @@ Table of Contents
 
 ## Things to be aware of when writing code
 
+###Writing secure software
+While not always the most exciting part of writing code, it is important
+to consider the security risks with a software project to avoid costly
+patches and perhaps more importantly, reputation damage. Security risks
+analysis should be employed at the early stage of a project (it is
+usually way more expensive and complicated at a late stage) and
+continuously carried out until the end. 
+
+The security risks will differ vastly between project, but general
+guidelines are:
+
+* Educate yourself, research on what security risks are related to
+ the different components of your project. Some example resources are:
+  * https://bestpractices.coreinfrastructure.org/en
+  * https://owasp.org/www-project-top-ten/
+  * https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/migrated_content
+* Don’t blindly trust out-of-the-box software and default
+ configurations, e.g. popular Docker images, aws services, etc. 
+ Malicious software can be present and default configurations usually
+ have simplicity as the primary goal, not security.
+* Incorporate security in the entire Software Development Lifecycle:
+  * Include security considerations in Requirements Gathering & Analysis
+  * Threat model during Design Stage
+  * Use/Implement tests/build processes/libraries with security in
+   mind during Development Stage
+  * Perform security testing during Testing Stage
+  
+  More information about secure SDLC:
+  https://owasp.org/www-project-integration-standards/writeups/owasp_in_sdlc/
+
+###Speaking about security….
+To be safe while navigating the wild west that modern computing can
+be, make sure to:
+* Keep software up-to-date (Turn on Automatic Updates for your
+ operating system/programs)
+* Use a password manager (third-party or browser’s built-in depending
+ on your needs) to facilitate strong unique passwords. Do not reuse
+ passwords.
+* Use two-factor authentication, e.g. Authy or Google Authenticator.
+ This is supported by many services such as GitHub, Slack, Gmail etc.
+ In the not so unlikely event that someone does obtain your password
+ , two-factor authentication can still protect you/ sensitive
+ information
+* Always lock your computer when unattended (even if you are just going
+ for a quick coffee :)))
+* Configure so your device is automatically locked after 1-5 minutes
+* Remove unnecessary programs from your computer to reduce attack
+ surface
+* Encrypt your drives, especially external
+* Be careful what you click/attach, e.g. unknown websites/downloading
+ software from untrusted sources/suspicious emails/USB/External drives
+
+
 ### Intent
 
 Names of variable, functions, methods etc. should be clear and
