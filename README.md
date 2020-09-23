@@ -414,10 +414,12 @@ were necessary.
 Each commit should ideally contain changes that are functionally
 connected/related.  For example, changes to the command line parsing
 code, changes to the documentation, and changes to some unrelated
-comments may be split into three commits.
+comments may be split into three commits. Also note that a single logical
+change (suitable for a single commit) may comprise changes in several
+files.
 
 Learn how to select chunks of changed files to do multiple
-separate commits of unrelated things. This is done using `git commit -p
+separate commits of unrelated things. This can be done using `git add -p
 ...`.
 
 Avoid "force push" unless it makes everyone's life easier.
