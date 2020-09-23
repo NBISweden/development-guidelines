@@ -58,6 +58,7 @@ Table of Contents
     * [How we do code reviews](#how-we-do-code-reviews)
       * [Code reviewing steps](#code-reviewing-steps)
       * [General stuff about code reviews](#general-stuff-about-code-reviews)
+    *  [Reproducibility Guidelines](https://github.com/NBISweden/Reproducibility-Guidelines)
 
 ## Things to be aware of when writing code
 
@@ -93,6 +94,7 @@ is cryptic and can't easily be simplified, explanations might well be
 needed.
 
 A good comment clarifies intent.
+
 
 ### Readability
 
@@ -132,7 +134,7 @@ understood and therefore maintainable.
 Acquaintance yourself with, and follow, the best practices for the
 programming language(s) that you are using.
 
-* Google has [a good set of best practices](https://github.com/google/styleguide)
+* Google has [a good set of best practices](https://google.github.io/styleguide/)
 for different languages which can be a good jump-off point.
 * For Perl: [Perl Best Practices](http://shop.oreilly.com/product/9780596001735.do)
 (O'Reilly book).
@@ -164,7 +166,9 @@ At the time of writing, GitHub tells us that our "top languages" in our
 NBISweden repositories are
 
 * Python
+* HTML (Javascript)
 * Shell
+* R
 * Perl
 
 Based on this we can say that there exists expertise in NBIS for writing
@@ -600,3 +604,4 @@ and move philosophical, academic or otherwise unrelated technical
 discussions to an alternate forum.
 * Seek to understand the perspective of the author.
 * Sign off the final review with a thumbs up or some other positive remark.
+
