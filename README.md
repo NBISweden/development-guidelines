@@ -442,6 +442,8 @@ external users.
 
 Some tips about writing helpful commit messages:
 
+0. Why, not what.
+  * The code shows what has been changed. Document why those changes were made.
 1. Separate subject (the first line of the message) from body with a blank line.
 2. Limit the subject line to 50 characters.
 3. Capitalize the subject line.
