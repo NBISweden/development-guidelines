@@ -91,10 +91,10 @@ out" (using upper-case variable names is a common way to do this).
 Comments should explain *why* the code does what it does. *What* it
 does should ideally already be evident from the code itself. If the code
 is cryptic and can't easily be simplified, explanations might well be
-needed.
+needed. A good comment clarifies intent.
 
-A good comment clarifies intent.
-
+Keep in mind that everything a developer needs to know to get started working in
+a project and everything a customer needs to run the project should be in README.md
 
 ### Readability
 
@@ -166,7 +166,7 @@ At the time of writing, GitHub tells us that our "top languages" in our
 NBISweden repositories are
 
 * Python
-* HTML (Javascript)
+* HTML (Javascript/Typescript)
 * Shell
 * R
 * Perl
@@ -277,7 +277,30 @@ should mention how to instantiate those variables/files, etc.
 
 ### Testing
 
-(TODO: Write me)
+From Wikipedia, the free encyclopedia
+
+Software testing is an investigation conducted to provide stakeholders with information about the quality of the software product or service under test. 
+Software testing can also provide an objective, independent view of the software to allow the business to appreciate and understand the risks of software 
+implementation. Test techniques include the process of executing a program or application with the intent of finding software bugs (errors or other defects), 
+and verifying that the software product is fit for use.
+
+Software testing involves the execution of a software component or system component to evaluate one or more properties of interest. In general, these properties 
+indicate the extent to which the component or system under test:
+
+* meets the requirements that guided its design and development,
+* responds correctly to all kinds of inputs,
+* performs its functions within an acceptable time,
+* is sufficiently usable,
+* can be installed and run in its intended environments, and
+* achieves the general result its stakeholders desire.
+
+Useful links for writing tests in our most common  languages and frameworks: 
+* [Python](https://realpython.com/python-testing/)
+* [React](https://reactjs.org/docs/testing-recipes.html)
+* [Javascript](https://jestjs.io/)
+* [R](https://r-pkgs.org/tests.html)
+
+
 
 ## How we use GitHub
 
