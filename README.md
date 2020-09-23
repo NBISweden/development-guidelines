@@ -88,6 +88,21 @@ guidelines are:
    mind during Development Stage
   * Perform security testing during Testing Stage
   
+  Examples of practical examples of actions that can help security:
+   * During the design phase:
+     * Explicitly map out attack surfaces.
+	 * Discuss what security means for
+	   your project - you may have different parts where different
+       aspects are important (e.g. an information site where the main
+       risk is lack of availability or integrity and a user part where
+       confidentiality is the major concern).
+     * Discuss risks and consequences (using a risk analysis framework may be beneficial)/ 
+	 * Do not forget to document - identified risks, risk mitigations and 
+	   accepted risks may need to be revisited.
+   * Enable services like [Dependabot](https://dependabot.com/) or [Snyk](https://snyk.io/) to enable 
+     alerts for dependices for your project (this can easily be dune at GitHub)
+   * Fuzzing can often help discovering bugs, both security related and others.
+  
   More information about secure SDLC:
   https://owasp.org/www-project-integration-standards/writeups/owasp_in_sdlc/
 
