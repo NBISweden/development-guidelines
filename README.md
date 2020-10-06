@@ -112,7 +112,8 @@ and/or in narrower windows (commonly around 80 characters wide).
 
 Use a tool for automatic indentation if the editor you're using does
 not do it for you, e.g. `clang-format` or `indent` for C or C++ code,
-`perltidy` for Perl code, (insert others here, please).
+`perltidy` for Perl code, `prettier` for JavaScript and Typescript,
+`black` for python, `gofmt` for go (insert others here, please).
 
 If you have to choose between a efficient but cryptic or non-intuitive
 way of doing something and a less efficient or more verbose way of
