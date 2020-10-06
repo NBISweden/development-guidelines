@@ -503,12 +503,7 @@ project, and what the code under review is supposed to do etc. Having a
 fixed group of reviewers for a project would minimize the need for this
 step.
 This may be done in a face-to-face meeting, on Slack, or in any other
-way that is convenient. It's also possible for the author to leave
-comments on GitHub (in addition to the meta-comments that the commit
-messages themselves already provide)
-    * With the pull request.
-    * On separate commits (?).
-    * On separate lines in the commits.
+way that is convenient.
 
 6. If there's more than one reviewer, one of the reviewers is designated
 as the "main" reviewer. This reviewer will later do one extra thing (see
