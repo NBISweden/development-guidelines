@@ -279,13 +279,20 @@ should mention how to instantiate those variables/files, etc.
 ### Testing
 
 
-Software testing is an investigation conducted to provide stakeholders with information about the quality of the software product or service under test. 
-Software testing can also provide an objective, independent view of the software to allow the business to appreciate and understand the risks of software 
-implementation. Test techniques include the process of executing a program or application with the intent of finding software bugs (errors or other defects), 
-and verifying that the software product is fit for use.
+There are many ways to test your code. Remember when you ran your application and used it for the first time? Did you check the features and 
+experiment using them? That’s known as exploratory testing and is a form of manual testing.
 
-Software testing involves the execution of a software component or system component to evaluate one or more properties of interest. In general, these properties 
-indicate the extent to which the component or system under test:
+Exploratory testing is a form of testing that is done without a plan. In an exploratory test, you’re just exploring the application.
+
+To have a complete set of manual tests, all you need to do is make a list of all the features your application has, the different types of input it can accept, 
+and the expected results. Now, every time you make a change to your code, you need to go through every single item on that list and check it.
+
+That doesn’t sound like much fun, does it?
+
+This is where automated testing comes in. Automated testing is the execution of your test plan (the parts of your application you want to test, 
+the order in which you want to test them, and the expected responses) by a script instead of a human. Software testing involves the execution of a 
+software component or system component to evaluate one or more properties of interes. In general, these properties indicate the extent to which the component
+ or system under test:
 
 * meets the requirements that guided its design and development,
 * responds correctly to all kinds of inputs,
@@ -293,6 +300,14 @@ indicate the extent to which the component or system under test:
 * is sufficiently usable,
 * can be installed and run in its intended environments, and
 * achieves the general result its stakeholders desire.
+
+#### Test driven development
+Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into 
+very specific test cases, then the code is improved so that the tests pass. In simple terms, 
+test cases for each functionality are created and tested first and if the test fails then the new code is written in order to pass the test 
+and making code simple and bug-free.
+
+
 
 Useful links for writing tests in our most common  languages and frameworks: 
 * [Python](https://realpython.com/python-testing/)
@@ -307,7 +322,7 @@ for delivering code changes more frequently and reliably. It is also an agile me
 best practice, as it enables software development teams to focus on meeting business requirements, 
 and code quality because deployment steps are automated.
 
-###Continuous integration
+### Continuous integration
 Developers practicing continuous integration merge their changes back to the main branch as often as possible. 
 The developer's changes are validated by creating a build and running automated tests against the build. 
 By doing so, you avoid the integration hell that usually happens when people wait for release day to merge
@@ -316,25 +331,25 @@ By doing so, you avoid the integration hell that usually happens when people wai
 Continuous integration puts a great emphasis on testing automation to check that the application is not broken 
 whenever new commits are integrated into the main branch.
 
-####What you need (cost)
+#### What you need (cost)
 Your team will need to write automated tests for each new feature, improvement or bug fix.
 You need a continuous integration server that can monitor the main repository and run the tests automatically for every new commits pushed.
 Developers need to merge their changes as often as possible, at least once a day.
-####What you gain
+#### What you gain
 Less bugs get shipped to production as regressions are captured early by the automated tests.
 Building the release is easy as all integration issues have been solved early.
 Less context switching as developers are alerted as soon as they break the build and can work on fixing it before they move to another task.
 
-###Continuous delivery
+### Continuous delivery
 Continuous delivery is an extension of continuous integration to make sure that you can release new changes to your 
 customers quickly in a sustainable way. This means that on top of having automated your testing, you also have automated
  your release process and you can deploy your application at any point of time by clicking on a button.
  
-####What you need (cost)
+#### What you need (cost)
 You need a strong foundation in continuous integration and your test suite needs to cover enough of your codebase.
 Deployments need to be automated. The trigger is still manual but once a deployment is started there shouldn't be a need for human intervention.
 Your team will most likely need to embrace feature flags so that incomplete features do not affect customers in production.
-####What you gain
+#### What you gain
 The complexity of deploying software has been taken away. Your team doesn't have to spend days preparing for a release anymore.
 You can release more often, thus accelerating the feedback loop with your customers.
 There is much less pressure on decisions for small changes, hence encouraging iterating faster.
@@ -348,11 +363,11 @@ Continuous deployment is an excellent way to accelerate the feedback loop with y
 as there isn't a Release Day anymore. Developers can focus on building software, and they see their work go live minutes
  after they've finished working on it.
  
-###How the practices relate to each other
+### How the practices relate to each other
 To put it simply continuous integration is part of both continuous delivery and continuous deployment. 
 And continuous deployment is like continuous delivery, except that releases happen automatically.
 
-###Read CI/CD guides
+### Read CI/CD guides
 You can find some guides that will go more in depth to help you getting started with these practices.
 
 * [Getting started with continuous integration](https://www.atlassian.com/continuous-delivery/continuous-integration/how-to-get-to-continuous-integration)
