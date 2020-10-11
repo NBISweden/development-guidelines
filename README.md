@@ -51,6 +51,7 @@ Table of Contents
         * [Files bundled with a piece of software](#files-bundled-with-a-piece-of-software)
       * [Sensitive data](#sensitive-data)
       * [Testing](#testing)
+    * [Continuous integration and delivery](#continuous-integration-and-delivery)
     * [How we use GitHub](#how-we-use-github)
     * [How we use Git](#how-we-use-git)
     * [General stuff about working with Git](#general-stuff-about-working-with-git)
@@ -277,7 +278,6 @@ should mention how to instantiate those variables/files, etc.
 
 ### Testing
 
-From Wikipedia, the free encyclopedia
 
 Software testing is an investigation conducted to provide stakeholders with information about the quality of the software product or service under test. 
 Software testing can also provide an objective, independent view of the software to allow the business to appreciate and understand the risks of software 
@@ -299,6 +299,65 @@ Useful links for writing tests in our most common  languages and frameworks:
 * [React](https://reactjs.org/docs/testing-recipes.html)
 * [Javascript](https://jestjs.io/)
 * [R](https://r-pkgs.org/tests.html)
+
+## Continuous integration and delivery
+
+The CI/CD pipeline is one of the best practices for devops teams to implement, 
+for delivering code changes more frequently and reliably. It is also an agile methodology 
+best practice, as it enables software development teams to focus on meeting business requirements, 
+and code quality because deployment steps are automated.
+
+###Continuous integration
+Developers practicing continuous integration merge their changes back to the main branch as often as possible. 
+The developer's changes are validated by creating a build and running automated tests against the build. 
+By doing so, you avoid the integration hell that usually happens when people wait for release day to merge
+ their changes into the release branch.
+
+Continuous integration puts a great emphasis on testing automation to check that the application is not broken 
+whenever new commits are integrated into the main branch.
+
+####What you need (cost)
+Your team will need to write automated tests for each new feature, improvement or bug fix.
+You need a continuous integration server that can monitor the main repository and run the tests automatically for every new commits pushed.
+Developers need to merge their changes as often as possible, at least once a day.
+####What you gain
+Less bugs get shipped to production as regressions are captured early by the automated tests.
+Building the release is easy as all integration issues have been solved early.
+Less context switching as developers are alerted as soon as they break the build and can work on fixing it before they move to another task.
+
+###Continuous delivery
+Continuous delivery is an extension of continuous integration to make sure that you can release new changes to your 
+customers quickly in a sustainable way. This means that on top of having automated your testing, you also have automated
+ your release process and you can deploy your application at any point of time by clicking on a button.
+ 
+####What you need (cost)
+You need a strong foundation in continuous integration and your test suite needs to cover enough of your codebase.
+Deployments need to be automated. The trigger is still manual but once a deployment is started there shouldn't be a need for human intervention.
+Your team will most likely need to embrace feature flags so that incomplete features do not affect customers in production.
+####What you gain
+The complexity of deploying software has been taken away. Your team doesn't have to spend days preparing for a release anymore.
+You can release more often, thus accelerating the feedback loop with your customers.
+There is much less pressure on decisions for small changes, hence encouraging iterating faster.
+
+Continuous deployment
+Continuous deployment goes one step further than continuous delivery. With this practice, every change that passes all stages 
+of your production pipeline is released to your customers. There's no human intervention, and only a failed test will prevent 
+a new change to be deployed to production.
+
+Continuous deployment is an excellent way to accelerate the feedback loop with your customers and take pressure off the team 
+as there isn't a Release Day anymore. Developers can focus on building software, and they see their work go live minutes
+ after they've finished working on it.
+ 
+###How the practices relate to each other
+To put it simply continuous integration is part of both continuous delivery and continuous deployment. 
+And continuous deployment is like continuous delivery, except that releases happen automatically.
+
+###Read CI/CD guides
+You can find some guides that will go more in depth to help you getting started with these practices.
+
+* [Getting started with continuous integration](https://www.atlassian.com/continuous-delivery/continuous-integration/how-to-get-to-continuous-integration)
+* [Getting started with continuous delivery](https://www.atlassian.com/continuous-delivery/pipeline)
+* [Getting started with continuous deployment](https://www.atlassian.com/continuous-delivery/continuous-deployment)
 
 
 
