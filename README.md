@@ -87,12 +87,19 @@ out" (using upper-case variable names is a common way to do this).
 
 ### Comments in code
 
-Comments should explain *why* the code does what it does. *What* it
-does should ideally already be evident from the code itself. If the code
-is cryptic and can't easily be simplified, explanations might well be
-needed.
+Comments should explain *What* the code does, and *why* the code does
+what it does. *What* it does should ideally also be evident from th
+code itself, but a short description should be included to allow a new
+developer to get an overview of the code quicker.
 
 A good comment clarifies intent.
+
+Examples for different languages:
+ - javascript: [JSDoc](https://jsdoc.app/about-getting-started.html#adding-documentation-comments-to-your-code)
+ - perl: [POD](https://perldoc.perl.org/perlpod)
+ - python: [google style guide](https://google.github.io/styleguide/pyguide.html#38-comments-and-docstrings)
+ - shell: [google style guide](https://google.github.io/styleguide/shellguide.html#s4-comments)
+ - typescript: [Typescript JSDoc support](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html)
 
 ### Readability
 
