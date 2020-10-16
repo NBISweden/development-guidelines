@@ -414,7 +414,7 @@ were necessary.
 Each commit should ideally contain changes that are functionally
 connected/related.  For example, changes to the command line parsing
 code, changes to the documentation, and changes to some unrelated
-comments may be split into three commits. Also note that a single logical
+comments may be split into three commits. A rule of thumb is that if the commit message contains an 'and', it should probably be split into multiple commits. Also note that a single logical
 change (suitable for a single commit) may comprise changes in several
 files.
 
