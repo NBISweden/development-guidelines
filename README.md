@@ -415,13 +415,40 @@ were necessary.
 Each commit should ideally contain changes that are functionally
 connected/related.  For example, changes to the command line parsing
 code, changes to the documentation, and changes to some unrelated
-comments may be split into three commits.
+comments may be split into three commits. A rule of thumb is that if the commit message contains an 'and', it should probably be split into multiple commits. Also note that a single logical
+change (suitable for a single commit) may comprise changes in several
+files.
 
 Learn how to select chunks of changed files to do multiple
-separate commits of unrelated things. This is done using `git commit -p
+separate commits of unrelated things. This can be done using `git add -p
 ...`.
 
-Avoid "force push" unless it makes everyone's life easier.
+One common usage is to prepare commits with `git add` (which tells git
+the corresponding changes shall be included in the commit, in git
+terminology, this is called to update the index).
+
+Using `git add` to stage changes allows you to verify that the commit
+will contain the changes you intend, either by seing the changes
+included in the commit (with `git diff --cached`) or see if there are
+changes not included (e.g. `git status`, which also shows untracked
+files, or `git diff`). Once you are happy with the contents, you can
+create the commit with `git commit`.
+
+If you do not want or need to review individual changes that should be
+part of a commit, you can short-circuit things by calling `git commit`
+directly, e.g.
+
+```
+git commit -m 'My informative message' path1/file1 path2/file2
+```
+
+This also supports the usual features of `git-add`, e.g.
+`--interactive` and `--patch` (or `-p`).
+
+Avoid "force push" unless it makes everyone's life easier. And when you do,
+use `--force-with-lease` to avoid pushing when new changes has happened on
+the remote. A situation where it might make everyone's life easier is when
+you're tidying up your own branch.
 
 If a "live" checkout of the repository needs to exist somewhere, for
 example to run a public web service, then
@@ -441,6 +468,8 @@ external users.
 
 Some tips about writing helpful commit messages:
 
+0. Why, not what.
+  * The code shows what has been changed. Document why those changes were made.
 1. Separate subject (the first line of the message) from body with a blank line.
 2. Limit the subject line to 50 characters.
 3. Capitalize the subject line.
