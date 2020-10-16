@@ -88,7 +88,7 @@ out" (using upper-case variable names is a common way to do this).
 ### Comments in code
 
 Comments should explain *What* the code does, and *why* the code does
-what it does. *What* it does should ideally also be evident from th
+what it does. *What* it does should ideally also be evident from the
 code itself, but a short description should be included to allow a new
 developer to get an overview of the code quicker.
 
