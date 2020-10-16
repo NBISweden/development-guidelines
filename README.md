@@ -433,8 +433,9 @@ changes not included (e.g. `git status`, which also shows untracked
 files, or `git diff`). Once you are happy with the contents, you can
 create the commit with `git commit`.
 
-If you do not want these features, you can short-circuit things by
-calling `git commit` directly, e.g.
+If you do not want or need to review individual changes that should be
+part of a commit, you can short-circuit things by calling `git commit`
+directly, e.g.
 
 ```
 git commit -m 'My informative message' path1/file1 path2/file2
