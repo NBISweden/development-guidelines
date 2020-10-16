@@ -444,7 +444,7 @@ git commit -m 'My informative message' path1/file1 path2/file2
 This also supports the usual features of `git-add`, e.g.
 `--interactive` and `--patch` (or `-p`).
 
-Avoid "force push" unless it makes everyone's life easier.
+Avoid "force push" unless it makes everyone's life easier. And when you do, use `--force-with-lease` to avoid pushing when new changes has happened on the remote.
 
 If a "live" checkout of the repository needs to exist somewhere, for
 example to run a public web service, then
