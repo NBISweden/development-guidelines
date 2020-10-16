@@ -441,7 +441,8 @@ directly, e.g.
 git commit -m 'My informative message' path1/file1 path2/file2
 ```
 
-This also supports the usual features of `git-add`, e.g. `--interactive` and `--patch`.
+This also supports the usual features of `git-add`, e.g.
+`--interactive` and `--patch` (or `-p`).
 
 Avoid "force push" unless it makes everyone's life easier.
 
