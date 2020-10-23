@@ -305,12 +305,24 @@ software component or system component to evaluate one or more properties of int
 * can be installed and run in its intended environments, and
 * achieves the general result its stakeholders desire.
 
+#### Unit Tests vs. Integration Tests
+
+What is the Unit Test?
+Unit Tests are conducted by developers and test the unit of code( aka module, component) he or she developed. 
+It is a testing method by which individual units of source code are tested to determine if they are ready to use. 
+It helps to reduce the cost of bug fixes since the bugs are identified during the early phases of the development lifecycle.
+
+What is Integration Test?
+Integration testing tests integration between software modules. It is a software testing technique where individual units of a program 
+are combined and tested as a group. It checks the overall flow of the application after the integration of different modules.
+
+
+
 #### Test driven development
 Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into 
 very specific test cases, then the code is improved so that the tests pass. In simple terms, 
 test cases for each functionality are created and tested first and if the test fails then the new code is written in order to pass the test 
 and making code simple and bug-free.
-
 
 
 Useful links for writing tests in our most common  languages and frameworks: 
