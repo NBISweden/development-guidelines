@@ -92,7 +92,8 @@ does should ideally already be evident from the code itself. If the code
 is cryptic and can't easily be simplified, explanations might well be
 needed.
 
-A good comment clarifies intent.
+A good comment clarifies intent; you can read more about this
+[here](git@github.com:fasterius/development-guidelines.git).
 
 ### Readability
 
