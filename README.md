@@ -408,6 +408,9 @@ For more in-depth descriptions of Git-Flow, see
 * [Git-Flow Cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/)
 * [Using git-flow to automate your git branching workflow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
 
+For smaller projects, Support projects or NBIS courses/workshop, another
+branching model may be appropriate, such as [GitHub flow](https://guides.github.com/introduction/flow/).
+
 ## General stuff about working with Git
 
 Commit often, possibly several times a day. It's easier to roll back
