@@ -59,7 +59,7 @@ Table of Contents
     * [How we do code reviews](#how-we-do-code-reviews)
       * [Code reviewing steps](#code-reviewing-steps)
       * [General stuff about code reviews](#general-stuff-about-code-reviews)
-    *  [Reproducibility Guidelines](https://github.com/NBISweden/Reproducibility-Guidelines)
+    *  [Reproducibility Guidelines](#reproducibility-guidelines)
 
 ## Things to be aware of when writing code
 
@@ -370,7 +370,6 @@ You can find some guides that will go more in depth to help you getting started 
 * [Getting started with continuous integration](https://www.atlassian.com/continuous-delivery/continuous-integration/how-to-get-to-continuous-integration)
 * [Getting started with continuous delivery](https://www.atlassian.com/continuous-delivery/pipeline)
 * [Getting started with continuous deployment](https://www.atlassian.com/continuous-delivery/continuous-deployment)
-
 
 
 ## How we use GitHub
@@ -699,3 +698,8 @@ discussions to an alternate forum.
 * Seek to understand the perspective of the author.
 * Sign off the final review with a thumbs up or some other positive remark.
 
+## Reproducibility guidelines
+
+Reproducibility is an important aspect of scientific research. As a support organisation directly involved in research we have a responsibility
+ to make sure that our work is reproducible. Please refer to the NBIS [Reproducibility guidelines](https://github.com/NBISweden/Reproducibility-Guidelines) 
+ for more information about this matter.
