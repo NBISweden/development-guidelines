@@ -336,9 +336,10 @@ Continuous integration puts a great emphasis on testing automation to check that
 whenever new commits are integrated into the main branch.
 
 #### What you need (cost)
-Your team will need to write automated tests for each new feature, improvement or bug fix.
-You need a continuous integration server that can monitor the main repository and run the tests automatically for every new commits pushed.
-Developers need to merge their changes as often as possible, at least once a day.
+Your team will need to write automated tests for each new feature, improvement or bug fix. It should also  
+limit the size of the changes to make them easier to review and merge as soon as they're ready.
+You need a continuous integration server that can monitor the main repository and run the tests automatically. 
+
 #### What you gain
 Less bugs get shipped to production as regressions are captured early by the automated tests.
 Building the release is easy as all integration issues have been solved early.
@@ -358,15 +359,7 @@ The complexity of deploying software has been taken away. Your team doesn't have
 You can release more often, thus accelerating the feedback loop with your customers.
 There is much less pressure on decisions for small changes, hence encouraging iterating faster.
 
-Continuous deployment
-Continuous deployment goes one step further than continuous delivery. With this practice, every change that passes all stages 
-of your production pipeline is released to your customers. There's no human intervention, and only a failed test will prevent 
-a new change to be deployed to production.
 
-Continuous deployment is an excellent way to accelerate the feedback loop with your customers and take pressure off the team 
-as there isn't a Release Day anymore. Developers can focus on building software, and they see their work go live minutes
- after they've finished working on it.
- 
 ### How the practices relate to each other
 To put it simply continuous integration is part of both continuous delivery and continuous deployment. 
 And continuous deployment is like continuous delivery, except that releases happen automatically.
