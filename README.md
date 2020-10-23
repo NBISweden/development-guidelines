@@ -94,8 +94,12 @@ does should ideally already be evident from the code itself. If the code
 is cryptic and can't easily be simplified, explanations might well be
 needed. A good comment clarifies intent.
 
-Keep in mind that everything a developer needs to know to get started working in
-a project and everything a customer needs to run the project should be in README.md
+Try to capture and document as much as possible of what's needed to get started working in a project. 
+Try also to capture the requirements and reasoning that explain larger architectural decisions.
+The customer also needs to know how to run the project, so be sure to document that, preferably with practical
+examples showing. For example,  rather than stating "the output is a container you can build and run", include actual
+example commands that will build and start the project.
+
 
 ### Readability
 
