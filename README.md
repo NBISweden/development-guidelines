@@ -136,6 +136,8 @@ programming language(s) that you are using.
 for different languages which can be a good jump-off point.
 * For Perl: [Perl Best Practices](http://shop.oreilly.com/product/9780596001735.do)
 (O'Reilly book).
+* For Python: [PEP8 Style Guide](https://www.python.org/dev/peps/pep-0008/)
+* For R: [The Tidyverse Style Guide](https://style.tidyverse.org/)
 * (Further references here, please)
 
 If the project has any kind of best practices (explicit or implicit),
