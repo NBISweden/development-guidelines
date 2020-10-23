@@ -115,7 +115,7 @@ Use a tool for automatic indentation if the editor you're using does
 not do it for you, e.g. `clang-format` or `indent` for C or C++ code,
 `perltidy` for Perl code, (insert others here, please).
 
-If you have to choose between a efficient but cryptic or non-intuitive
+If you have to choose between an efficient but cryptic or non-intuitive
 way of doing something and a less efficient or more verbose way of
 solving the same problem, either provide ample documentation to the
 non-intuitive approach or do it less efficiently and leave a comment
@@ -157,7 +157,7 @@ software that you produce will need to be maintained by yourself and by
 your colleagues (current and future), and that we do not want to end up
 with unmaintainable software.
 
-Therefore:  For a brand new project, use a major programming language
+Therefore: for a brand new project, use a major programming language
 that we have expertise for within NBIS.
 
 At the time of writing, GitHub tells us that our "top languages" in our
@@ -206,7 +206,7 @@ than to separate it out into a separate file, or worse, a wiki.
 #### Licensing
 
 When at all possible, NBIS software will be licensed under an Open
-Source license. If this, for whatever reason, is not possible, you
+Source license. If this is not possible, for whatever reason, you
 need to consult (insert name/group here) before making the code public
 on GitHub or elsewhere. See also the text in the introduction to the
 section "[How we use GitHub](#how-we-use-github)" regarding Open Source
@@ -314,12 +314,12 @@ admins of NBISweden know. Current admins include *Jonas Hagberg* and
 When appropriate, we use the *Git-Flow branching model*. This is a way
 of using Git branches as a help in the development cycle.
 
-With Git-Flow, branches are categorised into
+With Git-Flow, branches are categorised into:
 
-* A **master** branch.
-* A main **development** branch.
-* One or several **feature** branches.
-* One or several **hotfix** branches.
+* A **master** branch
+* A main **development** branch
+* One or several **feature** branches
+* One or several **hotfix** branches
 
 The code on the **master** branch (often called `master` or `release`) is
 stable, properly tested and is the version of the code that a typical
@@ -355,7 +355,7 @@ for the next release, or updating the documentation (because you forgot
 to do that when you changed the code, didn't you?).
 
 Once the feature is finished, it is merged back into the main
-development branch, and its feature branch is deleted. In larger project
+development branch and its feature branch is deleted. In larger project
 (more than a single developer), new features should be implemented in
 feature branches and undergo review before merging (see below). This may
 be highly beneficial for small projects too, obviously (do this!).
@@ -405,7 +405,7 @@ For more in-depth descriptions of Git-Flow, see
 Commit often, possibly several times a day. It's easier to roll back
 a small commit than to roll back large commits. This also makes the
 code easier to review (see below) as each commit carries its own commit
-message. Remember to push the commits to GitHub every once in awhile
+message. Remember to push the commits to GitHub every once in a while
 too.
 
 Write a [helpful commit message](#helpful-commit-messages) with each
@@ -424,13 +424,13 @@ separate commits of unrelated things. This is done using `git commit -p
 Avoid "force push" unless it makes everyone's life easier.
 
 If a "live" checkout of the repository needs to exist somewhere, for
-example to run a public web service, then
+example to run a public web service, then:
 
-* Don't do development in the live checkout.
-* Do development and testing in a private checkout.
-* Only ever do "git pull" in the live checkout.
+* Don't do development in the live checkout
+* Do development and testing in a private checkout
+* Only ever do "git pull" in the live checkout
 * A live service with active users should run a stable release from
-the master branch.
+the master branch
 
 ### Helpful commit messages
 
@@ -441,14 +441,14 @@ external users.
 
 Some tips about writing helpful commit messages:
 
-1. Separate subject (the first line of the message) from body with a blank line.
-2. Limit the subject line to 50 characters.
-3. Capitalize the subject line.
-4. Do not end the subject line with a period.
+1. Separate subject (the first line of the message) from body with a blank line
+2. Limit the subject line to 50 characters
+3. Capitalize the subject line
+4. Do not end the subject line with a period
 5. Use the [imperative mood](https://en.wikipedia.org/wiki/Imperative_mood)
-in the subject line.
-6. Wrap the body at 72 characters.
-7. Use the body to explain what and why vs. how.
+in the subject line
+6. Wrap the body at 72 characters
+7. Use the body to explain _what_ and _why_ vs. _how_
 
 For an in-depth explanation of the above points, please see [How to
 Write a Git Commit Message](http://chris.beams.io/posts/git-commit/).
@@ -468,12 +468,12 @@ Reviews can be conducted at any stage in development (just let someone
 look at the code), but we'd like code to be more formally reviewed at
 least
 
-* before a feature branch is merged to the main development branch, or
-* when a bug is fixed on the master branch before its hotfix/bugfix
-branch is merged, or
-* when a release is made by merging the current state of the development
+* Before a feature branch is merged to the main development branch
+* When a bug is fixed on the master branch before its hotfix/bugfix
+branch is merged
+* When a release is made by merging the current state of the development
 branch (or release branch, if such a branch is used) to the master
-branch.
+branch
 
 To be able to use GitHub or a code review, both the author and the
 reviewer should have their own personal GitHub accounts.
@@ -506,9 +506,9 @@ This may be done in a face-to-face meeting, on Slack, or in any other
 way that is convenient. It's also possible for the author to leave
 comments on GitHub (in addition to the meta-comments that the commit
 messages themselves already provide)
-    * With the pull request.
-    * On separate commits (?).
-    * On separate lines in the commits.
+    * With the pull request
+    * On separate commits (?)
+    * On separate lines in the commits
 
 6. If there's more than one reviewer, one of the reviewers is designated
 as the "main" reviewer. This reviewer will later do one extra thing (see
@@ -523,10 +523,10 @@ are public.
 
 9. The reviewer(s) leaves a summary of their review by clicking "Review
 changes" and submits it as feedback
-    * without explicitly approving the pull request (it's just feedback)
-    * explicitly approving the pull request (it all look good), or
-    * explicitly rejecting the pull request (there's something that
-    needs to be discussed and/or fixed).
+    * Without explicitly approving the pull request (it's just feedback)
+    * Explicitly approving the pull request (it all look good), or
+    * Explicitly rejecting the pull request (there's something that
+    needs to be discussed and/or fixed)
 
 10. If no reviews are rejecting the pull request, the designated
 "main" reviewer will merge the pull request and delete the feature (or
