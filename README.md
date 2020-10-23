@@ -223,7 +223,8 @@ other Open Source licenses includes the
 and
 [the "simplified" 2-clause BSD license](https://opensource.org/licenses/BSD-2-Clause).
 
-See also [http://choosealicense.com](http://choosealicense.com)
+See also [http://choosealicense.com]() and [https://tldrlegal.com/]() for
+summaries and explanations of Open Source licenses.
 
 #### Files bundled with a piece of software
 
