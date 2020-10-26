@@ -93,7 +93,7 @@ is cryptic and can't easily be simplified, explanations might well be
 needed.
 
 A good comment clarifies intent; you can read more about this
-[here](git@github.com:fasterius/development-guidelines.git).
+[here](https://standards.mousepawmedia.com/csi.html).
 
 ### Readability
 
