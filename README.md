@@ -51,7 +51,7 @@ Table of Contents
         * [Files bundled with a piece of software](#files-bundled-with-a-piece-of-software)
       * [Sensitive data](#sensitive-data)
       * [Testing](#testing)
-    * [Continuous integration and delivery](#continuous-integration-and-delivery)
+        * [Continuous integration and delivery](#continuous-integration-and-delivery)
     * [How we use GitHub](#how-we-use-github)
     * [How we use Git](#how-we-use-git)
     * [General stuff about working with Git](#general-stuff-about-working-with-git)
@@ -282,7 +282,6 @@ should mention how to instantiate those variables/files, etc.
 
 ### Testing
 
-
 There are many ways to test your code. Remember when you ran your application and used it for the first time? Did you check the features and 
 experiment using them? That’s known as exploratory testing and is a form of manual testing.
 
@@ -316,29 +315,27 @@ What is Integration Test?
 Integration testing tests integration between software modules. It is a software testing technique where individual units of a program 
 are combined and tested as a group. It checks the overall flow of the application after the integration of different modules.
 
-
-
-#### Test driven development
-Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into 
-very specific test cases, then the code is improved so that the tests pass. In simple terms, 
-test cases for each functionality are created and tested first and if the test fails then the new code is written in order to pass the test 
-and making code simple and bug-free.
-
-
 Useful links for writing tests in our most common  languages and frameworks: 
 * [Python](https://realpython.com/python-testing/)
 * [React](https://reactjs.org/docs/testing-recipes.html)
 * [Javascript](https://jestjs.io/)
 * [R](https://r-pkgs.org/tests.html)
 
-## Continuous integration and delivery
+#### Test-driven development
+Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into 
+very specific test cases, then the code is improved so that the tests pass. In simple terms, 
+test cases for each functionality are created and tested first and if the test fails then the new code is written in order to pass the test 
+and to make the code simple and bug-free.
+
+
+#### Continuous integration and delivery
 
 The CI/CD pipeline is one of the best practices for devops teams to implement, 
 for delivering code changes more frequently and reliably. It is also an agile methodology 
 best practice, as it enables software development teams to focus on meeting business requirements, 
 and code quality because deployment steps are automated.
 
-### Continuous integration
+##### Continuous integration
 Developers practicing continuous integration merge their changes back to the main branch as often as possible. 
 The developer's changes are validated by creating a build and running automated tests against the build. 
 By doing so, you avoid the integration hell that usually happens when people wait for release day to merge
@@ -347,36 +344,32 @@ By doing so, you avoid the integration hell that usually happens when people wai
 Continuous integration puts a great emphasis on testing automation to check that the application is not broken 
 whenever new commits are integrated into the main branch.
 
-#### What you need (cost)
+###### What you need (cost)
 Your team will need to write automated tests for each new feature, improvement or bug fix. It should also  
 limit the size of the changes to make them easier to review and merge as soon as they're ready.
 You need a continuous integration server that can monitor the main repository and run the tests automatically. 
 
-#### What you gain
+###### What you gain
 Less bugs get shipped to production as regressions are captured early by the automated tests.
 Building the release is easy as all integration issues have been solved early.
 Less context switching as developers are alerted as soon as they break the build and can work on fixing it before they move to another task.
 
-### Continuous delivery
+###### Continuous delivery
 Continuous delivery is an extension of continuous integration to make sure that you can release new changes to your 
 customers quickly in a sustainable way. This means that on top of having automated your testing, you also have automated
- your release process and you can deploy your application at any point of time by clicking on a button.
+ your release process and you can deploy your application at any point of time.
  
-#### What you need (cost)
+###### What you need (cost)
 You need a strong foundation in continuous integration and your test suite needs to cover enough of your codebase.
 Deployments need to be automated. The trigger is still manual but once a deployment is started there shouldn't be a need for human intervention.
 Your team will most likely need to embrace feature flags so that incomplete features do not affect customers in production.
-#### What you gain
+
+###### What you gain
 The complexity of deploying software has been taken away. Your team doesn't have to spend days preparing for a release anymore.
 You can release more often, thus accelerating the feedback loop with your customers.
 There is much less pressure on decisions for small changes, hence encouraging iterating faster.
 
-
-### How the practices relate to each other
-To put it simply continuous integration is part of both continuous delivery and continuous deployment. 
-And continuous deployment is like continuous delivery, except that releases happen automatically.
-
-### Read CI/CD guides
+###### Read CI/CD guides
 You can find some guides that will go more in depth to help you getting started with these practices.
 
 * [Getting started with continuous integration](https://www.atlassian.com/continuous-delivery/continuous-integration/how-to-get-to-continuous-integration)
