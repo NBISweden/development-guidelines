@@ -41,6 +41,7 @@ Table of Contents
 
   * [Coding Guidelines for NBIS Developers](#coding-guidelines-for-nbis-developers)
     * [Things to be aware of when writing code](#things-to-be-aware-of-when-writing-code)
+      * [Writing secure software](#writing-secure-software)
       * [Intent](#intent)
       * [Comments in code](#comments-in-code)
       * [Readability](#readability)
@@ -61,7 +62,7 @@ Table of Contents
 
 ## Things to be aware of when writing code
 
-###Writing secure software
+### Writing secure software
 While not always the most exciting part of writing code, it is important
 to consider the security risks with a software project to avoid costly
 patches and perhaps more importantly, reputation damage. Security risks
