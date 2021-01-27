@@ -479,6 +479,7 @@ Some tips about writing helpful commit messages:
 in the subject line.
 6. Wrap the body at 72 characters.
 7. Use the body to explain what and why vs. how.
+8. Use [conventional commits](https://www.conventionalcommits.org).
 
 For an in-depth explanation of the above points, please see [How to
 Write a Git Commit Message](http://chris.beams.io/posts/git-commit/).
