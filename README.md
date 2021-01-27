@@ -631,3 +631,7 @@ and move philosophical, academic or otherwise unrelated technical
 discussions to an alternate forum.
 * Seek to understand the perspective of the author.
 * Sign off the final review with a thumbs up or some other positive remark.
+
+### Release versioning
+
+The use of [semantic versioning](https://semver.org) is highly recommended.
