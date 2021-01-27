@@ -396,6 +396,7 @@ makes it easy to work with Git-Flow from the command line.  See his
 
 For more in-depth descriptions of Git-Flow, see
 
+* [Gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 * [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
 * [Git-Flow Cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/)
 * [Using git-flow to automate your git branching workflow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
