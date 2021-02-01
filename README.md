@@ -110,7 +110,7 @@ have simplicity as the primary goal, not security.
 ### Speaking about security….
 To be safe while navigating the wild west that modern computing can
 be, make sure to:
-* Keep software up-to-date (Turn on automatic updates for your
+* Keep software up-to-date (turn on automatic updates for your
 operating system and programs).
 * Use a password manager (third-party or browser’s built-in depending
 on your needs) to facilitate strong unique passwords. Do not reuse
