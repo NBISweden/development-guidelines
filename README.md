@@ -332,7 +332,7 @@ release-in-making, branched off from the development branch.  The
 such as adjustments to release numbers.  The branch is then reviewed
 and merged into the master *and* development branches, creating a new
 release of the software on the master branch. We do not follow this, but
-you are free to do so if you think it make more sense, for example in a
+you are free to do so if you think it makes more sense, for example in a
 highly distributed project with many active users/developers.
 
 The code on the **development** branch (often called `develop`) should
