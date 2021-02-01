@@ -273,7 +273,23 @@ should mention how to instantiate those variables/files, etc.
 
 ### Testing
 
-(TODO: Write me)
+We believe testing is an important part of producing high quality
+software. Specifically, we believe robust testing helps improve
+maintaiability as well as reliability of the produced software.
+
+Some general recommendations are:
+* Spend some time to implement testing.
+* Use established testing and mocking framework for the project 
+  language/environment (e.g. JUnit, pytest, the Go testing package).
+* Consider your metrics and the specific benefits;
+  * Code coverage is often a useful metric, but
+  * Making your main code unintelligible to make writing tests easier does not
+    help improving your project.
+* Start with testing right away.
+  * Some languages (e.g. Go) makes mocking harder, essentially
+    requiring you to design your code explicitly to support testing.
+* Activate automatic testing to make sure tests are not broken accidentally
+  * One way this can often be done is with [GitHub Actions](https://github.com/features/actions).
 
 ## How we use GitHub
 
