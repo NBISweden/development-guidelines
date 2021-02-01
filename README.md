@@ -277,7 +277,7 @@ software. Specifically, we believe robust testing helps improve
 maintaiability as well as reliability of the produced software.
 
 Some general recommendations are:
-* Spend time implement testing.
+* Spend some time to implement testing.
 * Use established testing and mocking framework for the project 
   language/environment (e.g. JUnit, pytest, the Go testing package).
 * Consider your metrics and the specific benefits;
