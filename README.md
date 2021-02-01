@@ -107,7 +107,7 @@ have simplicity as the primary goal, not security.
   
   [More information on Secure Software Development Lifecycle](https://owasp.org/www-project-integration-standards/writeups/owasp_in_sdlc/) 
 
-###Speaking about security….
+### Speaking about security….
 To be safe while navigating the wild west that modern computing can
 be, make sure to:
 * Keep software up-to-date (Turn on automatic updates for your
