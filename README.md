@@ -112,8 +112,8 @@ and/or in narrower windows (commonly around 80 characters wide).
 
 Use a tool for automatic indentation if the editor you're using does
 not do it for you, e.g. `clang-format` or `indent` for C or C++ code,
-`perltidy` for Perl code, `prettier` for JavaScript and Typescript,
-`black` for python, `gofmt` for go (insert others here, please).
+`perltidy` for Perl code, `prettier` for JavaScript and TypeScript,
+`black` for Python, `gofmt` for Go.
 
 If you have to choose between a efficient but cryptic or non-intuitive
 way of doing something and a less efficient or more verbose way of
@@ -412,6 +412,7 @@ makes it easy to work with Git-Flow from the command line.  See his
 
 For more in-depth descriptions of Git-Flow, see
 
+* [Gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 * [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
 * [Git-Flow Cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/)
 * [Using git-flow to automate your git branching workflow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
@@ -494,6 +495,7 @@ Some tips about writing helpful commit messages:
 in the subject line.
 6. Wrap the body at 72 characters.
 7. Use the body to explain what and why vs. how.
+8. Use [conventional commits](https://www.conventionalcommits.org).
 
 For an in-depth explanation of the above points, please see [How to
 Write a Git Commit Message](http://chris.beams.io/posts/git-commit/).
@@ -645,3 +647,7 @@ and move philosophical, academic or otherwise unrelated technical
 discussions to an alternate forum.
 * Seek to understand the perspective of the author.
 * Sign off the final review with a thumbs up or some other positive remark.
+
+### Release versioning
+
+The use of [semantic versioning](https://semver.org) is highly recommended.
