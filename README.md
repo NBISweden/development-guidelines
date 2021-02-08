@@ -51,6 +51,7 @@ Table of Contents
         * [Files bundled with a piece of software](#files-bundled-with-a-piece-of-software)
       * [Sensitive data](#sensitive-data)
       * [Testing](#testing)
+        * [Continuous integration and delivery](#continuous-integration-and-delivery)
     * [How we use GitHub](#how-we-use-github)
     * [How we use Git](#how-we-use-git)
     * [General stuff about working with Git](#general-stuff-about-working-with-git)
@@ -58,6 +59,7 @@ Table of Contents
     * [How we do code reviews](#how-we-do-code-reviews)
       * [Code reviewing steps](#code-reviewing-steps)
       * [General stuff about code reviews](#general-stuff-about-code-reviews)
+    *  [Reproducibility Guidelines](#reproducibility-guidelines)
 
 ## Things to be aware of when writing code
 
@@ -90,9 +92,14 @@ out" (using upper-case variable names is a common way to do this).
 Comments should explain *why* the code does what it does. *What* it
 does should ideally already be evident from the code itself. If the code
 is cryptic and can't easily be simplified, explanations might well be
-needed.
+needed. A good comment clarifies intent.
 
-A good comment clarifies intent.
+Try to capture and document as much as possible of what's needed to get started working in a project. 
+Try also to capture the requirements and reasoning that explain larger architectural decisions.
+The customer also needs to know how to run the project, so be sure to document that, preferably with practical
+examples showing. For example,  rather than stating "the output is a container you can build and run", include actual
+example commands that will build and start the project.
+
 
 ### Readability
 
@@ -132,7 +139,7 @@ understood and therefore maintainable.
 Acquaintance yourself with, and follow, the best practices for the
 programming language(s) that you are using.
 
-* Google has [a good set of best practices](https://github.com/google/styleguide)
+* Google has [a good set of best practices](https://google.github.io/styleguide/)
 for different languages which can be a good jump-off point.
 * For Perl: [Perl Best Practices](http://shop.oreilly.com/product/9780596001735.do)
 (O'Reilly book).
@@ -164,7 +171,9 @@ At the time of writing, GitHub tells us that our "top languages" in our
 NBISweden repositories are
 
 * Python
+* HTML (Javascript/Typescript)
 * Shell
+* R
 * Perl
 
 Based on this we can say that there exists expertise in NBIS for writing
@@ -273,23 +282,98 @@ should mention how to instantiate those variables/files, etc.
 
 ### Testing
 
-We believe testing is an important part of producing high quality
-software. Specifically, we believe robust testing helps improve
-maintaiability as well as reliability of the produced software.
+There are many ways to test your code. Remember when you ran your application and used it for the first time? Did you check the features and 
+experiment using them? That’s known as exploratory testing and is a form of manual testing.
 
-Some general recommendations are:
-* Spend some time to implement testing.
-* Use established testing and mocking framework for the project 
-  language/environment (e.g. JUnit, pytest, the Go testing package).
-* Consider your metrics and the specific benefits;
-  * Code coverage is often a useful metric, but
-  * Making your main code unintelligible to make writing tests easier does not
-    help improving your project.
-* Start with testing right away.
-  * Some languages (e.g. Go) makes mocking harder, essentially
-    requiring you to design your code explicitly to support testing.
-* Activate automatic testing to make sure tests are not broken accidentally
-  * One way this can often be done is with [GitHub Actions](https://github.com/features/actions).
+Exploratory testing is a form of testing that is done without a plan. In an exploratory test, you’re just exploring the application.
+
+To have a complete set of manual tests, all you need to do is make a list of all the features your application has, the different types of input it can accept, 
+and the expected results. Now, every time you make a change to your code, you need to go through every single item on that list and check it.
+
+That doesn’t sound like much fun, does it?
+
+This is where automated testing comes in. Automated testing is the execution of your test plan (the parts of your application you want to test, 
+the order in which you want to test them, and the expected responses) by a script instead of a human. Software testing involves the execution of a 
+software component or system component to evaluate one or more properties of interes. In general, these properties indicate the extent to which the component
+ or system under test:
+
+* meets the requirements that guided its design and development,
+* responds correctly to all kinds of inputs,
+* performs its functions within an acceptable time,
+* is sufficiently usable,
+* can be installed and run in its intended environments, and
+* achieves the general result its stakeholders desire.
+
+#### Unit Tests vs. Integration Tests
+
+What is the Unit Test?
+Unit Tests are conducted by developers and test the unit of code( aka module, component) he or she developed. 
+It is a testing method by which individual units of source code are tested to determine if they are ready to use. 
+It helps to reduce the cost of bug fixes since the bugs are identified during the early phases of the development lifecycle.
+
+What is Integration Test?
+Integration testing tests integration between software modules. It is a software testing technique where individual units of a program 
+are combined and tested as a group. It checks the overall flow of the application after the integration of different modules.
+
+Useful links for writing tests in our most common  languages and frameworks: 
+* [Python](https://realpython.com/python-testing/)
+* [React](https://reactjs.org/docs/testing-recipes.html)
+* [Javascript](https://jestjs.io/)
+* [R](https://r-pkgs.org/tests.html)
+
+#### Test-driven development
+Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into 
+very specific test cases, then the code is improved so that the tests pass. In simple terms, 
+test cases for each functionality are created and tested first and if the test fails then the new code is written in order to pass the test 
+and to make the code simple and bug-free.
+
+#### Continuous integration and delivery
+
+The CI/CD pipeline is one of the best practices for devops teams to implement, 
+for delivering code changes more frequently and reliably. It is also an agile methodology 
+best practice, as it enables software development teams to focus on meeting business requirements, 
+and code quality because deployment steps are automated.
+
+##### Continuous integration
+Developers practicing continuous integration merge their changes back to the main branch as often as possible. 
+The developer's changes are validated by creating a build and running automated tests against the build. 
+By doing so, you avoid the integration hell that usually happens when people wait for release day to merge
+ their changes into the release branch.
+
+Continuous integration puts a great emphasis on testing automation to check that the application is not broken 
+whenever new commits are integrated into the main branch.
+
+###### What you need (cost)
+Your team will need to write automated tests for each new feature, improvement or bug fix. It should also  
+limit the size of the changes to make them easier to review and merge as soon as they're ready.
+You need a continuous integration server that can monitor the main repository and run the tests automatically. 
+
+###### What you gain
+Less bugs get shipped to production as regressions are captured early by the automated tests.
+Building the release is easy as all integration issues have been solved early.
+Less context switching as developers are alerted as soon as they break the build and can work on fixing it before they move to another task.
+
+###### Continuous delivery
+Continuous delivery is an extension of continuous integration to make sure that you can release new changes to your 
+customers quickly in a sustainable way. This means that on top of having automated your testing, you also have automated
+ your release process and you can deploy your application at any point of time.
+ 
+###### What you need (cost)
+You need a strong foundation in continuous integration and your test suite needs to cover enough of your codebase.
+Deployments need to be automated. The trigger is still manual but once a deployment is started there shouldn't be a need for human intervention.
+Your team will most likely need to embrace feature flags so that incomplete features do not affect customers in production.
+
+###### What you gain
+The complexity of deploying software has been taken away. Your team doesn't have to spend days preparing for a release anymore.
+You can release more often, thus accelerating the feedback loop with your customers.
+There is much less pressure on decisions for small changes, hence encouraging iterating faster.
+
+###### Read CI/CD guides
+You can find some guides that will go more in depth to help you getting started with these practices.
+
+* [Getting started with continuous integration](https://www.atlassian.com/continuous-delivery/continuous-integration/how-to-get-to-continuous-integration)
+* [Getting started with continuous delivery](https://www.atlassian.com/continuous-delivery/pipeline)
+* [Getting started with continuous deployment](https://www.atlassian.com/continuous-delivery/continuous-deployment)
 
 ## How we use GitHub
 
@@ -647,6 +731,12 @@ and move philosophical, academic or otherwise unrelated technical
 discussions to an alternate forum.
 * Seek to understand the perspective of the author.
 * Sign off the final review with a thumbs up or some other positive remark.
+
+## Reproducibility guidelines
+
+Reproducibility is an important aspect of scientific research. As a support organisation directly involved in research we have a responsibility
+ to make sure that our work is reproducible. Please refer to the NBIS [Reproducibility guidelines](https://github.com/NBISweden/Reproducibility-Guidelines) 
+ for more information about this matter.
 
 ### Release versioning
 
