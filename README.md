@@ -320,7 +320,7 @@ With Git-Flow, branches are categorised into
 * One or several **feature** branches.
 * One or several **hotfix** branches.
 
-The code on the **master** branch (often called `master`) is
+The code on the **main** branch (often called `main` or `release`) is
 stable, properly tested and is the version of the code that a typical
 user should pick. No changes are made directly on the master branch
 (but see below).
