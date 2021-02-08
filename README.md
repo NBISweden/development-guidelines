@@ -41,6 +41,7 @@ Table of Contents
 
   * [Coding Guidelines for NBIS Developers](#coding-guidelines-for-nbis-developers)
     * [Things to be aware of when writing code](#things-to-be-aware-of-when-writing-code)
+      * [Writing secure software](#writing-secure-software)
       * [Intent](#intent)
       * [Comments in code](#comments-in-code)
       * [Readability](#readability)
@@ -62,6 +63,75 @@ Table of Contents
     *  [Reproducibility Guidelines](#reproducibility-guidelines)
 
 ## Things to be aware of when writing code
+
+### Writing secure software
+While not always the most exciting part of writing code, it is important
+to consider the security risks with a software project to avoid costly
+patches and perhaps more importantly, reputation damage. Security risks
+analysis should be employed at the early stage of a project (it is
+usually way more expensive and complicated at a late stage) and
+continuously carried out until the end. 
+
+The security risks will differ vastly between project, but general
+guidelines are:
+
+* Educate yourself, research on what security risks are related to
+the different components of your project. Some example resources are:
+    * [Linux Foundation (LF) Core Infrastructure Initiative (CII) Best
+    Practices](https://bestpractices.coreinfrastructure.org/en)
+    * [OWASP Top 10 Web Application Security Risks](https://owasp.org/www-project-top-ten/)
+* Don’t blindly trust out-of-the-box software and default
+configurations, e.g. popular Docker images, aws services, etc. 
+Malicious software can be present and default configurations usually
+have simplicity as the primary goal, not security.
+* Incorporate security in the entire Software Development Lifecycle:
+    * Include security considerations when gathering requirements
+    * Threat model when designing
+    * Implement tests and build processes that evaluate security
+  
+    Some examples:
+    * During the design phase:
+        * Explicitly map out attack surfaces.
+	        * Discuss what security means for your project - you may
+	        have different parts where different aspects are
+	        important (e.g. an information site where the main risk
+	        is lack of availability or integrity and a user part
+	        where confidentiality is the major concern).
+        * Discuss risks and consequences (using a risk analysis
+        framework may be beneficial).
+	        * Do not forget to document - identified risks, risk
+	        mitigations and accepted risks may need to be revisited.
+    * Enable services like [Dependabot](https://dependabot.com/) or
+    [Snyk](https://snyk.io/) to enable alerts for dependices for your
+    project (this can easily be done at GitHub).
+    * Fuzzing can often help discovering bugs, both security related
+    and others.
+  
+  [More information on Secure Software Development Lifecycle](https://owasp.org/www-project-integration-standards/writeups/owasp_in_sdlc/) 
+
+### Speaking about security….
+To be safe while navigating the wild west that modern computing can
+be, make sure to:
+* Keep software up-to-date (turn on automatic updates for your
+operating system and programs).
+* Use a password manager (third-party or browser’s built-in depending
+on your needs) to facilitate strong unique passwords. Do not reuse
+passwords.
+* Use two-factor authentication, e.g. Authy or Google Authenticator.
+This is supported by many services such as GitHub, Slack, Gmail etc.
+In the not so unlikely event that someone does obtain your password,
+two-factor authentication can still protect you and sensitive
+information.
+* Always lock your computer when left unattended (even if you are
+just going for a quick coffee!)
+* Configure so your device is automatically locked after 1-5 minutes.
+* Remove unnecessary programs from your computer to reduce attack
+surface.
+* Encrypt your drives, especially external. Be careful about what you
+insert.
+* Be careful regarding what you links you click and what you download.
+Avoid visiting unknown websites, especially if they stem from a
+suspicious email, and do not download software from untrusted sources.
 
 ### Intent
 
