@@ -119,8 +119,8 @@ and/or in narrower windows (commonly around 80 characters wide).
 
 Use a tool for automatic indentation if the editor you're using does
 not do it for you, e.g. `clang-format` or `indent` for C or C++ code,
-`perltidy` for Perl code, `prettier` for JavaScript and Typescript,
-`black` for python, `gofmt` for go (insert others here, please).
+`perltidy` for Perl code, `prettier` for JavaScript and TypeScript,
+`black` for Python, `gofmt` for Go.
 
 If you have to choose between a efficient but cryptic or non-intuitive
 way of doing something and a less efficient or more verbose way of
@@ -327,7 +327,6 @@ very specific test cases, then the code is improved so that the tests pass. In s
 test cases for each functionality are created and tested first and if the test fails then the new code is written in order to pass the test 
 and to make the code simple and bug-free.
 
-
 #### Continuous integration and delivery
 
 The CI/CD pipeline is one of the best practices for devops teams to implement, 
@@ -375,7 +374,6 @@ You can find some guides that will go more in depth to help you getting started 
 * [Getting started with continuous integration](https://www.atlassian.com/continuous-delivery/continuous-integration/how-to-get-to-continuous-integration)
 * [Getting started with continuous delivery](https://www.atlassian.com/continuous-delivery/pipeline)
 * [Getting started with continuous deployment](https://www.atlassian.com/continuous-delivery/continuous-deployment)
-
 
 ## How we use GitHub
 
@@ -498,6 +496,7 @@ makes it easy to work with Git-Flow from the command line.  See his
 
 For more in-depth descriptions of Git-Flow, see
 
+* [Gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 * [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
 * [Git-Flow Cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/)
 * [Using git-flow to automate your git branching workflow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
@@ -517,13 +516,40 @@ were necessary.
 Each commit should ideally contain changes that are functionally
 connected/related.  For example, changes to the command line parsing
 code, changes to the documentation, and changes to some unrelated
-comments may be split into three commits.
+comments may be split into three commits. A rule of thumb is that if the commit message contains an 'and', it should probably be split into multiple commits. Also note that a single logical
+change (suitable for a single commit) may comprise changes in several
+files.
 
 Learn how to select chunks of changed files to do multiple
-separate commits of unrelated things. This is done using `git commit -p
+separate commits of unrelated things. This can be done using `git add -p
 ...`.
 
-Avoid "force push" unless it makes everyone's life easier.
+One common usage is to prepare commits with `git add` (which tells git
+the corresponding changes shall be included in the commit, in git
+terminology, this is called to update the index).
+
+Using `git add` to stage changes allows you to verify that the commit
+will contain the changes you intend, either by seing the changes
+included in the commit (with `git diff --cached`) or see if there are
+changes not included (e.g. `git status`, which also shows untracked
+files, or `git diff`). Once you are happy with the contents, you can
+create the commit with `git commit`.
+
+If you do not want or need to review individual changes that should be
+part of a commit, you can short-circuit things by calling `git commit`
+directly, e.g.
+
+```
+git commit -m 'My informative message' path1/file1 path2/file2
+```
+
+This also supports the usual features of `git-add`, e.g.
+`--interactive` and `--patch` (or `-p`).
+
+Avoid "force push" unless it makes everyone's life easier. And when you do,
+use `--force-with-lease` to avoid pushing when new changes has happened on
+the remote. A situation where it might make everyone's life easier is when
+you're tidying up your own branch.
 
 If a "live" checkout of the repository needs to exist somewhere, for
 example to run a public web service, then
@@ -543,6 +569,8 @@ external users.
 
 Some tips about writing helpful commit messages:
 
+0. Why, not what.
+  * The code shows what has been changed. Document why those changes were made.
 1. Separate subject (the first line of the message) from body with a blank line.
 2. Limit the subject line to 50 characters.
 3. Capitalize the subject line.
@@ -551,6 +579,7 @@ Some tips about writing helpful commit messages:
 in the subject line.
 6. Wrap the body at 72 characters.
 7. Use the body to explain what and why vs. how.
+8. Use [conventional commits](https://www.conventionalcommits.org).
 
 For an in-depth explanation of the above points, please see [How to
 Write a Git Commit Message](http://chris.beams.io/posts/git-commit/).
@@ -708,3 +737,7 @@ discussions to an alternate forum.
 Reproducibility is an important aspect of scientific research. As a support organisation directly involved in research we have a responsibility
  to make sure that our work is reproducible. Please refer to the NBIS [Reproducibility guidelines](https://github.com/NBISweden/Reproducibility-Guidelines) 
  for more information about this matter.
+
+### Release versioning
+
+The use of [semantic versioning](https://semver.org) is highly recommended.
