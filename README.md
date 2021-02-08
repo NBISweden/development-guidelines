@@ -491,19 +491,20 @@ With Git-Flow, branches are categorised into
 * One or several **feature** branches.
 * One or several **hotfix** branches.
 
-The code on the **master** branch (often called `master` or `release`) is
+The code on the **main** branch (often called `main` or `release`) is
 stable, properly tested and is the version of the code that a typical
 user should pick. No changes are made directly on the master branch
 (but see below).
 
 Strictly speaking, Git-Flow makes a distinction between a "master"
 and a "release" branch where the release branch contains the next
-release-in-making, branched off from the development branch. Bugfixes
-(only) are made to the release branch which is then reviewed and merged
-into the master *and* development branches, creating a new release of
-the software on the master branch. We do not follow this, but you are
-free to do so if you think it make more sense, for example in a highly
-distributed project with many active users/developers.
+release-in-making, branched off from the development branch.  The
+`release` branch contains commits relating to creating the new release,
+such as adjustments to release numbers.  The branch is then reviewed
+and merged into the master *and* development branches, creating a new
+release of the software on the master branch. We do not follow this, but
+you are free to do so if you think it makes more sense, for example in a
+highly distributed project with many active users/developers.
 
 The code on the **development** branch (often called `develop`) should
 be working, but without guarantees. For small projects, development
