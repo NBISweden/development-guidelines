@@ -429,8 +429,9 @@ code, changes to the documentation, and changes to some unrelated
 comments may be split into three commits.
 
 Learn how to select chunks of changed files to do multiple
-separate commits of unrelated things. This is done using `git commit -p
-...`.
+separate commits of unrelated things. This is done using `git add -p
+...` followed by `git commit` or in an interactive mode. For more details, you 
+can look at this [StackOverflow discussion](https://stackoverflow.com/questions/1085162/commit-only-part-of-a-file-in-git).
 
 Avoid "force push" unless it makes everyone's life easier.
 
