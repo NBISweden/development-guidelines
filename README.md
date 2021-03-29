@@ -348,8 +348,8 @@ removed.
     * Local read-protected files, possibly located outside of the
     Git repository file structure to avoid accidental inclusion as
     part of the repository,
-    * Environment variables,
-    * or some sort of secured (possibly remote) storage.
+    * Environment variables, or
+    * Some sort of secured (possibly remote) storage.
 * The documentation (`README`/`INSTALL`, whichever is most appropriate)
 should mention how to instantiate those variables/files, etc.
 
