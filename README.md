@@ -294,7 +294,7 @@ section "[How we use GitHub](#how-we-use-github)" regarding Open Source
 and our code as Public Record.
 
 The preferred Open Source license that we promote is the
-[*GNU General Public License version 3* (GPLv3)](https://opensource.org/licenses/GPL-3.0).
+[GNU General Public License version 3 (GPLv3)](https://opensource.org/licenses/GPL-3.0).
 Use this license unless there is a reason to do otherwise.  Examples of
 other Open Source licenses includes the
 [MIT license](https://opensource.org/licenses/MIT),
