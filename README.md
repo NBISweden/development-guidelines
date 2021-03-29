@@ -509,9 +509,10 @@ repositories are public (available to the world), but we have the
 ability to create private repositories that are only available to
 members of NBISweden, *but only if there are very special circumstances
 that require this*. The ELIXIR Open Source Principles say
+
 >Start a project in the open from the very first day, in a publicly
 >accessible, version controlled repository [...] The longer a project is
->run in a closed manner, the harder it is to open source it later".
+>run in a closed manner, the harder it is to open source it later.
 
 If the project is a Support project, however, you may have to use a
 private repository until the group desires the code (and its results)
