@@ -78,16 +78,16 @@ guidelines are:
 * Educate yourself, research on what security risks are related to
 the different components of your project. Some example resources are:
     * [Linux Foundation (LF) Core Infrastructure Initiative (CII) Best
-    Practices](https://bestpractices.coreinfrastructure.org/en)
-    * [OWASP Top 10 Web Application Security Risks](https://owasp.org/www-project-top-ten/)
+    Practices](https://bestpractices.coreinfrastructure.org/en).
+    * [OWASP Top 10 Web Application Security Risks](https://owasp.org/www-project-top-ten/).
 * Don’t blindly trust out-of-the-box software and default
 configurations, e.g. popular Docker images, aws services, etc. 
 Malicious software can be present and default configurations usually
 have simplicity as the primary goal, not security.
 * Incorporate security in the entire Software Development Lifecycle:
-    * Include security considerations when gathering requirements
-    * Threat model when designing
-    * Implement tests and build processes that evaluate security
+    * Include security considerations when gathering requirements.
+    * Threat model when designing.
+    * Implement tests and build processes that evaluate security.
   
     Some examples:
     * During the design phase:
@@ -107,7 +107,7 @@ have simplicity as the primary goal, not security.
     * Fuzzing can often help discovering bugs, both security related
     and others.
   
-  [More information on Secure Software Development Lifecycle](https://owasp.org/www-project-integration-standards/writeups/owasp_in_sdlc/) 
+  [More information on Secure Software Development Lifecycle](https://owasp.org/www-project-integration-standards/writeups/owasp_in_sdlc/).
 
 ### Speaking about security….
 To be safe while navigating the wild west that modern computing can
@@ -212,9 +212,9 @@ programming language(s) that you are using.
 for different languages which can be a good jump-off point.
 * For Perl: [Perl Best Practices](http://shop.oreilly.com/product/9780596001735.do)
 (O'Reilly book).
-* For Python: [PEP8 Style Guide](https://www.python.org/dev/peps/pep-0008/)
-* For R: [The Tidyverse Style Guide](https://style.tidyverse.org/)
-* (Further references here, please)
+* For Python: [PEP8 Style Guide](https://www.python.org/dev/peps/pep-0008/).
+* For R: [The Tidyverse Style Guide](https://style.tidyverse.org/).
+* (Further references here, please.)
 
 If the project has any kind of best practices (explicit or implicit),
 follow these.
@@ -222,10 +222,9 @@ follow these.
 Follow the best practices agreed upon within the organisation
 (NBIS/ELIXIR).
 
-* [ELIXIR best practices](https://github.com/SoftDev4Research)
-    * [F1000 paper](https://f1000research.com/articles/6-876/v1)
-* [Good Enough Practices for Scientific Computing](http://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
-
+* [ELIXIR best practices](https://github.com/SoftDev4Research).
+    * [F1000 paper](https://f1000research.com/articles/6-876/v1).
+* [Good Enough Practices for Scientific Computing](http://swcarpentry.github.io/good-enough-practices-in-scientific-computing/).
 
 ### What programming language to use
 
@@ -388,10 +387,10 @@ Integration testing tests integration between software modules. It is a software
 are combined and tested as a group. It checks the overall flow of the application after the integration of different modules.
 
 Useful links for writing tests in our most common  languages and frameworks: 
-* [Python](https://realpython.com/python-testing/)
-* [React](https://reactjs.org/docs/testing-recipes.html)
-* [Javascript](https://jestjs.io/)
-* [R](https://r-pkgs.org/tests.html)
+* [Python](https://realpython.com/python-testing/).
+* [React](https://reactjs.org/docs/testing-recipes.html).
+* [Javascript](https://jestjs.io/).
+* [R](https://r-pkgs.org/tests.html).
 
 #### Test-driven development
 Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into 
@@ -443,9 +442,9 @@ There is much less pressure on decisions for small changes, hence encouraging it
 ###### Read CI/CD guides
 You can find some guides that will go more in depth to help you getting started with these practices.
 
-* [Getting started with continuous integration](https://www.atlassian.com/continuous-delivery/continuous-integration/how-to-get-to-continuous-integration)
-* [Getting started with continuous delivery](https://www.atlassian.com/continuous-delivery/pipeline)
-* [Getting started with continuous deployment](https://www.atlassian.com/continuous-delivery/continuous-deployment)
+* [Getting started with continuous integration](https://www.atlassian.com/continuous-delivery/continuous-integration/how-to-get-to-continuous-integration).
+* [Getting started with continuous delivery](https://www.atlassian.com/continuous-delivery/pipeline).
+* [Getting started with continuous deployment](https://www.atlassian.com/continuous-delivery/continuous-deployment).
 
 ## How we use GitHub
 
@@ -574,10 +573,10 @@ makes it easy to work with Git-Flow from the command line.  See his
 
 For more in-depth descriptions of Git-Flow, see
 
-* [Gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
-* [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
-* [Git-Flow Cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/)
-* [Using git-flow to automate your git branching workflow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
+* [Gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
+* [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/).
+* [Git-Flow Cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/).
+* [Using git-flow to automate your git branching workflow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/).
 
 For smaller projects, Support projects or NBIS courses/workshop, another
 branching model may be appropriate, such as [GitHub flow](https://guides.github.com/introduction/flow/).
@@ -635,11 +634,11 @@ you're tidying up your own branch.
 If a "live" checkout of the repository needs to exist somewhere, for
 example to run a public web service, then:
 
-* Don't do development in the live checkout
-* Do development and testing in a private checkout
-* Only ever do "git pull" in the live checkout
+* Don't do development in the live checkout.
+* Do development and testing in a private checkout.
+* Only ever do "git pull" in the live checkout.
 * A live service with active users should run a stable release from
-the master branch
+the master branch.
 
 ### Helpful commit messages
 
@@ -680,12 +679,12 @@ Reviews can be conducted at any stage in development (just let someone
 look at the code), but we'd like code to be more formally reviewed at
 least
 
-* Before a feature branch is merged to the main development branch
+* Before a feature branch is merged to the main development branch.
 * When a bug is fixed on the master branch before its hotfix/bugfix
-branch is merged
+branch is merged.
 * When a release is made by merging the current state of the development
 branch (or release branch, if such a branch is used) to the master
-branch
+branch.
 
 To be able to use GitHub or a code review, both the author and the
 reviewer should have their own personal GitHub accounts.
@@ -730,10 +729,10 @@ are public.
 
 9. The reviewer(s) leaves a summary of their review by clicking "Review
 changes" and submits it as feedback
-    * Without explicitly approving the pull request (it's just feedback)
+    * Without explicitly approving the pull request (it's just feedback).
     * Explicitly approving the pull request (it all look good), or
     * Explicitly rejecting the pull request (there's something that
-    needs to be discussed and/or fixed)
+    needs to be discussed and/or fixed).
 
 10. If no reviews are rejecting the pull request, the designated
 "main" reviewer will merge the pull request and delete the feature (or
