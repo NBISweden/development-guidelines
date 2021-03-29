@@ -41,6 +41,7 @@ Table of Contents
 
   * [Coding Guidelines for NBIS Developers](#coding-guidelines-for-nbis-developers)
     * [Things to be aware of when writing code](#things-to-be-aware-of-when-writing-code)
+      * [Writing secure software](#writing-secure-software)
       * [Intent](#intent)
       * [Comments in code](#comments-in-code)
       * [Readability](#readability)
@@ -51,6 +52,7 @@ Table of Contents
         * [Files bundled with a piece of software](#files-bundled-with-a-piece-of-software)
       * [Sensitive data](#sensitive-data)
       * [Testing](#testing)
+        * [Continuous integration and delivery](#continuous-integration-and-delivery)
     * [How we use GitHub](#how-we-use-github)
     * [How we use Git](#how-we-use-git)
     * [General stuff about working with Git](#general-stuff-about-working-with-git)
@@ -58,8 +60,78 @@ Table of Contents
     * [How we do code reviews](#how-we-do-code-reviews)
       * [Code reviewing steps](#code-reviewing-steps)
       * [General stuff about code reviews](#general-stuff-about-code-reviews)
+    *  [Reproducibility Guidelines](#reproducibility-guidelines)
 
 ## Things to be aware of when writing code
+
+### Writing secure software
+While not always the most exciting part of writing code, it is important
+to consider the security risks with a software project to avoid costly
+patches and perhaps more importantly, reputation damage. Security risks
+analysis should be employed at the early stage of a project (it is
+usually way more expensive and complicated at a late stage) and
+continuously carried out until the end. 
+
+The security risks will differ vastly between project, but general
+guidelines are:
+
+* Educate yourself, research on what security risks are related to
+the different components of your project. Some example resources are:
+    * [Linux Foundation (LF) Core Infrastructure Initiative (CII) Best
+    Practices](https://bestpractices.coreinfrastructure.org/en)
+    * [OWASP Top 10 Web Application Security Risks](https://owasp.org/www-project-top-ten/)
+* Don’t blindly trust out-of-the-box software and default
+configurations, e.g. popular Docker images, aws services, etc. 
+Malicious software can be present and default configurations usually
+have simplicity as the primary goal, not security.
+* Incorporate security in the entire Software Development Lifecycle:
+    * Include security considerations when gathering requirements
+    * Threat model when designing
+    * Implement tests and build processes that evaluate security
+  
+    Some examples:
+    * During the design phase:
+        * Explicitly map out attack surfaces.
+	        * Discuss what security means for your project - you may
+	        have different parts where different aspects are
+	        important (e.g. an information site where the main risk
+	        is lack of availability or integrity and a user part
+	        where confidentiality is the major concern).
+        * Discuss risks and consequences (using a risk analysis
+        framework may be beneficial).
+	        * Do not forget to document - identified risks, risk
+	        mitigations and accepted risks may need to be revisited.
+    * Enable services like [Dependabot](https://dependabot.com/) or
+    [Snyk](https://snyk.io/) to enable alerts for dependices for your
+    project (this can easily be done at GitHub).
+    * Fuzzing can often help discovering bugs, both security related
+    and others.
+  
+  [More information on Secure Software Development Lifecycle](https://owasp.org/www-project-integration-standards/writeups/owasp_in_sdlc/) 
+
+### Speaking about security….
+To be safe while navigating the wild west that modern computing can
+be, make sure to:
+* Keep software up-to-date (turn on automatic updates for your
+operating system and programs).
+* Use a password manager (third-party or browser’s built-in depending
+on your needs) to facilitate strong unique passwords. Do not reuse
+passwords.
+* Use two-factor authentication, e.g. Authy or Google Authenticator.
+This is supported by many services such as GitHub, Slack, Gmail etc.
+In the not so unlikely event that someone does obtain your password,
+two-factor authentication can still protect you and sensitive
+information.
+* Always lock your computer when left unattended (even if you are
+just going for a quick coffee!)
+* Configure so your device is automatically locked after 1-5 minutes.
+* Remove unnecessary programs from your computer to reduce attack
+surface.
+* Encrypt your drives, especially external. Be careful about what you
+insert.
+* Be careful regarding what you links you click and what you download.
+Avoid visiting unknown websites, especially if they stem from a
+suspicious email, and do not download software from untrusted sources.
 
 ### Intent
 
@@ -90,10 +162,13 @@ out" (using upper-case variable names is a common way to do this).
 Comments should explain *why* the code does what it does. *What* it
 does should ideally already be evident from the code itself. If the code
 is cryptic and can't easily be simplified, explanations might well be
-needed.
+needed. A good comment clarifies intent.
 
-A good comment clarifies intent; you can read more about this
-[here](https://standards.mousepawmedia.com/csi.html).
+Try to capture and document as much as possible of what's needed to get started working in a project. 
+Try also to capture the requirements and reasoning that explain larger architectural decisions.
+The customer also needs to know how to run the project, so be sure to document that, preferably with practical
+examples showing. For example,  rather than stating "the output is a container you can build and run", include actual
+example commands that will build and start the project.
 
 ### Readability
 
@@ -113,7 +188,8 @@ and/or in narrower windows (commonly around 80 characters wide).
 
 Use a tool for automatic indentation if the editor you're using does
 not do it for you, e.g. `clang-format` or `indent` for C or C++ code,
-`perltidy` for Perl code, (insert others here, please).
+`perltidy` for Perl code, `prettier` for JavaScript and TypeScript,
+`black` for Python, `gofmt` for Go.
 
 If you have to choose between an efficient but cryptic or non-intuitive
 way of doing something and a less efficient or more verbose way of
@@ -132,7 +208,7 @@ understood and therefore maintainable.
 Acquaintance yourself with, and follow, the best practices for the
 programming language(s) that you are using.
 
-* Google has [a good set of best practices](https://github.com/google/styleguide)
+* Google has [a good set of best practices](https://google.github.io/styleguide/)
 for different languages which can be a good jump-off point.
 * For Perl: [Perl Best Practices](http://shop.oreilly.com/product/9780596001735.do)
 (O'Reilly book).
@@ -166,7 +242,9 @@ At the time of writing, GitHub tells us that our "top languages" in our
 NBISweden repositories are
 
 * Python
+* HTML (Javascript/Typescript)
 * Shell
+* R
 * Perl
 
 Based on this we can say that there exists expertise in NBIS for writing
@@ -276,7 +354,98 @@ should mention how to instantiate those variables/files, etc.
 
 ### Testing
 
-(TODO: Write me)
+There are many ways to test your code. Remember when you ran your application and used it for the first time? Did you check the features and 
+experiment using them? That’s known as exploratory testing and is a form of manual testing.
+
+Exploratory testing is a form of testing that is done without a plan. In an exploratory test, you’re just exploring the application.
+
+To have a complete set of manual tests, all you need to do is make a list of all the features your application has, the different types of input it can accept, 
+and the expected results. Now, every time you make a change to your code, you need to go through every single item on that list and check it.
+
+That doesn’t sound like much fun, does it?
+
+This is where automated testing comes in. Automated testing is the execution of your test plan (the parts of your application you want to test, 
+the order in which you want to test them, and the expected responses) by a script instead of a human. Software testing involves the execution of a 
+software component or system component to evaluate one or more properties of interes. In general, these properties indicate the extent to which the component
+ or system under test:
+
+* meets the requirements that guided its design and development,
+* responds correctly to all kinds of inputs,
+* performs its functions within an acceptable time,
+* is sufficiently usable,
+* can be installed and run in its intended environments, and
+* achieves the general result its stakeholders desire.
+
+#### Unit Tests vs. Integration Tests
+
+What is the Unit Test?
+Unit Tests are conducted by developers and test the unit of code( aka module, component) he or she developed. 
+It is a testing method by which individual units of source code are tested to determine if they are ready to use. 
+It helps to reduce the cost of bug fixes since the bugs are identified during the early phases of the development lifecycle.
+
+What is Integration Test?
+Integration testing tests integration between software modules. It is a software testing technique where individual units of a program 
+are combined and tested as a group. It checks the overall flow of the application after the integration of different modules.
+
+Useful links for writing tests in our most common  languages and frameworks: 
+* [Python](https://realpython.com/python-testing/)
+* [React](https://reactjs.org/docs/testing-recipes.html)
+* [Javascript](https://jestjs.io/)
+* [R](https://r-pkgs.org/tests.html)
+
+#### Test-driven development
+Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into 
+very specific test cases, then the code is improved so that the tests pass. In simple terms, 
+test cases for each functionality are created and tested first and if the test fails then the new code is written in order to pass the test 
+and to make the code simple and bug-free.
+
+#### Continuous integration and delivery
+
+The CI/CD pipeline is one of the best practices for devops teams to implement, 
+for delivering code changes more frequently and reliably. It is also an agile methodology 
+best practice, as it enables software development teams to focus on meeting business requirements, 
+and code quality because deployment steps are automated.
+
+##### Continuous integration
+Developers practicing continuous integration merge their changes back to the main branch as often as possible. 
+The developer's changes are validated by creating a build and running automated tests against the build. 
+By doing so, you avoid the integration hell that usually happens when people wait for release day to merge
+ their changes into the release branch.
+
+Continuous integration puts a great emphasis on testing automation to check that the application is not broken 
+whenever new commits are integrated into the main branch.
+
+###### What you need (cost)
+Your team will need to write automated tests for each new feature, improvement or bug fix. It should also  
+limit the size of the changes to make them easier to review and merge as soon as they're ready.
+You need a continuous integration server that can monitor the main repository and run the tests automatically. 
+
+###### What you gain
+Less bugs get shipped to production as regressions are captured early by the automated tests.
+Building the release is easy as all integration issues have been solved early.
+Less context switching as developers are alerted as soon as they break the build and can work on fixing it before they move to another task.
+
+###### Continuous delivery
+Continuous delivery is an extension of continuous integration to make sure that you can release new changes to your 
+customers quickly in a sustainable way. This means that on top of having automated your testing, you also have automated
+ your release process and you can deploy your application at any point of time.
+ 
+###### What you need (cost)
+You need a strong foundation in continuous integration and your test suite needs to cover enough of your codebase.
+Deployments need to be automated. The trigger is still manual but once a deployment is started there shouldn't be a need for human intervention.
+Your team will most likely need to embrace feature flags so that incomplete features do not affect customers in production.
+
+###### What you gain
+The complexity of deploying software has been taken away. Your team doesn't have to spend days preparing for a release anymore.
+You can release more often, thus accelerating the feedback loop with your customers.
+There is much less pressure on decisions for small changes, hence encouraging iterating faster.
+
+###### Read CI/CD guides
+You can find some guides that will go more in depth to help you getting started with these practices.
+
+* [Getting started with continuous integration](https://www.atlassian.com/continuous-delivery/continuous-integration/how-to-get-to-continuous-integration)
+* [Getting started with continuous delivery](https://www.atlassian.com/continuous-delivery/pipeline)
+* [Getting started with continuous deployment](https://www.atlassian.com/continuous-delivery/continuous-deployment)
 
 ## How we use GitHub
 
@@ -329,19 +498,20 @@ With Git-Flow, branches are categorised into:
 * One or several **feature** branches
 * One or several **hotfix** branches
 
-The code on the **master** branch (often called `master` or `release`) is
+The code on the **main** branch (often called `main` or `release`) is
 stable, properly tested and is the version of the code that a typical
 user should pick. No changes are made directly on the master branch
 (but see below).
 
 Strictly speaking, Git-Flow makes a distinction between a "master"
 and a "release" branch where the release branch contains the next
-release-in-making, branched off from the development branch. Bugfixes
-(only) are made to the release branch which is then reviewed and merged
-into the master *and* development branches, creating a new release of
-the software on the master branch. We do not follow this, but you are
-free to do so if you think it make more sense, for example in a highly
-distributed project with many active users/developers.
+release-in-making, branched off from the development branch.  The
+`release` branch contains commits relating to creating the new release,
+such as adjustments to release numbers.  The branch is then reviewed
+and merged into the master *and* development branches, creating a new
+release of the software on the master branch. We do not follow this, but
+you are free to do so if you think it makes more sense, for example in a
+highly distributed project with many active users/developers.
 
 The code on the **development** branch (often called `develop`) should
 be working, but without guarantees. For small projects, development
@@ -404,6 +574,7 @@ makes it easy to work with Git-Flow from the command line.  See his
 
 For more in-depth descriptions of Git-Flow, see
 
+* [Gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 * [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
 * [Git-Flow Cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/)
 * [Using git-flow to automate your git branching workflow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
@@ -426,13 +597,40 @@ were necessary.
 Each commit should ideally contain changes that are functionally
 connected/related.  For example, changes to the command line parsing
 code, changes to the documentation, and changes to some unrelated
-comments may be split into three commits.
+comments may be split into three commits. A rule of thumb is that if the commit message contains an 'and', it should probably be split into multiple commits. Also note that a single logical
+change (suitable for a single commit) may comprise changes in several
+files.
 
 Learn how to select chunks of changed files to do multiple
-separate commits of unrelated things. This is done using `git commit -p
+separate commits of unrelated things. This can be done using `git add -p
 ...`.
 
-Avoid "force push" unless it makes everyone's life easier.
+One common usage is to prepare commits with `git add` (which tells git
+the corresponding changes shall be included in the commit, in git
+terminology, this is called to update the index).
+
+Using `git add` to stage changes allows you to verify that the commit
+will contain the changes you intend, either by seing the changes
+included in the commit (with `git diff --cached`) or see if there are
+changes not included (e.g. `git status`, which also shows untracked
+files, or `git diff`). Once you are happy with the contents, you can
+create the commit with `git commit`.
+
+If you do not want or need to review individual changes that should be
+part of a commit, you can short-circuit things by calling `git commit`
+directly, e.g.
+
+```
+git commit -m 'My informative message' path1/file1 path2/file2
+```
+
+This also supports the usual features of `git-add`, e.g.
+`--interactive` and `--patch` (or `-p`).
+
+Avoid "force push" unless it makes everyone's life easier. And when you do,
+use `--force-with-lease` to avoid pushing when new changes has happened on
+the remote. A situation where it might make everyone's life easier is when
+you're tidying up your own branch.
 
 If a "live" checkout of the repository needs to exist somewhere, for
 example to run a public web service, then:
@@ -452,14 +650,17 @@ external users.
 
 Some tips about writing helpful commit messages:
 
-1. Separate subject (the first line of the message) from body with a blank line
-2. Limit the subject line to 50 characters
-3. Capitalize the subject line
-4. Do not end the subject line with a period
+0. Why, not what.
+  * The code shows what has been changed. Document why those changes were made.
+1. Separate subject (the first line of the message) from body with a blank line.
+2. Limit the subject line to 50 characters.
+3. Capitalize the subject line.
+4. Do not end the subject line with a period.
 5. Use the [imperative mood](https://en.wikipedia.org/wiki/Imperative_mood)
-in the subject line
-6. Wrap the body at 72 characters
-7. Use the body to explain _what_ and _why_ vs. _how_
+in the subject line.
+6. Wrap the body at 72 characters.
+7. Use the body to explain what and why vs. how.
+8. Use [conventional commits](https://www.conventionalcommits.org).
 
 For an in-depth explanation of the above points, please see [How to
 Write a Git Commit Message](http://chris.beams.io/posts/git-commit/).
@@ -514,12 +715,7 @@ project, and what the code under review is supposed to do etc. Having a
 fixed group of reviewers for a project would minimize the need for this
 step.
 This may be done in a face-to-face meeting, on Slack, or in any other
-way that is convenient. It's also possible for the author to leave
-comments on GitHub (in addition to the meta-comments that the commit
-messages themselves already provide)
-    * With the pull request
-    * On separate commits (?)
-    * On separate lines in the commits
+way that is convenient.
 
 6. If there's more than one reviewer, one of the reviewers is designated
 as the "main" reviewer. This reviewer will later do one extra thing (see
@@ -616,3 +812,13 @@ and move philosophical, academic or otherwise unrelated technical
 discussions to an alternate forum.
 * Seek to understand the perspective of the author.
 * Sign off the final review with a thumbs up or some other positive remark.
+
+## Reproducibility guidelines
+
+Reproducibility is an important aspect of scientific research. As a support organisation directly involved in research we have a responsibility
+ to make sure that our work is reproducible. Please refer to the NBIS [Reproducibility guidelines](https://github.com/NBISweden/Reproducibility-Guidelines) 
+ for more information about this matter.
+
+### Release versioning
+
+The use of [semantic versioning](https://semver.org) is highly recommended.
