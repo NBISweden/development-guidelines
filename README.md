@@ -734,14 +734,14 @@ can be accessed by clicking the suggest icon ![suggest
 icon](suggest.svg "suggest changes") or by starting a fenced block
 with the language/highlight `suggestion`, e.g.
 
----
+  <pre>
 
-Can we do it like this instead?
+  Can we do it like this instead?
 
-```suggestion
-  if i != 0 {
-```
----
+  ```suggestion
+    if i != 0 {
+  ```
+  </pre>
 
 
 10. The reviewer(s) leaves a summary of their review by clicking "Review
