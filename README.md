@@ -728,23 +728,39 @@ that the specified pull request is about.
 clicking individual lines in the web viewer. Note that these comments
 are public.
 
-9. The reviewer(s) leaves a summary of their review by clicking "Review
+9. If there are specific changes the reviewer would like to see,
+GitHub has a "suggest change" feature that is useful for this, this
+can be accessed by clicking the suggest icon ![suggest
+icon](suggest.svg "suggest changes") or by starting a fenced block
+with the language/highlight `suggestion`, e.g.
+
+---
+
+Can we do it like this instead?
+
+```suggestion
+  if i != 0 {
+```
+---
+
+
+10. The reviewer(s) leaves a summary of their review by clicking "Review
 changes" and submits it as feedback
     * Without explicitly approving the pull request (it's just feedback)
     * Explicitly approving the pull request (it all look good), or
     * Explicitly rejecting the pull request (there's something that
     needs to be discussed and/or fixed)
 
-10. If no reviews are rejecting the pull request, the designated
+11. If no reviews are rejecting the pull request, the designated
 "main" reviewer will merge the pull request and delete the feature (or
 whatever) branch. Note: this is the reviewer's job, not the author's
 job. *The code review process ends here*.
 
-11. If there are things that need to be modified, further commits to the
+12. If there are things that need to be modified, further commits to the
 same feature branch may be necessary. These commits are automatically
 added to the existing pull request.
 
-12. The author asks the reviewer(s) to have a further look at the new
+13. The author asks the reviewer(s) to have a further look at the new
 changes. The process continues from step 7.
 
 ### General stuff about code reviews
