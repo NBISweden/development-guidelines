@@ -743,6 +743,7 @@ with the language/highlight `suggestion`, e.g.
   ```
   </pre>
 
+when created this way, suggested changes are easy to include.
 
 10. The reviewer(s) leaves a summary of their review by clicking "Review
 changes" and submits it as feedback
