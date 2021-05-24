@@ -78,16 +78,16 @@ guidelines are:
 * Educate yourself, research on what security risks are related to
 the different components of your project. Some example resources are:
     * [Linux Foundation (LF) Core Infrastructure Initiative (CII) Best
-    Practices](https://bestpractices.coreinfrastructure.org/en)
-    * [OWASP Top 10 Web Application Security Risks](https://owasp.org/www-project-top-ten/)
+    Practices](https://bestpractices.coreinfrastructure.org/en).
+    * [OWASP Top 10 Web Application Security Risks](https://owasp.org/www-project-top-ten/).
 * Don’t blindly trust out-of-the-box software and default
 configurations, e.g. popular Docker images, aws services, etc. 
 Malicious software can be present and default configurations usually
 have simplicity as the primary goal, not security.
 * Incorporate security in the entire Software Development Lifecycle:
-    * Include security considerations when gathering requirements
-    * Threat model when designing
-    * Implement tests and build processes that evaluate security
+    * Include security considerations when gathering requirements.
+    * Threat model when designing.
+    * Implement tests and build processes that evaluate security.
   
     Some examples:
     * During the design phase:
@@ -107,7 +107,7 @@ have simplicity as the primary goal, not security.
     * Fuzzing can often help discovering bugs, both security related
     and others.
   
-  [More information on Secure Software Development Lifecycle](https://owasp.org/www-project-integration-standards/writeups/owasp_in_sdlc/) 
+  [More information on Secure Software Development Lifecycle](https://owasp.org/www-project-integration-standards/writeups/owasp_in_sdlc/).
 
 ### Speaking about security….
 To be safe while navigating the wild west that modern computing can
@@ -164,11 +164,13 @@ does should ideally already be evident from the code itself. If the code
 is cryptic and can't easily be simplified, explanations might well be
 needed. A good comment clarifies intent.
 
-Try to capture and document as much as possible of what's needed to get started working in a project. 
-Try also to capture the requirements and reasoning that explain larger architectural decisions.
-The customer also needs to know how to run the project, so be sure to document that, preferably with practical
-examples showing. For example,  rather than stating "the output is a container you can build and run", include actual
-example commands that will build and start the project.
+Try to capture and document as much as possible of what's needed to get
+started working in a project.  Try also to capture the requirements and
+reasoning that explain larger architectural decisions.  The customer
+also needs to know how to run the project, so be sure to document that,
+preferably with practical examples showing. For example, rather than
+stating "the output is a container you can build and run", include
+actual example commands that will build and start the project.
 
 ### Readability
 
@@ -212,9 +214,9 @@ programming language(s) that you are using.
 for different languages which can be a good jump-off point.
 * For Perl: [Perl Best Practices](http://shop.oreilly.com/product/9780596001735.do)
 (O'Reilly book).
-* For Python: [PEP8 Style Guide](https://www.python.org/dev/peps/pep-0008/)
-* For R: [The Tidyverse Style Guide](https://style.tidyverse.org/)
-* (Further references here, please)
+* For Python: [PEP8 Style Guide](https://www.python.org/dev/peps/pep-0008/).
+* For R: [The Tidyverse Style Guide](https://style.tidyverse.org/).
+* (Further references here, please.)
 
 If the project has any kind of best practices (explicit or implicit),
 follow these.
@@ -222,10 +224,9 @@ follow these.
 Follow the best practices agreed upon within the organisation
 (NBIS/ELIXIR).
 
-* [ELIXIR best practices](https://github.com/SoftDev4Research)
-    * [F1000 paper](https://f1000research.com/articles/6-876/v1)
-* [Good Enough Practices for Scientific Computing](http://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
-
+* [ELIXIR best practices](https://github.com/SoftDev4Research).
+    * [F1000 paper](https://f1000research.com/articles/6-876/v1).
+* [Good Enough Practices for Scientific Computing](http://swcarpentry.github.io/good-enough-practices-in-scientific-computing/).
 
 ### What programming language to use
 
@@ -293,7 +294,7 @@ section "[How we use GitHub](#how-we-use-github)" regarding Open Source
 and our code as Public Record.
 
 The preferred Open Source license that we promote is the
-[*GNU General Public License version 3* (GPLv3)](https://opensource.org/licenses/GPL-3.0).
+[GNU General Public License version 3 (GPLv3)](https://opensource.org/licenses/GPL-3.0).
 Use this license unless there is a reason to do otherwise.  Examples of
 other Open Source licenses includes the
 [MIT license](https://opensource.org/licenses/MIT),
@@ -347,27 +348,36 @@ removed.
     * Local read-protected files, possibly located outside of the
     Git repository file structure to avoid accidental inclusion as
     part of the repository,
-    * Environment variables,
-    * or some sort of secured (possibly remote) storage.
+    * Environment variables, or
+    * Some sort of secured (possibly remote) storage.
 * The documentation (`README`/`INSTALL`, whichever is most appropriate)
 should mention how to instantiate those variables/files, etc.
 
 ### Testing
 
-There are many ways to test your code. Remember when you ran your application and used it for the first time? Did you check the features and 
-experiment using them? That’s known as exploratory testing and is a form of manual testing.
+There are many ways to test your code. Remember when you ran your
+application and used it for the first time? Did you check the features
+and experiment using them? That’s known as exploratory testing and is a
+form of manual testing.
 
-Exploratory testing is a form of testing that is done without a plan. In an exploratory test, you’re just exploring the application.
+Exploratory testing is a form of testing that is done without a plan. In
+an exploratory test, you’re just exploring the application.
 
-To have a complete set of manual tests, all you need to do is make a list of all the features your application has, the different types of input it can accept, 
-and the expected results. Now, every time you make a change to your code, you need to go through every single item on that list and check it.
+To have a complete set of manual tests, all you need to do is make a
+list of all the features your application has, the different types of
+input it can accept, and the expected results. Now, every time you make
+a change to your code, you need to go through every single item on that
+list and check it.
 
 That doesn’t sound like much fun, does it?
 
-This is where automated testing comes in. Automated testing is the execution of your test plan (the parts of your application you want to test, 
-the order in which you want to test them, and the expected responses) by a script instead of a human. Software testing involves the execution of a 
-software component or system component to evaluate one or more properties of interes. In general, these properties indicate the extent to which the component
- or system under test:
+This is where automated testing comes in. Automated testing is the
+execution of your test plan (the parts of your application you want
+to test, the order in which you want to test them, and the expected
+responses) by a script instead of a human. Software testing involves the
+execution of a software component or system component to evaluate one or
+more properties of interes. In general, these properties indicate the
+extent to which the component or system under test:
 
 * meets the requirements that guided its design and development,
 * responds correctly to all kinds of inputs,
@@ -378,74 +388,105 @@ software component or system component to evaluate one or more properties of int
 
 #### Unit Tests vs. Integration Tests
 
-What is the Unit Test?
-Unit Tests are conducted by developers and test the unit of code( aka module, component) he or she developed. 
-It is a testing method by which individual units of source code are tested to determine if they are ready to use. 
-It helps to reduce the cost of bug fixes since the bugs are identified during the early phases of the development lifecycle.
+What is the Unit Test?  Unit Tests are conducted by developers and test
+the unit of code( aka module, component) he or she developed.  It is
+a testing method by which individual units of source code are tested
+to determine if they are ready to use.  It helps to reduce the cost of
+bug fixes since the bugs are identified during the early phases of the
+development lifecycle.
 
-What is Integration Test?
-Integration testing tests integration between software modules. It is a software testing technique where individual units of a program 
-are combined and tested as a group. It checks the overall flow of the application after the integration of different modules.
+What is Integration Test?  Integration testing tests integration between
+software modules. It is a software testing technique where individual
+units of a program are combined and tested as a group. It checks the
+overall flow of the application after the integration of different
+modules.
 
 Useful links for writing tests in our most common  languages and frameworks: 
-* [Python](https://realpython.com/python-testing/)
-* [React](https://reactjs.org/docs/testing-recipes.html)
-* [Javascript](https://jestjs.io/)
-* [R](https://r-pkgs.org/tests.html)
+* [Python](https://realpython.com/python-testing/).
+* [React](https://reactjs.org/docs/testing-recipes.html).
+* [Javascript](https://jestjs.io/).
+* [R](https://r-pkgs.org/tests.html).
 
 #### Test-driven development
-Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into 
-very specific test cases, then the code is improved so that the tests pass. In simple terms, 
-test cases for each functionality are created and tested first and if the test fails then the new code is written in order to pass the test 
-and to make the code simple and bug-free.
+
+Test-driven development (TDD) is a software development process that
+relies on the repetition of a very short development cycle: requirements
+are turned into very specific test cases, then the code is improved so
+that the tests pass. In simple terms, test cases for each functionality
+are created and tested first and if the test fails then the new code
+is written in order to pass the test and to make the code simple and
+bug-free.
 
 #### Continuous integration and delivery
 
-The CI/CD pipeline is one of the best practices for devops teams to implement, 
-for delivering code changes more frequently and reliably. It is also an agile methodology 
-best practice, as it enables software development teams to focus on meeting business requirements, 
-and code quality because deployment steps are automated.
+The CI/CD pipeline is one of the best practices for devops teams to
+implement, for delivering code changes more frequently and reliably. It
+is also an agile methodology best practice, as it enables software
+development teams to focus on meeting business requirements, and code
+quality because deployment steps are automated.
 
 ##### Continuous integration
-Developers practicing continuous integration merge their changes back to the main branch as often as possible. 
-The developer's changes are validated by creating a build and running automated tests against the build. 
-By doing so, you avoid the integration hell that usually happens when people wait for release day to merge
- their changes into the release branch.
 
-Continuous integration puts a great emphasis on testing automation to check that the application is not broken 
-whenever new commits are integrated into the main branch.
+Developers practicing continuous integration merge their changes back
+to the main branch as often as possible.  The developer's changes are
+validated by creating a build and running automated tests against the
+build.  By doing so, you avoid the integration hell that usually happens
+when people wait for release day to merge their changes into the release
+branch.
+
+Continuous integration puts a great emphasis on testing automation
+to check that the application is not broken whenever new commits are
+integrated into the main branch.
 
 ###### What you need (cost)
-Your team will need to write automated tests for each new feature, improvement or bug fix. It should also  
-limit the size of the changes to make them easier to review and merge as soon as they're ready.
-You need a continuous integration server that can monitor the main repository and run the tests automatically. 
+
+Your team will need to write automated tests for each new feature,
+improvement or bug fix. It should also limit the size of the changes to
+make them easier to review and merge as soon as they're ready.  You need
+a continuous integration server that can monitor the main repository and
+run the tests automatically.
 
 ###### What you gain
-Less bugs get shipped to production as regressions are captured early by the automated tests.
-Building the release is easy as all integration issues have been solved early.
-Less context switching as developers are alerted as soon as they break the build and can work on fixing it before they move to another task.
+
+Less bugs get shipped to production as regressions are captured early by
+the automated tests.  Building the release is easy as all integration
+issues have been solved early.  Less context switching as developers are
+alerted as soon as they break the build and can work on fixing it before
+they move to another task.
 
 ###### Continuous delivery
-Continuous delivery is an extension of continuous integration to make sure that you can release new changes to your 
-customers quickly in a sustainable way. This means that on top of having automated your testing, you also have automated
- your release process and you can deploy your application at any point of time.
+
+Continuous delivery is an extension of continuous integration to make
+sure that you can release new changes to your customers quickly in
+a sustainable way. This means that on top of having automated your
+testing, you also have automated your release process and you can deploy
+your application at any point of time.
  
 ###### What you need (cost)
-You need a strong foundation in continuous integration and your test suite needs to cover enough of your codebase.
-Deployments need to be automated. The trigger is still manual but once a deployment is started there shouldn't be a need for human intervention.
-Your team will most likely need to embrace feature flags so that incomplete features do not affect customers in production.
+
+You need a strong foundation in continuous integration and your test
+suite needs to cover enough of your codebase.  Deployments need to be
+automated. The trigger is still manual but once a deployment is started
+there shouldn't be a need for human intervention.  Your team will most
+likely need to embrace feature flags so that incomplete features do not
+affect customers in production.
 
 ###### What you gain
-The complexity of deploying software has been taken away. Your team doesn't have to spend days preparing for a release anymore.
-You can release more often, thus accelerating the feedback loop with your customers.
-There is much less pressure on decisions for small changes, hence encouraging iterating faster.
+
+The complexity of deploying software has been taken away. Your team
+doesn't have to spend days preparing for a release anymore.  You can
+release more often, thus accelerating the feedback loop with your
+customers.  There is much less pressure on decisions for small changes,
+hence encouraging iterating faster.
 
 ###### Read CI/CD guides
-You can find some guides that will go more in depth to help you getting started with these practices.
 
-* [Getting started with continuous integration](https://www.atlassian.com/continuous-delivery/continuous-integration/how-to-get-to-continuous-integration)
-* [Getting started with continuous delivery](https://www.atlassian.com/continuous-delivery/pipeline)
-* [Getting started with continuous deployment](https://www.atlassian.com/continuous-delivery/continuous-deployment)
+You can find some guides that will go more in depth to help you getting
+started with these practices.
+
+* [Getting started with continuous integration](https://www.atlassian.com/continuous-delivery/continuous-integration/how-to-get-to-continuous-integration).
+* [Getting started with continuous delivery](https://www.atlassian.com/continuous-delivery/pipeline).
+* [Getting started with continuous deployment](https://www.atlassian.com/continuous-delivery/continuous-deployment).
 
 ## How we use GitHub
 
@@ -467,15 +508,18 @@ which acts like an umbrella for all our various repositories. Code
 repositories are public (available to the world), but we have the
 ability to create private repositories that are only available to
 members of NBISweden, *but only if there are very special circumstances
-that require this*. The ELIXIR Open Source Principles say "Start a
-project in the open from the very first day, in a publicly accessible,
-version controlled repository [...] The longer a project is run in a
-closed manner, the harder it is to open source it later". If the
-project is a Support project, however, you may have to use a private
-repository until the group desires the code (and its results) to be
-publicly available; do work on it with the mindset that it will become
-public at some point, though. Use the following naming scheme for
-Support project repositories: `<SMS/LTS/PP>-<Redmine issue>-<year>-<descriptive name>`.
+that require this*. The ELIXIR Open Source Principles say
+
+>Start a project in the open from the very first day, in a publicly
+>accessible, version controlled repository [...] The longer a project is
+>run in a closed manner, the harder it is to open source it later.
+
+If the project is a Support project, however, you may have to use a
+private repository until the group desires the code (and its results)
+to be publicly available; do work on it with the mindset that it
+will become public at some point, though. Use the following naming
+scheme for Support project repositories:
+`<SMS/LTS/PP>-<Redmine-issue>-<year>-<descriptive name>`.
 
 The source code that we produce are Public Records, and as such should
 be made publicly available as Open Source. This is a requirement
@@ -574,13 +618,14 @@ makes it easy to work with Git-Flow from the command line.  See his
 
 For more in-depth descriptions of Git-Flow, see
 
-* [Gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
-* [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
-* [Git-Flow Cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/)
-* [Using git-flow to automate your git branching workflow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/)
+* [Gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
+* [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/).
+* [Git-Flow Cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/).
+* [Using git-flow to automate your git branching workflow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/).
 
-For smaller projects, Support projects or NBIS courses/workshop, another
-branching model may be appropriate, such as [GitHub flow](https://guides.github.com/introduction/flow/).
+For smaller projects, Support projects or NBIS courses/workshop,
+another branching model may be appropriate, such as
+[GitHub flow](https://guides.github.com/introduction/flow/).
 
 ## General stuff about working with Git
 
@@ -597,13 +642,14 @@ were necessary.
 Each commit should ideally contain changes that are functionally
 connected/related.  For example, changes to the command line parsing
 code, changes to the documentation, and changes to some unrelated
-comments may be split into three commits. A rule of thumb is that if the commit message contains an 'and', it should probably be split into multiple commits. Also note that a single logical
-change (suitable for a single commit) may comprise changes in several
-files.
+comments may be split into three commits. A rule of thumb is that if the
+commit message contains the word "and", it should probably be split into
+multiple commits. Also note that a single logical change (suitable for a
+single commit) may comprise changes in several files.
 
 Learn how to select chunks of changed files to do multiple
-separate commits of unrelated things. This can be done using `git add -p
-...`.
+separate commits of unrelated things. This can be done using
+`git add -p ...`.
 
 One common usage is to prepare commits with `git add` (which tells git
 the corresponding changes shall be included in the commit, in git
@@ -635,11 +681,11 @@ you're tidying up your own branch.
 If a "live" checkout of the repository needs to exist somewhere, for
 example to run a public web service, then:
 
-* Don't do development in the live checkout
-* Do development and testing in a private checkout
-* Only ever do "git pull" in the live checkout
+* Don't do development in the live checkout.
+* Do development and testing in a private checkout.
+* Only ever do "git pull" in the live checkout.
 * A live service with active users should run a stable release from
-the master branch
+the master branch.
 
 ### Helpful commit messages
 
@@ -680,12 +726,12 @@ Reviews can be conducted at any stage in development (just let someone
 look at the code), but we'd like code to be more formally reviewed at
 least
 
-* Before a feature branch is merged to the main development branch
+* Before a feature branch is merged to the main development branch.
 * When a bug is fixed on the master branch before its hotfix/bugfix
-branch is merged
+branch is merged.
 * When a release is made by merging the current state of the development
 branch (or release branch, if such a branch is used) to the master
-branch
+branch.
 
 To be able to use GitHub or a code review, both the author and the
 reviewer should have their own personal GitHub accounts.
@@ -713,9 +759,8 @@ assigns them to it.  A reviewer may be found
 5. If needed, the author gives the reviewer(s) some background on the
 project, and what the code under review is supposed to do etc. Having a
 fixed group of reviewers for a project would minimize the need for this
-step.
-This may be done in a face-to-face meeting, on Slack, or in any other
-way that is convenient.
+step.  This may be done in a face-to-face meeting, on Slack, or in any
+other way that is convenient.
 
 6. If there's more than one reviewer, one of the reviewers is designated
 as the "main" reviewer. This reviewer will later do one extra thing (see
@@ -730,10 +775,10 @@ are public.
 
 9. The reviewer(s) leaves a summary of their review by clicking "Review
 changes" and submits it as feedback
-    * Without explicitly approving the pull request (it's just feedback)
+    * Without explicitly approving the pull request (it's just feedback).
     * Explicitly approving the pull request (it all look good), or
     * Explicitly rejecting the pull request (there's something that
-    needs to be discussed and/or fixed)
+    needs to be discussed and/or fixed).
 
 10. If no reviews are rejecting the pull request, the designated
 "main" reviewer will merge the pull request and delete the feature (or
@@ -815,10 +860,14 @@ discussions to an alternate forum.
 
 ## Reproducibility guidelines
 
-Reproducibility is an important aspect of scientific research. As a support organisation directly involved in research we have a responsibility
- to make sure that our work is reproducible. Please refer to the NBIS [Reproducibility guidelines](https://github.com/NBISweden/Reproducibility-Guidelines) 
- for more information about this matter.
+Reproducibility is an important aspect of scientific research.
+As a support organisation directly involved in research
+we have a responsibility to make sure that our work is
+reproducible.  Please refer to the NBIS [Reproducibility
+guidelines](https://github.com/NBISweden/Reproducibility-Guidelines) for
+more information about this matter.
 
 ### Release versioning
 
-The use of [semantic versioning](https://semver.org) is highly recommended.
+The use of [semantic versioning](https://semver.org) is highly
+recommended.
