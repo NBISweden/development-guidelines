@@ -86,10 +86,11 @@ Malicious software can be present and default configurations usually
 have simplicity as the primary goal, not security.
 * Incorporate security in the entire Software Development Lifecycle:
     * Include security considerations when gathering requirements.
-    * Threat model when designing.
+    * Threat model continuously.
     * Implement tests and build processes that evaluate security.
   
     Some examples:
+    * Ask [the four key threat model questions](https://www.threatmodelingmanifesto.org/) during backlog refinement.
     * During the design phase:
         * Explicitly map out attack surfaces.
 	        * Discuss what security means for your project - you may
