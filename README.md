@@ -81,7 +81,7 @@ the different components of your project. Some example resources are:
     Practices](https://bestpractices.coreinfrastructure.org/en).
     * [OWASP Top 10 Web Application Security Risks](https://owasp.org/www-project-top-ten/).
 * Don’t blindly trust out-of-the-box software and default
-configurations, e.g. popular Docker images, aws services, etc. 
+configurations, e.g. open source libraries, Docker images, aws services, etc.
 Malicious software can be present and default configurations usually
 have simplicity as the primary goal, not security.
 * Incorporate security in the entire Software Development Lifecycle:
