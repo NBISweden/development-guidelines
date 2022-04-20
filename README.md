@@ -80,6 +80,7 @@ the different components of your project. Some example resources are:
     * [Linux Foundation (LF) Core Infrastructure Initiative (CII) Best
     Practices](https://bestpractices.coreinfrastructure.org/en).
     * [OWASP Top 10 Web Application Security Risks](https://owasp.org/www-project-top-ten/).
+    * [OWASP Slack](https://owasp.org/slack/invite)
 * Don’t blindly trust out-of-the-box software and default
 configurations, e.g. open source libraries, Docker images, aws services, etc.
 Malicious software can be present and default configurations usually
