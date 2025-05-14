@@ -72,7 +72,7 @@ analysis should be employed at the early stage of a project (it is
 usually way more expensive and complicated at a late stage) and
 continuously carried out until the end. 
 
-The security risks will differ vastly between project, but general
+The security risks will differ vastly between projects, but general
 guidelines are:
 
 * Educate yourself, research on what security risks are related to
@@ -101,7 +101,7 @@ have simplicity as the primary goal, not security.
   
   [More information on Secure Software Development Lifecycle](https://owasp.org/www-project-integration-standards/writeups/owasp_in_sdlc/).
 
-### Speaking about security….
+### Speaking about security...
 To be safe while navigating the wild west that modern computing can
 be, make sure to:
 * Keep software up-to-date (turn on automatic updates for your
@@ -121,13 +121,13 @@ just going for a quick coffee!)
 surface.
 * Encrypt your drives, especially external. Be careful about what you
 insert.
-* Be careful regarding what you links you click and what you download.
+* Be careful regarding what links you click and what you download.
 Avoid visiting unknown websites, especially if they stem from a
 suspicious email, and do not download software from untrusted sources.
 
 ### Intent
 
-Names of variable, functions, methods etc. should be clear and
+Names of variables, functions, methods etc. should be clear and
 descriptive, not cryptic. For example, function names might be a
 verb or a question: `get_gene_name()`, `find_downstream_feature()`,
 `is_circular()`, or `has_multiple_flurbs()`.
@@ -173,12 +173,12 @@ no benefit of compacting code into as few lines as possible (unless
 you're doing assembly programming for some custom chip, which we don't
 do).
 
-Avoid long lines (>75-80 characters) if possible.
+Avoid long lines (>75-80 characters) if possible. Why? Because it
 
-* Benefits co-developers editing code in Emacs/Vim over SSH
+* benefits co-developers editing code in Emacs/Vim over SSH
 and/or in narrower windows (commonly around 80 characters wide).
-* Often makes pull requests smaller.
-* Makes the code more readable.
+* often makes pull requests smaller.
+* makes the code more readable.
 
 Use a tool for automatic indentation if the editor you're using does
 not do it for you, e.g. `clang-format` or `indent` for C or C++ code,
@@ -381,13 +381,13 @@ extent to which the component or system under test:
 #### Unit Tests vs. Integration Tests
 
 What is the Unit Test?  Unit Tests are conducted by developers and test
-the unit of code( aka module, component) he or she developed.  It is
+the unit of code (aka module, component) he or she developed.  It is
 a testing method by which individual units of source code are tested
-to determine if they are ready to use.  It helps to reduce the cost of
+to determine if they are ready to use. It helps to reduce the cost of
 bug fixes since the bugs are identified during the early phases of the
 development lifecycle.
 
-What is Integration Test?  Integration testing tests integration between
+What is an Integration Test?  Integration testing tests integration between
 software modules. It is a software testing technique where individual
 units of a program are combined and tested as a group. It checks the
 overall flow of the application after the integration of different
@@ -420,9 +420,9 @@ quality because deployment steps are automated.
 ##### Continuous integration
 
 Developers practicing continuous integration merge their changes back
-to the main branch as often as possible.  The developer's changes are
+to the main branch as often as possible. The developer's changes are
 validated by creating a build and running automated tests against the
-build.  By doing so, you avoid the integration hell that usually happens
+build. By doing so, you avoid the integration hell that usually happens
 when people wait for release day to merge their changes into the release
 branch.
 
@@ -434,15 +434,15 @@ integrated into the main branch.
 
 Your team will need to write automated tests for each new feature,
 improvement or bug fix. It should also limit the size of the changes to
-make them easier to review and merge as soon as they're ready.  You need
+make them easier to review and merge as soon as they're ready. You need
 a continuous integration server that can monitor the main repository and
 run the tests automatically.
 
 ###### What you gain
 
 Less bugs get shipped to production as regressions are captured early by
-the automated tests.  Building the release is easy as all integration
-issues have been solved early.  Less context switching as developers are
+the automated tests. Building the release is easy as all integration
+issues have been solved early. Less context switching as developers are
 alerted as soon as they break the build and can work on fixing it before
 they move to another task.
 
@@ -457,18 +457,18 @@ your application at any point of time.
 ###### What you need (cost)
 
 You need a strong foundation in continuous integration and your test
-suite needs to cover enough of your codebase.  Deployments need to be
+suite needs to cover enough of your codebase. Deployments need to be
 automated. The trigger is still manual but once a deployment is started
-there shouldn't be a need for human intervention.  Your team will most
+there shouldn't be a need for human intervention. Your team will most
 likely need to embrace feature flags so that incomplete features do not
 affect customers in production.
 
 ###### What you gain
 
 The complexity of deploying software has been taken away. Your team
-doesn't have to spend days preparing for a release anymore.  You can
+doesn't have to spend days preparing for a release anymore. You can
 release more often, thus accelerating the feedback loop with your
-customers.  There is much less pressure on decisions for small changes,
+customers. There is much less pressure on decisions for small changes,
 hence encouraging iterating faster.
 
 ###### Read CI/CD guides
@@ -541,9 +541,9 @@ user should pick. No changes are made directly on the master branch
 
 Strictly speaking, Git-Flow makes a distinction between a "master"
 and a "release" branch where the release branch contains the next
-release-in-making, branched off from the development branch.  The
+release-in-making, branched off from the development branch. The
 `release` branch contains commits relating to creating the new release,
-such as adjustments to release numbers.  The branch is then reviewed
+such as adjustments to release numbers. The branch is then reviewed
 and merged into the master *and* development branches, creating a new
 release of the software on the master branch. We do not follow this, but
 you are free to do so if you think it makes more sense, for example in a
@@ -551,7 +551,7 @@ highly distributed project with many active users/developers.
 
 The code on the **development** branch (often called `develop`) should
 be working, but without guarantees. For small projects, development
-might well happen directly on the development branch and the code here
+might as well happen directly on the development branch and the code here
 may therefore sometimes be broken (this should ideally never happen
 though). When the development branch is deemed "done" and has undergone
 testing and review, it is merged into the master branch. The release is
@@ -569,12 +569,12 @@ for the next release, or updating the documentation (because you forgot
 to do that when you changed the code, didn't you?).
 
 Once the feature is finished, it is merged back into the main
-development branch and its feature branch is deleted. In larger project
+development branch and its feature branch is deleted. In larger projects
 (more than a single developer), new features should be implemented in
 feature branches and undergo review before merging (see below). This may
 be highly beneficial for small projects too, obviously (do this!).
 
-A **hotfix** branch (often called `hotfix/some_name`) is a essentially
+A **hotfix** branch (often called `hotfix/some_name`) is essentially
 a branch that implements a bugfix to a release. In terms of branching,
 it is thus very similar to a feature branch but for the master branch
 rather than for the development branch. A hotfix should fix critical
@@ -598,14 +598,14 @@ the case of the developer).
 * Features in "feature" branches are independent of each other. Any
 conflicts are resolved when merging.
 
-There are a host of different graphical user interfaces that
-helps keeping track of Git and the various branches in a
+There are many different graphical user interfaces that
+help keeping track of Git and the various branches in a
 project. [SourceTree](https://www.sourcetreeapp.com) is a good free one
 for macOS and Windows, for example.
 
 The GitHub user Vincent Driessen ("nvie" on GitHub), who actually came
 up with Git-Flow in the first place, has a set of Git extensions that
-makes it easy to work with Git-Flow from the command line.  See his
+makes it easy to work with Git-Flow from the command line. See his
 [nvie/gitflow](https://github.com/nvie/gitflow) repository.
 
 For more in-depth descriptions of Git-Flow, see
@@ -615,7 +615,7 @@ For more in-depth descriptions of Git-Flow, see
 * [Git-Flow Cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/).
 * [Using git-flow to automate your git branching workflow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/).
 
-For smaller projects, Support projects or NBIS courses/workshop,
+For smaller projects, support projects or NBIS courses/workshops,
 another branching model may be appropriate, such as
 [GitHub flow](https://guides.github.com/introduction/flow/).
 
@@ -632,7 +632,7 @@ commit that describes what the changes are and possibly even why they
 were necessary.
 
 Each commit should ideally contain changes that are functionally
-connected/related.  For example, changes to the command line parsing
+connected/related. For example, changes to the command line parsing
 code, changes to the documentation, and changes to some unrelated
 comments may be split into three commits. A rule of thumb is that if the
 commit message contains the word "and", it should probably be split into
@@ -666,7 +666,7 @@ This also supports the usual features of `git-add`, e.g.
 `--interactive` and `--patch` (or `-p`).
 
 Avoid "force push" unless it makes everyone's life easier. And when you do,
-use `--force-with-lease` to avoid pushing when new changes has happened on
+use `--force-with-lease` to avoid pushing when new changes have happened on
 the remote. A situation where it might make everyone's life easier is when
 you're tidying up your own branch.
 
@@ -718,10 +718,10 @@ Reviews can be conducted at any stage in development (just let someone
 look at the code), but we'd like code to be more formally reviewed at
 least
 
-* Before a feature branch is merged to the main development branch.
-* When a bug is fixed on the master branch before its hotfix/bugfix
+* before a feature branch is merged to the main development branch.
+* when a bug is fixed on the master branch before its hotfix/bugfix
 branch is merged.
-* When a release is made by merging the current state of the development
+* when a release is made by merging the current state of the development
 branch (or release branch, if such a branch is used) to the master
 branch.
 
@@ -731,7 +731,7 @@ reviewer should have their own personal GitHub accounts.
 ### Code reviewing steps
 
 1. The code is written on a separate branch, for example on a
-`feature/some_name` branch off of the main development branch.
+`feature/some_name` branch based on the main development branch.
 
 2. The author feels that the code is correct and finished and pushes the
 branch to GitHub one last time before the actual review.
@@ -741,17 +741,17 @@ the branch on the GitHub web pages and clicking the button labelled "New
 pull request".
 
 4. The author finds one or several reviewers for the pull request and
-assigns them to it.  A reviewer may be found
-    * By asking one of the already designated reviewers connected to the
+assigns them to it. A reviewer may be found
+    * by asking one of the already designated reviewers connected to the
     project, if such a group of people has been created.
-    * By asking in the "code-review-forum" in the NBIS Slack.
-    * By meeting up with or contacting any other colleague that is not
+    * by asking in the "code-review-forum" in the NBIS Slack.
+    * by meeting up with or contacting any other colleague that is not
     directly involved with the code that is being reviewed.
 
 5. If needed, the author gives the reviewer(s) some background on the
 project, and what the code under review is supposed to do etc. Having a
 fixed group of reviewers for a project would minimize the need for this
-step.  This may be done in a face-to-face meeting, on Slack, or in any
+step. This may be done in a face-to-face meeting, on Slack, or in any
 other way that is convenient.
 
 6. If there's more than one reviewer, one of the reviewers is designated
@@ -783,10 +783,10 @@ with the language/highlight `suggestion`, e.g.
 when created this way, suggested changes are easy to include.
 
 10. The reviewer(s) leaves a summary of their review by clicking "Review
-changes" and submits it as feedback
-    * Without explicitly approving the pull request (it's just feedback).
-    * Explicitly approving the pull request (it all look good), or
-    * Explicitly rejecting the pull request (there's something that
+changes" and submit it as feedback
+    * without explicitly approving the pull request (it's just feedback).
+    * explicitly approving the pull request (it all looks good), or
+    * explicitly rejecting the pull request (there's something that
     needs to be discussed and/or fixed).
 
 11. If no reviews are rejecting the pull request, the designated
@@ -860,7 +860,7 @@ About communication (reviewer):
 * Do the review promptly.
 * Communicate what ideas (proposed changes) you feel strongly about, and
 which ones you don't.
-* Identify ways in which a simpler solution to the problem may be had.
+* Identify ways in which a simpler solution to the problem may be found.
 * Let the author have the last call on the final implementation,
 and move philosophical, academic or otherwise unrelated technical
 discussions to an alternate forum.
