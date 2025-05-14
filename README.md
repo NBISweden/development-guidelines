@@ -387,7 +387,7 @@ to determine if they are ready to use. It helps to reduce the cost of
 bug fixes since the bugs are identified during the early phases of the
 development lifecycle.
 
-What is the Integration Test?  Integration testing tests integration between
+What is an Integration Test?  Integration testing tests integration between
 software modules. It is a software testing technique where individual
 units of a program are combined and tested as a group. It checks the
 overall flow of the application after the integration of different
