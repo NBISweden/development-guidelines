@@ -66,6 +66,7 @@ Table of Contents
           * [Read CI/CD guides](#read-cicd-guides)
   * [How we use GitHub](#how-we-use-github)
   * [How we use Git](#how-we-use-git)
+    * [Branch protection](#branch-protection)
   * [General stuff about working with Git](#general-stuff-about-working-with-git)
     * [Helpful commit messages](#helpful-commit-messages)
   * [How we do code reviews](#how-we-do-code-reviews)
@@ -627,6 +628,17 @@ For more in-depth descriptions of Git-Flow, see
 For smaller projects, support projects or NBIS courses/workshops,
 another branching model may be appropriate, such as
 [GitHub flow](https://guides.github.com/introduction/flow/).
+
+### Branch protection
+
+It is recommended to add protection to important branches such as the `main` branch to ensure code quality and stability. Branch protection rules can help prevent accidental or unauthorized changes. Some common branch protection settings include:
+
+* **Require pull request before merging:** This ensures that all changes are reviewed before being merged into the protected branch.
+* **Require a minimum number of approvals:** This requires a certain number of reviewers to approve a pull request before it can be merged.
+* **Require status checks to pass before merging:** This ensures that all automated tests and checks pass before changes can be merged.
+* **Prevent force pushes:** This prevents developers from force pushing changes to the branch, which can overwrite history and cause issues.
+
+You can configure these settings in the repository settings on GitHub under the `Branches` section.
 
 ## General stuff about working with Git
 
