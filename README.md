@@ -233,18 +233,18 @@ Follow the best practices agreed upon within the organisation
 ### What programming language to use
 
 We don't have any *specific* guideline for what programming languages
-NBIS software should be written in.  However, keep in mind that any
+NBIS software should be written in. However, keep in mind that any
 software that you produce will need to be maintained by yourself and by
 your colleagues (current and future), and that we do not want to end up
 with unmaintainable software.
 
-Therefore: for a brand new project, use a major programming language
-that we have expertise for within NBIS.
+Therefore, for a brand new project, use a major programming language
+that we have expertise in within NBIS.
 
-At the time of writing, GitHub tells us that our "top languages" in our
-NBISweden repositories are
+At the time of writing, the most frequent languages are
 
 * Python
+* Golang
 * HTML (Javascript/Typescript)
 * Shell
 * R
