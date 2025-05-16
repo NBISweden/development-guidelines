@@ -39,71 +39,81 @@ need to review them. These things are not set in stone.
 Table of Contents
 =================
 
-  * [Coding Guidelines for NBIS Developers](#coding-guidelines-for-nbis-developers)
-    * [Things to be aware of when writing code](#things-to-be-aware-of-when-writing-code)
-      * [Writing secure software](#writing-secure-software)
-      * [Intent](#intent)
-      * [Comments in code](#comments-in-code)
-      * [Readability](#readability)
-      * [Best programming practices](#best-programming-practices)
-      * [What programming language to use](#what-programming-language-to-use)
-      * [Documentation, licensing and packaging](#documentation-licensing-and-packaging)
-        * [Licensing](#licensing)
-        * [Files bundled with a piece of software](#files-bundled-with-a-piece-of-software)
-      * [Sensitive data](#sensitive-data)
-      * [Testing](#testing)
-        * [Continuous integration and delivery](#continuous-integration-and-delivery)
-    * [How we use GitHub](#how-we-use-github)
-    * [How we use Git](#how-we-use-git)
-    * [General stuff about working with Git](#general-stuff-about-working-with-git)
-      * [Helpful commit messages](#helpful-commit-messages)
-    * [How we do code reviews](#how-we-do-code-reviews)
-      * [Code reviewing steps](#code-reviewing-steps)
-      * [General stuff about code reviews](#general-stuff-about-code-reviews)
-    *  [Reproducibility Guidelines](#reproducibility-guidelines)
+* [Coding Guidelines for NBIS Developers](#coding-guidelines-for-nbis-developers)
+* [Table of Contents](#table-of-contents)
+  * [Things to be aware of when writing code](#things-to-be-aware-of-when-writing-code)
+    * [Writing secure software](#writing-secure-software)
+    * [Speaking about security...](#speaking-about-security)
+    * [Intent](#intent)
+    * [Comments in code](#comments-in-code)
+    * [Readability](#readability)
+    * [Best programming practices](#best-programming-practices)
+    * [What programming language to use](#what-programming-language-to-use)
+    * [Documentation, licensing and packaging](#documentation-licensing-and-packaging)
+      * [Licensing](#licensing)
+      * [Files bundled with a piece of software](#files-bundled-with-a-piece-of-software)
+    * [Sensitive data](#sensitive-data)
+    * [Testing](#testing)
+      * [Unit Tests vs. Integration Tests](#unit-tests-vs-integration-tests)
+      * [Test-driven development](#test-driven-development)
+      * [Continuous integration and delivery](#continuous-integration-and-delivery)
+        * [Continuous integration](#continuous-integration)
+          * [What you need (cost)](#what-you-need-cost)
+          * [What you gain](#what-you-gain)
+          * [Continuous delivery](#continuous-delivery)
+          * [What you need (cost)](#what-you-need-cost-1)
+          * [What you gain](#what-you-gain-1)
+          * [Read CI/CD guides](#read-cicd-guides)
+  * [How we use GitHub](#how-we-use-github)
+  * [How we use Git](#how-we-use-git)
+  * [General stuff about working with Git](#general-stuff-about-working-with-git)
+    * [Helpful commit messages](#helpful-commit-messages)
+  * [How we do code reviews](#how-we-do-code-reviews)
+    * [Code reviewing steps](#code-reviewing-steps)
+    * [General stuff about code reviews](#general-stuff-about-code-reviews)
+  * [Reproducibility guidelines](#reproducibility-guidelines)
+    * [Release versioning](#release-versioning)
 
 ## Things to be aware of when writing code
 
 ### Writing secure software
+
 While not always the most exciting part of writing code, it is important
 to consider the security risks with a software project to avoid costly
 patches and perhaps more importantly, reputation damage. Security risks
 analysis should be employed at the early stage of a project (it is
 usually way more expensive and complicated at a late stage) and
-continuously carried out until the end. 
+continuously carried out until the end.
 
 The security risks will differ vastly between projects, but general
 guidelines are:
 
 * Educate yourself, research on what security risks are related to
 the different components of your project. Some example resources are:
-    * [Linux Foundation (LF) Core Infrastructure Initiative (CII) Best
-    Practices](https://bestpractices.coreinfrastructure.org/en).
-    * [OWASP Top 10 Web Application Security Risks](https://owasp.org/www-project-top-ten/).
-    * [OWASP Slack](https://owasp.org/slack/invite)
+  * [Linux Foundation (LF) Core Infrastructure Initiative (CII) Best Practices](https://bestpractices.coreinfrastructure.org/en).
+  * [OWASP Top 10 Web Application Security Risks](https://owasp.org/www-project-top-ten/).
+  * [OWASP Slack](https://owasp.org/slack/invite)
 * Don’t blindly trust out-of-the-box software and default
 configurations, e.g. open source libraries, Docker images, aws services, etc.
 Malicious software can be present and default configurations usually
 have simplicity as the primary goal, not security.
 * Incorporate security in the entire Software Development Lifecycle:
-    * Include security considerations when gathering requirements.
-    * Threat model continuously.
-    * Implement tests and build processes that evaluate security.
+  * Include security considerations when gathering requirements.
+  * Threat model continuously.
+  * Implement tests and build processes that evaluate security.
   
-    Some examples:
-    * Ask [the four key threat model questions](https://www.threatmodelingmanifesto.org/)
-    during backlog refinement.
-    * Enable services like [Dependabot](https://dependabot.com/) or
-    [Snyk](https://snyk.io/) to enable alerts for dependices for your
-    project (this can easily be done at GitHub).
-    * Fuzzing can often help discovering bugs, both security related
-    and others.
+  Some examples:
+  * Ask [the four key threat model questions](https://www.threatmodelingmanifesto.org/) during backlog refinement.
+  * Enable services like [Dependabot](https://dependabot.com/) or [Snyk](https://snyk.io/) to enable alerts for dependices for your project (this can easily be done at GitHub).
+  * Fuzzing can often help discovering bugs, both security related and others.
   
   [More information on Secure Software Development Lifecycle](https://owasp.org/www-project-integration-standards/writeups/owasp_in_sdlc/).
 
-### Speaking about security...
+### Speaking about security
+
 To be safe while navigating the wild west that modern computing can
 be, make sure to:
+
 * Keep software up-to-date (turn on automatic updates for your
 operating system and programs).
 * Use a password manager (third-party or browser’s built-in depending
@@ -217,12 +227,12 @@ Follow the best practices agreed upon within the organisation
 (NBIS/ELIXIR).
 
 * [ELIXIR best practices](https://github.com/SoftDev4Research).
-    * [F1000 paper](https://f1000research.com/articles/6-876/v1).
+  * [F1000 paper](https://f1000research.com/articles/6-876/v1).
 * [Good Enough Practices for Scientific Computing](http://swcarpentry.github.io/good-enough-practices-in-scientific-computing/).
 
 ### What programming language to use
 
-We don't have any _specific_ guideline for what programming languages
+We don't have any *specific* guideline for what programming languages
 NBIS software should be written in.  However, keep in mind that any
 software that you produce will need to be maintained by yourself and by
 your colleagues (current and future), and that we do not want to end up
@@ -301,20 +311,18 @@ summaries and explanations of Open Source licenses.
 
 * **README** (plain text or Markdown-formatted). Every project should
 have a `README` or `README.md` file that contains at least
-    * "What this is".
-    * How to run/invoke the software.
-    * Short example(s) (may be included in a separate "examples"
-    subdirectory).
-    * A reference to the `INSTALL` and `LICENSE`/`COPYING` files.
+  * "What this is".
+  * How to run/invoke the software.
+  * Short example(s) (may be included in a separate "examples" subdirectory).
+  * A reference to the `INSTALL` and `LICENSE`/`COPYING` files.
 
 * **INSTALL** (plain text or Markdown-formatted). Unless the software
 is trivial to install (e.g. just copy one file), then an `INSTALL` or
 `INSTALL.md` document should be added in which a user may find the
 following:
-    * External dependencies (including specific versions, where
-    applicable).
-    * Step-by-step instructions for how to install.
-    * If appropriate, how to test the installation to make sure it works.
+  * External dependencies (including specific versions, where applicable).
+  * Step-by-step instructions for how to install.
+  * If appropriate, how to test the installation to make sure it works.
 
 * **LICENSE** or **COPYING** (plain text).  This is simply a plain text
 file containing the license text.
@@ -337,11 +345,11 @@ password* (with everything that this entails). It is *not* enough to
 remove/reverse the commit or submit a new commit with the password
 removed.
 * Code should use placeholders that point to:
-    * Local read-protected files, possibly located outside of the
+  * Local read-protected files, possibly located outside of the
     Git repository file structure to avoid accidental inclusion as
     part of the repository,
-    * Environment variables, or
-    * Some sort of secured (possibly remote) storage.
+  * Environment variables, or
+  * Some sort of secured (possibly remote) storage.
 * The documentation (`README`/`INSTALL`, whichever is most appropriate)
 should mention how to instantiate those variables/files, etc.
 
@@ -393,7 +401,8 @@ units of a program are combined and tested as a group. It checks the
 overall flow of the application after the integration of different
 modules.
 
-Useful links for writing tests in our most common  languages and frameworks: 
+Useful links for writing tests in our most common  languages and frameworks:
+
 * [Python](https://realpython.com/python-testing/).
 * [React](https://reactjs.org/docs/testing-recipes.html).
 * [Javascript](https://jestjs.io/).
@@ -446,14 +455,14 @@ issues have been solved early. Less context switching as developers are
 alerted as soon as they break the build and can work on fixing it before
 they move to another task.
 
-###### Continuous delivery
+##### Continuous delivery
 
 Continuous delivery is an extension of continuous integration to make
 sure that you can release new changes to your customers quickly in
 a sustainable way. This means that on top of having automated your
 testing, you also have automated your release process and you can deploy
 your application at any point of time.
- 
+
 ###### What you need (cost)
 
 You need a strong foundation in continuous integration and your test
@@ -658,7 +667,7 @@ If you do not want or need to review individual changes that should be
 part of a commit, you can short-circuit things by calling `git commit`
 directly, e.g.
 
-```
+```sh
 git commit -m 'My informative message' path1/file1 path2/file2
 ```
 
@@ -688,17 +697,15 @@ external users.
 
 Some tips about writing helpful commit messages:
 
-0. Why, not what.
-  * The code shows what has been changed. Document why those changes were made.
-1. Separate subject (the first line of the message) from body with a blank line.
-2. Limit the subject line to 50 characters.
-3. Capitalize the subject line.
-4. Do not end the subject line with a period.
-5. Use the [imperative mood](https://en.wikipedia.org/wiki/Imperative_mood)
-in the subject line.
-6. Wrap the body at 72 characters.
-7. Use the body to explain what and why vs. how.
-8. Use [conventional commits](https://www.conventionalcommits.org).
+1. *Why*, not *what*; The code shows what has been changed. Document why those changes were made.
+2. Separate subject (the first line of the message) from body with a blank line.
+3. Limit the subject line to 50 characters.
+4. Capitalize the subject line.
+5. Do not end the subject line with a period.
+6. Use the [imperative mood](https://en.wikipedia.org/wiki/Imperative_mood) in the subject line.
+7. Wrap the body at 72 characters.
+8. Use the body to explain what and why vs. how.
+9. Use [conventional commits](https://www.conventionalcommits.org).
 
 For an in-depth explanation of the above points, please see [How to
 Write a Git Commit Message](http://chris.beams.io/posts/git-commit/).
