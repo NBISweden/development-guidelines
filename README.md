@@ -41,8 +41,6 @@ Table of Contents
 * [Coding Guidelines for NBIS Developers](#coding-guidelines-for-nbis-developers)
 * [Table of Contents](#table-of-contents)
   * [Things to be aware of when writing code](#things-to-be-aware-of-when-writing-code)
-    * [Writing secure software](#writing-secure-software)
-    * [Speaking about security...](#speaking-about-security)
     * [Naming of objects and variables](#naming-of-objects-and-variables)
     * [Comments in code](#comments-in-code)
     * [Readability](#readability)
@@ -63,6 +61,10 @@ Table of Contents
           * [What you need (cost)](#what-you-need-cost-1)
           * [What you gain](#what-you-gain-1)
           * [Read CI/CD guides](#read-cicd-guides)
+    * [Security](#security)
+      * [Writing secure software](#writing-secure-software)
+      * [Sensitive data](#sensitive-data)
+      * [Speaking about security...](#speaking-about-security)
   * [How we use GitHub](#how-we-use-github)
   * [How we use Git](#how-we-use-git)
   * [General stuff about working with Git](#general-stuff-about-working-with-git)
@@ -74,65 +76,6 @@ Table of Contents
     * [Release versioning](#release-versioning)
 
 ## Things to be aware of when writing code
-
-### Writing secure software
-
-While not always the most exciting part of writing code, it is important
-to consider the security risks with a software project to avoid costly
-patches and perhaps more importantly, reputation damage. Security risks
-analysis should be employed at the early stage of a project (it is
-usually way more expensive and complicated at a late stage) and
-continuously carried out until the end.
-
-The security risks will differ vastly between projects, but general
-guidelines are:
-
-* Educate yourself, research on what security risks are related to
-the different components of your project. Some example resources are:
-  * [Linux Foundation (LF) Core Infrastructure Initiative (CII) Best Practices](https://bestpractices.coreinfrastructure.org/en).
-  * [OWASP Top 10 Web Application Security Risks](https://owasp.org/www-project-top-ten/).
-  * [OWASP Slack](https://owasp.org/slack/invite)
-* Don’t blindly trust out-of-the-box software and default
-configurations, e.g. open source libraries, Docker images, aws services, etc.
-Malicious software can be present and default configurations usually
-have simplicity as the primary goal, not security.
-* Incorporate security in the entire Software Development Lifecycle:
-  * Include security considerations when gathering requirements.
-  * Threat model continuously.
-  * Implement tests and build processes that evaluate security.
-  
-  Some examples:
-  * Ask [the four key threat model questions](https://www.threatmodelingmanifesto.org/) during backlog refinement.
-  * Enable services like [Dependabot](https://dependabot.com/) or [Snyk](https://snyk.io/) to enable alerts for dependices for your project (this can easily be done at GitHub).
-  * Fuzzing can often help discovering bugs, both security related and others.
-  
-  [More information on Secure Software Development Lifecycle](https://owasp.org/www-project-integration-standards/writeups/owasp_in_sdlc/).
-
-### Speaking about security
-
-To be safe while navigating the wild west that modern computing can
-be, make sure to:
-
-* Keep software up-to-date (turn on automatic updates for your
-operating system and programs).
-* Use a password manager (third-party or browser’s built-in depending
-on your needs) to facilitate strong unique passwords. Do not reuse
-passwords.
-* Use two-factor authentication, e.g. Authy or Google Authenticator.
-This is supported by many services such as GitHub, Slack, Gmail etc.
-In the not so unlikely event that someone does obtain your password,
-two-factor authentication can still protect you and sensitive
-information.
-* Always lock your computer when left unattended (even if you are
-just going for a quick coffee!)
-* Configure so your device is automatically locked after 1-5 minutes.
-* Remove unnecessary programs from your computer to reduce attack
-surface.
-* Encrypt your drives, especially external. Be careful about what you
-insert.
-* Be careful regarding what links you click and what you download.
-Avoid visiting unknown websites, especially if they stem from a
-suspicious email, and do not download software from untrusted sources.
 
 ### Naming of objects and variables
 
@@ -325,32 +268,6 @@ following:
 * **LICENSE** or **COPYING** (plain text).  This is simply a plain text
 file containing the license text.
 
-### Sensitive data
-
-Sensitive data includes things like passwords, usernames, server names,
-and data protected by law.
-
-* Do not ever put sensitive data in files that are pushed to GitHub
-or made public in any other way.
-* Do not *ever* put sensitive data in files that are pushed to
-GitHub or made public in any other way.
-* Some types of data may even only exist in certain folders or on
-certain machines. Do not proliferate this kind of data, *not even
-internally*. Also avoid putting this type of data in Dropbox, Google
-Drive or in similar cloud storage or shared network drive.
-* If a password is published by mistake, *you need to change the
-password* (with everything that this entails). It is *not* enough to
-remove/reverse the commit or submit a new commit with the password
-removed.
-* Code should use placeholders that point to:
-  * Local read-protected files, possibly located outside of the
-    Git repository file structure to avoid accidental inclusion as
-    part of the repository,
-  * Environment variables, or
-  * Some sort of secured (possibly remote) storage.
-* The documentation (`README`/`INSTALL`, whichever is most appropriate)
-should mention how to instantiate those variables/files, etc.
-
 ### Testing
 
 There are many ways to test your code. Remember when you ran your
@@ -486,6 +403,97 @@ started with these practices.
 * [Getting started with continuous integration](https://www.atlassian.com/continuous-delivery/continuous-integration/how-to-get-to-continuous-integration).
 * [Getting started with continuous delivery](https://www.atlassian.com/continuous-delivery/pipeline).
 * [Getting started with continuous deployment](https://www.atlassian.com/continuous-delivery/continuous-deployment).
+
+
+### Security
+#### Writing secure software
+While not always the most exciting part of writing code, it is important
+to consider the security risks with a software project to avoid costly
+patches and perhaps more importantly, reputation damage. Security risks
+analysis should be employed at the early stage of a project (it is
+usually way more expensive and complicated at a late stage) and
+continuously carried out until the end.
+
+The security risks will differ vastly between projects, but general
+guidelines are:
+
+* Educate yourself, research on what security risks are related to
+the different components of your project. Some example resources are:
+    * [Linux Foundation (LF) Core Infrastructure Initiative (CII) Best
+    Practices](https://bestpractices.coreinfrastructure.org/en).
+    * [OWASP Top 10 Web Application Security Risks](https://owasp.org/www-project-top-ten/).
+    * [OWASP Slack](https://owasp.org/slack/invite)
+* Don’t blindly trust out-of-the-box software and default
+configurations, e.g. open source libraries, Docker images, aws services, etc.
+Malicious software can be present and default configurations usually
+have simplicity as the primary goal, not security.
+* Incorporate security in the entire Software Development Lifecycle:
+    * Include security considerations when gathering requirements.
+    * Threat model continuously.
+    * Implement tests and build processes that evaluate security.
+ 
+    Some examples:
+    * Ask [the four key threat model questions](https://www.threatmodelingmanifesto.org/)
+    during backlog refinement.
+    * Enable services like [Dependabot](https://dependabot.com/) or
+    [Snyk](https://snyk.io/) to enable alerts for dependices for your
+    project (this can easily be done at GitHub).
+    * Fuzzing can often help discovering bugs, both security related
+    and others.
+ 
+  [More information on Secure Software Development Lifecycle](https://owasp.org/www-project-integration-standards/writeups/owasp_in_sdlc/).
+
+
+#### Sensitive data
+
+Sensitive data includes things like passwords, usernames, server names,
+and data protected by law.
+
+* Do not ever put sensitive data in files that are pushed to GitHub
+or made public in any other way.
+* We repeat: Do not *ever* put sensitive data in files that are pushed to
+GitHub or made public in any other way.
+* Some types of data may even only exist in certain folders or on
+certain machines. Do not proliferate this kind of data, *not even
+internally*. Also avoid putting this type of data in Dropbox, Google
+Drive or in similar cloud storage or shared network drive.
+* If a password is published by mistake, *you need to change the
+password* (with everything that this entails). It is *not* enough to
+remove/reverse the commit or submit a new commit with the password
+removed.
+* Code should use placeholders that point to:
+    * Local read-protected files, possibly located outside of the
+    Git repository file structure to avoid accidental inclusion as
+    part of the repository,
+    * Environment variables, or
+    * Some sort of secured (possibly remote) storage.
+* The documentation (`README`/`INSTALL`, whichever is most appropriate)
+should mention how to instantiate those variables/files, etc.
+
+#### Speaking about security...
+To be safe while navigating the wild west that modern computing can
+be, make sure to:
+* Keep software up-to-date (turn on automatic updates for your
+operating system and programs).
+* Use a password manager (third-party or browser’s built-in depending
+on your needs) to facilitate strong unique passwords. Do not reuse
+passwords.
+* Use two-factor authentication, e.g. Authy or Google Authenticator.
+This is supported by many services such as GitHub, Slack, Gmail etc.
+In the not so unlikely event that someone does obtain your password,
+two-factor authentication can still protect you and sensitive
+information.
+* Always lock your computer when left unattended (even if you are
+just going for a quick coffee!)
+* Configure so your device is automatically locked after 1-5 minutes.
+* Remove unnecessary programs from your computer to reduce attack
+surface.
+* Encrypt your drives, especially external. Be careful about what you
+insert.
+* Be careful regarding what links you click and what you download.
+Avoid visiting unknown websites, especially if they stem from a
+suspicious email, and do not download software from untrusted sources.
+
 
 ## How we use GitHub
 
