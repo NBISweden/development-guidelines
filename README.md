@@ -1,6 +1,6 @@
 # Coding Guidelines for NBIS Developers
 
-This document is is currently a work in progress, and presents practical
+This document is currently a work in progress, and presents practical
 guidelines for developers and others at NBIS who write or contribute to
 software. The guidelines cover:
 
@@ -74,6 +74,32 @@ Table of Contents
   * [Reproducibility guidelines](#reproducibility-guidelines)
     * [Release versioning](#release-versioning)
 
+## Security
+
+To be safe while navigating the wild west that modern computing can
+be, make sure to:
+
+* Keep software up-to-date (turn on automatic updates for your
+operating system and programs).
+* Use a password manager (third-party or browser’s built-in depending
+on your needs) to facilitate strong unique passwords. Do not reuse
+passwords.
+* Use two-factor authentication, e.g. Authy or Google Authenticator.
+This is supported by many services such as GitHub, Slack, Gmail etc.
+In the not so unlikely event that someone does obtain your password,
+two-factor authentication can still protect you and sensitive
+information.
+* Always lock your computer when left unattended (even if you are
+just going for a quick coffee!)
+* Configure your device to automatically screen-lock after 1-5 minutes.
+* Remove unnecessary programs from your computer to reduce attack
+surface.
+* Encrypt your drives, especially external. Be careful about what you
+insert.
+* Be careful regarding what links you click and what you download.
+Avoid visiting unknown websites, especially if they stem from a
+suspicious email, and do not download software from untrusted sources.
+
 ## Things to be aware of when writing code
 
 ### Writing secure software
@@ -105,35 +131,9 @@ have simplicity as the primary goal, not security.
   Some examples:
   * Ask [the four key threat model questions](https://www.threatmodelingmanifesto.org/) during backlog refinement.
   * Enable services like [Dependabot](https://dependabot.com/) or [Snyk](https://snyk.io/) to enable alerts for dependices for your project (this can easily be done at GitHub).
-  * Fuzzing can often help discovering bugs, both security related and others.
+  * [Fuzzing](https://owasp.org/www-community/Fuzzing) can often help discovering bugs, both security related and others.
   
   [More information on Secure Software Development Lifecycle](https://owasp.org/www-project-integration-standards/writeups/owasp_in_sdlc/).
-
-### Speaking about security
-
-To be safe while navigating the wild west that modern computing can
-be, make sure to:
-
-* Keep software up-to-date (turn on automatic updates for your
-operating system and programs).
-* Use a password manager (third-party or browser’s built-in depending
-on your needs) to facilitate strong unique passwords. Do not reuse
-passwords.
-* Use two-factor authentication, e.g. Authy or Google Authenticator.
-This is supported by many services such as GitHub, Slack, Gmail etc.
-In the not so unlikely event that someone does obtain your password,
-two-factor authentication can still protect you and sensitive
-information.
-* Always lock your computer when left unattended (even if you are
-just going for a quick coffee!)
-* Configure so your device is automatically locked after 1-5 minutes.
-* Remove unnecessary programs from your computer to reduce attack
-surface.
-* Encrypt your drives, especially external. Be careful about what you
-insert.
-* Be careful regarding what links you click and what you download.
-Avoid visiting unknown websites, especially if they stem from a
-suspicious email, and do not download software from untrusted sources.
 
 ### Intent
 
@@ -154,10 +154,6 @@ from the code.
 Whether you use CamelCase or any other standard for naming variables
 and functions is less important, as long as it adheres to the naming
 conventions of the language, and is consistent within the project.
-
-Avoid global variables if the language allows you to do so. Global
-variables should otherwise be documented in the code and ideally "stand
-out" (using upper-case variable names is a common way to do this).
 
 ### Comments in code
 
@@ -214,10 +210,11 @@ programming language(s) that you are using.
 
 * Google has [a good set of best practices](https://google.github.io/styleguide/)
 for different languages which can be a good jump-off point.
-* For Perl: [Perl Best Practices](http://shop.oreilly.com/product/9780596001735.do)
+* For Perl: [Perl Best Practices](https://perldoc.perl.org/perlstyle)
 (O'Reilly book).
 * For Python: [PEP8 Style Guide](https://www.python.org/dev/peps/pep-0008/).
 * For R: [The Tidyverse Style Guide](https://style.tidyverse.org/).
+* For Go: [12 Go Best Practices](https://go.dev/talks/2013/bestpractices.slide#1), [Effective Go](https://go.dev/doc/effective_go).
 * (Further references here, please.)
 
 If the project has any kind of best practices (explicit or implicit),
@@ -407,6 +404,7 @@ Useful links for writing tests in our most common  languages and frameworks:
 * [React](https://reactjs.org/docs/testing-recipes.html).
 * [Javascript](https://jestjs.io/).
 * [R](https://r-pkgs.org/tests.html).
+* [Go](https://go.dev/doc/tutorial/add-a-test).
 
 #### Test-driven development
 
