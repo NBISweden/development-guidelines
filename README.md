@@ -376,10 +376,6 @@ than Subversion, Mercurial, CVS or any other code revision system) for
 keeping track of source code and documents relating to software that we
 make available on GitHub.
 
-GitHub provides excellent support for doing code reviews (more on that
-below), collecting issues (bug reports) connected with a project, and
-for organising work tasks ("projects" in GitHub speak).
-
 On GitHub, we have an Educational Account called
 "[NBISweden](https://github.com/NBISweden)" ("NBIS" was taken)
 which acts like an umbrella for all our various repositories. Code
@@ -403,7 +399,7 @@ within ELIXIR and for projects funded by the Swedish government.
 
 To contribute to NBISweden repositories, or to create repositories
 there, you will need to set up a GitHub account for yourself and let the
-admins of NBISweden know. Current admins include *Jonas Hagberg* and
+admins of NBISweden know. Current admins include *Dimitrios Bampalikis* and
 *Johan Viklund*.
 
 ## How we use Git
@@ -417,6 +413,9 @@ With Git-Flow, branches are categorised into:
 * A main **development** branch
 * One or several **feature** branches
 * One or several **hotfix** branches
+* One or several **bug** branches
+* One or several **documentation** branches
+* One or several **refactoring** branches
 
 The code on the **main** branch (often called `main` or `release`) is
 stable, properly tested and is the version of the code that a typical
@@ -546,8 +545,10 @@ A code review may be an iterative process in which a piece of code
 is commented upon or discussed, changed by the original author, and
 reviewed again before being approved.
 
-Reviews can be conducted at any stage in development (just let someone
-look at the code), but we'd like code to be more formally reviewed at
+Reviews can be conducted at any stage in development. Sometimes early
+feedback is necessary for ensuring code quality so developers are
+encouraged to seek preliminary reviews when needed by creating a draft
+Pull Request (PR), but we'd like code to be more formally reviewed at
 least
 
 * before a feature branch is merged to the main development branch.
