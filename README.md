@@ -556,83 +556,7 @@ branch is merged.
 branch (or release branch, if such a branch is used) to the main
 branch.
 
-To be able to use GitHub or a code review, both the author and the
-reviewer should have their own personal GitHub accounts.
-
-### Code reviewing steps
-
-1. The code is written on a separate branch, for example on a
-`feature/some_name` branch based on the main development branch.
-
-2. The author feels that the code is correct and finished and pushes the
-branch to GitHub one last time before the actual review.
-
-3. The author creates a "pull request" for the branch by switching to
-the branch on the GitHub web pages and clicking the button labelled "New
-pull request".
-
-4. The author finds one or several reviewers for the pull request and
-assigns them to it. A reviewer may be found
-    * by asking one of the already designated reviewers connected to the
-    project, if such a group of people has been created.
-    * by asking in the "code-review-forum" in the NBIS Slack.
-    * by meeting up with or contacting any other colleague that is not
-    directly involved with the code that is being reviewed.
-
-5. If needed, the author gives the reviewer(s) some background on the
-project, and what the code under review is supposed to do etc. Having a
-fixed group of reviewers for a project would minimize the need for this
-step. This may be done in a face-to-face meeting, on Slack, or in any
-other way that is convenient.
-
-6. If there's more than one reviewer, one of the reviewers is designated
-as the "main" reviewer. This reviewer will later do one extra thing (see
-below).
-
-7. The reviewer(s) looks at the code, specifically at the bits of code
-that the specified pull request is about.
-
-8. The reviewer(s) leaves comments and/or questions in the code by
-clicking individual lines in the web viewer. Note that these comments
-are public.
-
-9. If there are specific changes the reviewer would like to see,
-GitHub has a "suggest change" feature that is useful for this, this
-can be accessed by clicking the suggest icon ![suggest
-icon](suggest.svg "suggest changes") or by starting a fenced block
-with the language/highlight `suggestion`, e.g.
-
-  <pre>
-
-  Can we do it like this instead?
-
-  ```suggestion
-    if i != 0 {
-  ```
-  </pre>
-
-when created this way, suggested changes are easy to include.
-
-10. The reviewer(s) leaves a summary of their review by clicking "Review
-changes" and submit it as feedback
-    * without explicitly approving the pull request (it's just feedback).
-    * explicitly approving the pull request (it all looks good), or
-    * explicitly rejecting the pull request (there's something that
-    needs to be discussed and/or fixed).
-
-11. If no reviews are rejecting the pull request, the designated
-"main" reviewer will merge the pull request and delete the feature (or
-whatever) branch. Note: this is the reviewer's job, not the author's
-job. *The code review process ends here*.
-
-12. If there are things that need to be modified, further commits to the
-same feature branch may be necessary. These commits are automatically
-added to the existing pull request.
-
-13. The author asks the reviewer(s) to have a further look at the new
-changes. The process continues from step 7.
-
-### General stuff about code reviews
+### Useful tips for code reviews
 
 Just as with making commits often, it is better to review often in small
 chunks.
@@ -660,10 +584,16 @@ review from such a reviewer is to make sure that the logic of the code
 (with its comments!) is intelligible enough to be able to say "that'll
 probably work" (this is not a useless review!).
 
-The following is adapted from
-[thoughtbot/guides/code-review](https://github.com/thoughtbot/guides/tree/main/code-review)
+### Team specifics
 
-About communication (both author and reviewer):
+The exact routines for doing code reviews differ between the developer
+teams and may even differ between projects. To learn about them, ask
+your colleagues and / or check your team's internal documentation.
+
+_The following is adapted from
+[thoughtbot/guides/code-review](https://github.com/thoughtbot/guides/tree/main/code-review)_
+
+### About communication (both author and reviewer):
 
 * Ask questions and ask for clarifications. Do not make demands.
 * Many development decisions are based upon personal opinions. Discuss
