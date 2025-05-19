@@ -394,9 +394,7 @@ that require this*. The ELIXIR Open Source Principles say
 If the project is a Support project, however, you may have to use a
 private repository until the group desires the code (and its results)
 to be publicly available; do work on it with the mindset that it
-will become public at some point, though. Use the following naming
-scheme for Support project repositories:
-`<SMS/LTS/PP>-<Redmine-issue>-<year>-<descriptive name>`.
+will become public at some point, though.
 
 The source code that we produce are Public Records, and as such should
 be made publicly available as Open Source. This is a requirement
