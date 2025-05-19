@@ -238,7 +238,8 @@ and our code as Public Record.
 
 The preferred Open Source license that we promote is the
 [GNU General Public License version 3 (GPLv3)](https://opensource.org/licenses/GPL-3.0).
-Use this license unless there is a reason to do otherwise.  Examples of
+For course material, use [CC-by-4](https://creativecommons.org/licenses/by/4.0/deed.en).
+Use one of these licenses unless there is a reason to do otherwise.  Examples of
 other Open Source licenses includes the
 [MIT license](https://opensource.org/licenses/MIT),
 [the "new"/"revised" 3-clause BSD license](https://opensource.org/licenses/BSD-3-Clause),
@@ -267,6 +268,9 @@ following:
 
 * **LICENSE** or **COPYING** (plain text).  This is simply a plain text
 file containing the license text.
+
+* **CONTRIBUTING** (plain text or Markdown-formatted).
+A file with contribution guidelines to your project repository's root, docs, or `.github` folder. When someone opens a pull request or creates an issue, they will see a link to that file.
 
 ### Testing
 
