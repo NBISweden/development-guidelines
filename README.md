@@ -57,17 +57,18 @@ Table of Contents
         * [Continuous integration](#continuous-integration)
           * [What you need (cost)](#what-you-need-cost)
           * [What you gain](#what-you-gain)
-          * [Continuous delivery](#continuous-delivery)
+        * [Continuous delivery](#continuous-delivery)
           * [What you need (cost)](#what-you-need-cost-1)
           * [What you gain](#what-you-gain-1)
-          * [Read CI/CD guides](#read-cicd-guides)
+        * [Read CI/CD guides](#read-cicd-guides)
     * [Security](#security)
       * [Writing secure software](#writing-secure-software)
       * [Sensitive data](#sensitive-data)
       * [Speaking about security...](#speaking-about-security)
   * [How we use GitHub](#how-we-use-github)
   * [How we use Git](#how-we-use-git)
-  * [General stuff about working with Git](#general-stuff-about-working-with-git)
+    * [Branching](#branching)
+    * [General stuff about working with Git](#general-stuff-about-working-with-git)
     * [Helpful commit messages](#helpful-commit-messages)
   * [How we do code reviews](#how-we-do-code-reviews)
     * [Code reviewing steps](#code-reviewing-steps)
@@ -639,7 +640,7 @@ For smaller projects, support projects or NBIS courses/workshops,
 another branching model may be appropriate, such as
 [GitHub flow](https://guides.github.com/introduction/flow/).
 
-## General stuff about working with Git
+### General stuff about working with Git
 
 Commit often, possibly several times a day. It's easier to roll back
 a small commit than to roll back large commits. This also makes the
