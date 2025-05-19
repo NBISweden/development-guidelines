@@ -486,18 +486,6 @@ help keeping track of Git and the various branches in a
 project. [SourceTree](https://www.sourcetreeapp.com) is a good free one
 for macOS and Windows, for example.
 
-The GitHub user Vincent Driessen ("nvie" on GitHub), who actually came
-up with Git-Flow in the first place, has a set of Git extensions that
-makes it easy to work with Git-Flow from the command line. See his
-[nvie/gitflow](https://github.com/nvie/gitflow) repository.
-
-For more in-depth descriptions of Git-Flow, see
-
-* [Gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
-* [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/).
-* [Git-Flow Cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/).
-* [Using git-flow to automate your git branching workflow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/).
-
 For smaller projects, support projects or NBIS courses/workshops,
 another branching model may be appropriate, such as
 [GitHub flow](https://guides.github.com/introduction/flow/).
