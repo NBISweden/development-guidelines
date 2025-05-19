@@ -549,23 +549,23 @@ of using Git branches as a help in the development cycle.
 
 With Git-Flow, branches are categorised into:
 
-* A **master** branch
+* A **main** branch
 * A main **development** branch
 * One or several **feature** branches
 * One or several **hotfix** branches
 
 The code on the **main** branch (often called `main` or `release`) is
 stable, properly tested and is the version of the code that a typical
-user should pick. No changes are made directly on the master branch
+user should pick. No changes are made directly on the main branch
 (but see below).
 
-Strictly speaking, Git-Flow makes a distinction between a "master"
+Strictly speaking, Git-Flow makes a distinction between a "main"
 and a "release" branch where the release branch contains the next
 release-in-making, branched off from the development branch. The
 `release` branch contains commits relating to creating the new release,
 such as adjustments to release numbers. The branch is then reviewed
-and merged into the master *and* development branches, creating a new
-release of the software on the master branch. We do not follow this, but
+and merged into the main *and* development branches, creating a new
+release of the software on the main branch. We do not follow this, but
 you are free to do so if you think it makes more sense, for example in a
 highly distributed project with many active users/developers.
 
@@ -574,7 +574,7 @@ be working, but without guarantees. For small projects, development
 might as well happen directly on the development branch and the code here
 may therefore sometimes be broken (this should ideally never happen
 though). When the development branch is deemed "done" and has undergone
-testing and review, it is merged into the master branch. The release is
+testing and review, it is merged into the main branch. The release is
 then tagged with an appropriate release version.
 
 A **feature** branch (often called `feature/some_name` where `some_name` is
@@ -596,14 +596,14 @@ be highly beneficial for small projects too, obviously (do this!).
 
 A **hotfix** branch (often called `hotfix/some_name`) is essentially
 a branch that implements a bugfix to a release. In terms of branching,
-it is thus very similar to a feature branch but for the master branch
+it is thus very similar to a feature branch but for the main branch
 rather than for the development branch. A hotfix should fix critical
 errors that were not caught in testing before the release was made.
 Hotfixes should not implement new behaviour, unless this is needed to
 fix a critical bug. Hotfixes need to undergo review before they are
-merged back into the master *and* development branches.
+merged back into the main *and* development branches.
 
-The master and development branches are never deleted, while the others
+The main and development branches are never deleted, while the others
 are transient (temporary, for the duration of the development and review
 of the feature or hotfix).
 
@@ -612,7 +612,7 @@ The benefits of this type of branching model in development are
 * Co-developers work on separate branches, and do not "step on each
 other's toes" during the development process, even if they push their
 work back to GitHub.
-* Co-developers and users have a stable master branch to use (for doing
+* Co-developers and users have a stable main branch to use (for doing
 work in the case of the user, and as reference to their own coding in
 the case of the developer).
 * Features in "feature" branches are independent of each other. Any
@@ -697,7 +697,7 @@ example to run a public web service, then:
 * Do development and testing in a private checkout.
 * Only ever do "git pull" in the live checkout.
 * A live service with active users should run a stable release from
-the master branch.
+the main branch.
 
 ### Helpful commit messages
 
@@ -737,10 +737,10 @@ look at the code), but we'd like code to be more formally reviewed at
 least
 
 * before a feature branch is merged to the main development branch.
-* when a bug is fixed on the master branch before its hotfix/bugfix
+* when a bug is fixed on the main branch before its hotfix/bugfix
 branch is merged.
 * when a release is made by merging the current state of the development
-branch (or release branch, if such a branch is used) to the master
+branch (or release branch, if such a branch is used) to the main
 branch.
 
 To be able to use GitHub or a code review, both the author and the
