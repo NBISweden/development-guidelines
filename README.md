@@ -209,6 +209,7 @@ for different languages which can be a good jump-off point.
 * For Python: [PEP8 Style Guide](https://www.python.org/dev/peps/pep-0008/).
 * For R: [The Tidyverse Style Guide](https://style.tidyverse.org/).
 * For Go: [Effective Go](https://go.dev/doc/effective_go).
+* For Typescript: [Google TypeScript Style Guide](https://google.github.io/styleguide/tsguide.html).
 * (Further references here, please.)
 
 If the project has any kind of best practices (explicit or implicit),
