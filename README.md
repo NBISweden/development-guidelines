@@ -539,12 +539,12 @@ within ELIXIR and for projects funded by the Swedish government.
 
 To contribute to NBISweden repositories, or to create repositories
 there, you will need to set up a GitHub account for yourself and let the
-admins of NBISweden know. Current admins include *Jonas Hagberg* and
-*Johan Viklund*.
+admins of NBISweden know. For more information, check the NBIS Confluence.
 
 ## How we use Git
 
-When appropriate, we use the *Git-Flow branching model*. This is a way
+### Branching
+It is encouranged to follow a branching model. One good example of such a model is the *Git-Flow branching model*. This is a way
 of using Git branches as a help in the development cycle.
 
 With Git-Flow, branches are categorised into:
@@ -835,10 +835,6 @@ go. Smaller chunks are better.
 A review doesn't need to take much time. In some cases 5-10 minutes (or
 even less!) will be enough if the pull request is of reasonably small
 size.
-
-The reviewer is not expected to check out the code for testing, only
-to read it on the GitHub website. Testing is something that the author
-and/or a designated test user should do.
 
 The reviewer reviews the code from his/her own understanding of
 it. There is actually no requirement that the reviewer knows the ins
