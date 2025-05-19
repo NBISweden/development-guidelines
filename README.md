@@ -1,6 +1,6 @@
 # Coding Guidelines for NBIS Developers
 
-This document is is currently a work in progress, and presents practical
+This document is work in progress, and presents practical
 guidelines for developers and others at NBIS who write or contribute to
 software. The guidelines cover:
 
@@ -38,13 +38,12 @@ need to review them. These things are not set in stone.
 
 Table of Contents
 =================
-
 * [Coding Guidelines for NBIS Developers](#coding-guidelines-for-nbis-developers)
 * [Table of Contents](#table-of-contents)
   * [Things to be aware of when writing code](#things-to-be-aware-of-when-writing-code)
     * [Writing secure software](#writing-secure-software)
     * [Speaking about security...](#speaking-about-security)
-    * [Intent](#intent)
+    * [Naming of objects and variables](#naming-of-objects-and-variables)
     * [Comments in code](#comments-in-code)
     * [Readability](#readability)
     * [Best programming practices](#best-programming-practices)
@@ -135,7 +134,7 @@ insert.
 Avoid visiting unknown websites, especially if they stem from a
 suspicious email, and do not download software from untrusted sources.
 
-### Intent
+### Naming of objects and variables
 
 Names of variables, functions, methods etc. should be clear and
 descriptive, not cryptic. For example, function names might be a
@@ -218,7 +217,6 @@ for different languages which can be a good jump-off point.
 (O'Reilly book).
 * For Python: [PEP8 Style Guide](https://www.python.org/dev/peps/pep-0008/).
 * For R: [The Tidyverse Style Guide](https://style.tidyverse.org/).
-* (Further references here, please.)
 
 If the project has any kind of best practices (explicit or implicit),
 follow these.
@@ -304,7 +302,7 @@ other Open Source licenses includes the
 and
 [the "simplified" 2-clause BSD license](https://opensource.org/licenses/BSD-2-Clause).
 
-See also [http://choosealicense.com]() and [https://tldrlegal.com/]() for
+See also [https://choosealicense.com](https://choosealicense.com) and [https://tldrlegal.com/](https://tldrlegal.com/) for
 summaries and explanations of Open Source licenses.
 
 #### Files bundled with a piece of software
@@ -480,7 +478,7 @@ release more often, thus accelerating the feedback loop with your
 customers. There is much less pressure on decisions for small changes,
 hence encouraging iterating faster.
 
-###### Read CI/CD guides
+##### Read CI/CD guides
 
 You can find some guides that will go more in depth to help you getting
 started with these practices.
@@ -503,7 +501,7 @@ GitHub provides excellent support for doing code reviews (more on that
 below), collecting issues (bug reports) connected with a project, and
 for organising work tasks ("projects" in GitHub speak).
 
-On GitHub, we have an Educational Account called
+On GitHub, we have an GitHub Education Account called
 "[NBISweden](https://github.com/NBISweden)" ("NBIS" was taken)
 which acts like an umbrella for all our various repositories. Code
 repositories are public (available to the world), but we have the
@@ -518,9 +516,10 @@ that require this*. The ELIXIR Open Source Principles say
 If the project is a Support project, however, you may have to use a
 private repository until the group desires the code (and its results)
 to be publicly available; do work on it with the mindset that it
-will become public at some point, though. Use the following naming
-scheme for Support project repositories:
-`<SMS/LTS/PP>-<Redmine-issue>-<year>-<descriptive name>`.
+will become public at some point, though. Give the repository a descriptive name. You may use the naming schemes from the bioinformatic support projects:
+`<SMS/LTS/PP>-<Redmine-issue>-<year>-<descriptive name>`, e.g. **SMS-6867-23-moose**
+or
+`<NBIS>-<Redmine-issue>-<year>-<descriptive name>`, e.g. **NBIS-4412-18-mast**.
 
 The source code that we produce are Public Records, and as such should
 be made publicly available as Open Source. This is a requirement
