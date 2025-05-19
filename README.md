@@ -208,6 +208,7 @@ for different languages which can be a good jump-off point.
 (O'Reilly book).
 * For Python: [PEP8 Style Guide](https://www.python.org/dev/peps/pep-0008/).
 * For R: [The Tidyverse Style Guide](https://style.tidyverse.org/).
+* For Go: [Effective Go](https://go.dev/doc/effective_go).
 * (Further references here, please.)
 
 If the project has any kind of best practices (explicit or implicit),
@@ -238,11 +239,11 @@ NBISweden repositories are
 * HTML (Javascript/Typescript)
 * Shell
 * R
-* Perl
+* Jupyter Notebook
 
 Based on this we can say that there exists expertise in NBIS for writing
 and maintaining software written in these languages.  We also have
-people with good knowledge of R, Ruby, JavaScript and C, although these
+people with good knowledge of _Perl_, _Ruby_, _C_ and _Go_ although these
 languages are not currently well represented in our GitHub repositories.
 
 You should obviously also consider the availability of utility libraries
