@@ -114,7 +114,7 @@ continuously carried out until the end.
 The security risks will differ vastly between projects, but general
 guidelines are:
 
-* Educate yourself, research on what security risks are related to
+* Educate yourself and research what security risks are related to
 the different components of your project. Some example resources are:
   * [Linux Foundation (LF) Core Infrastructure Initiative (CII) Best Practices](https://bestpractices.coreinfrastructure.org/en).
   * [OWASP Top 10 Web Application Security Risks](https://owasp.org/www-project-top-ten/).
@@ -159,7 +159,7 @@ conventions of the language, and is consistent within the project.
 
 Comments should explain *why* the code does what it does. *What* it
 does should ideally already be evident from the code itself. If the code
-is cryptic and can't easily be simplified, explanations might well be
+is cryptic and can't easily be simplified, explanations might be
 needed. A good comment clarifies intent.
 
 Try to capture and document as much as possible of what's needed to get
@@ -400,11 +400,11 @@ modules.
 
 Useful links for writing tests in our most common  languages and frameworks:
 
-* [Python](https://realpython.com/python-testing/).
-* [React](https://reactjs.org/docs/testing-recipes.html).
-* [Javascript](https://jestjs.io/).
-* [R](https://r-pkgs.org/tests.html).
-* [Go](https://go.dev/doc/tutorial/add-a-test).
+* [Python](https://realpython.com/python-testing/)
+* [React](https://reactjs.org/docs/testing-recipes.html)
+* [Javascript](https://jestjs.io/)
+* [R](https://r-pkgs.org/tests.html)
+* [Go](https://go.dev/doc/tutorial/add-a-test)
 
 #### Test-driven development
 
@@ -489,7 +489,7 @@ started with these practices.
 
 ## How we use GitHub
 
-In order to maximize exposure, and to facilitate collaborations with
+In order to maximize exposure and to facilitate collaborations with
 users and other organizations, we have opted to use GitHub and the
 infrastructure that GitHub provides for publishing all our publicly
 accessible software. This also means that we will be using Git (rather
@@ -526,8 +526,7 @@ within ELIXIR and for projects funded by the Swedish government.
 
 To contribute to NBISweden repositories, or to create repositories
 there, you will need to set up a GitHub account for yourself and let the
-admins of NBISweden know. Current admins include *Jonas Hagberg* and
-*Johan Viklund*.
+admins of NBISweden know. The current admin is *Johan Viklund*.
 
 ## How we use Git
 
@@ -536,7 +535,7 @@ of using Git branches as a help in the development cycle.
 
 With Git-Flow, branches are categorised into:
 
-* A **master** branch
+* A **master** or **main** branch (**main** is the default option nowadays)
 * A main **development** branch
 * One or several **feature** branches
 * One or several **hotfix** branches
@@ -710,9 +709,13 @@ Write a Git Commit Message](http://chris.beams.io/posts/git-commit/).
 
 ## How we do code reviews
 
-Through reviewing each other's code, we believe that we will produce
-better code, that we will learn more about programming, that we will
-learn more about what our colleagues are actually doing, and that
+Through reviewing each other's code, we believe that
+- we will produce
+better code,
+- we will learn more about programming,
+- we will learn more about what our colleagues are actually
+doing, and
+- that
 teamwork across NBIS is improved.
 
 A code review may be an iterative process in which a piece of code
@@ -785,7 +788,7 @@ with the language/highlight `suggestion`, e.g.
   ```
   </pre>
 
-when created this way, suggested changes are easy to include.
+When created this way, suggested changes are easy to include.
 
 10. The reviewer(s) leaves a summary of their review by clicking "Review
 changes" and submit it as feedback
@@ -823,9 +826,7 @@ A review doesn't need to take much time. In some cases 5-10 minutes (or
 even less!) will be enough if the pull request is of reasonably small
 size.
 
-The reviewer is not expected to check out the code for testing, only
-to read it on the GitHub website. Testing is something that the author
-and/or a designated test user should do.
+Wheter the reviewer should check out the code for testing depends on the project. Sometimes this is expected and sometimes not. 
 
 The reviewer reviews the code from his/her own understanding of
 it. There is actually no requirement that the reviewer knows the ins
