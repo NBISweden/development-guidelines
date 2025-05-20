@@ -636,7 +636,6 @@ It is recommended to add protection to important branches such as the `main` bra
 * **Require pull request before merging:** This ensures that all changes are reviewed before being merged into the protected branch.
 * **Require a minimum number of approvals:** This requires a certain number of reviewers to approve a pull request before it can be merged.
 * **Require status checks to pass before merging:** This ensures that all automated tests and checks pass before changes can be merged.
-* **Prevent force pushes:** This prevents developers from force pushing changes to the branch, which can overwrite history and cause issues.
 
 You can configure these settings in the repository settings on GitHub under the `Branches` section.
 
