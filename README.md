@@ -1,6 +1,6 @@
 # Coding Guidelines for NBIS Developers
 
-This document is is currently a work in progress, and presents practical
+This document is work in progress, and presents practical
 guidelines for developers and others at NBIS who write or contribute to
 software. The guidelines cover:
 
@@ -38,13 +38,10 @@ need to review them. These things are not set in stone.
 
 Table of Contents
 =================
-
 * [Coding Guidelines for NBIS Developers](#coding-guidelines-for-nbis-developers)
 * [Table of Contents](#table-of-contents)
   * [Things to be aware of when writing code](#things-to-be-aware-of-when-writing-code)
-    * [Writing secure software](#writing-secure-software)
-    * [Speaking about security...](#speaking-about-security)
-    * [Intent](#intent)
+    * [Naming of objects and variables](#naming-of-objects-and-variables)
     * [Comments in code](#comments-in-code)
     * [Readability](#readability)
     * [Best programming practices](#best-programming-practices)
@@ -60,13 +57,18 @@ Table of Contents
         * [Continuous integration](#continuous-integration)
           * [What you need (cost)](#what-you-need-cost)
           * [What you gain](#what-you-gain)
-          * [Continuous delivery](#continuous-delivery)
+        * [Continuous delivery](#continuous-delivery)
           * [What you need (cost)](#what-you-need-cost-1)
           * [What you gain](#what-you-gain-1)
-          * [Read CI/CD guides](#read-cicd-guides)
+        * [Read CI/CD guides](#read-cicd-guides)
+    * [Security](#security)
+      * [Writing secure software](#writing-secure-software)
+      * [Sensitive data](#sensitive-data)
+      * [Speaking about security...](#speaking-about-security)
   * [How we use GitHub](#how-we-use-github)
   * [How we use Git](#how-we-use-git)
-  * [General stuff about working with Git](#general-stuff-about-working-with-git)
+    * [Branching](#branching)
+    * [General stuff about working with Git](#general-stuff-about-working-with-git)
     * [Helpful commit messages](#helpful-commit-messages)
   * [How we do code reviews](#how-we-do-code-reviews)
     * [Code reviewing steps](#code-reviewing-steps)
@@ -76,66 +78,7 @@ Table of Contents
 
 ## Things to be aware of when writing code
 
-### Writing secure software
-
-While not always the most exciting part of writing code, it is important
-to consider the security risks with a software project to avoid costly
-patches and perhaps more importantly, reputation damage. Security risks
-analysis should be employed at the early stage of a project (it is
-usually way more expensive and complicated at a late stage) and
-continuously carried out until the end.
-
-The security risks will differ vastly between projects, but general
-guidelines are:
-
-* Educate yourself, research on what security risks are related to
-the different components of your project. Some example resources are:
-  * [Linux Foundation (LF) Core Infrastructure Initiative (CII) Best Practices](https://bestpractices.coreinfrastructure.org/en).
-  * [OWASP Top 10 Web Application Security Risks](https://owasp.org/www-project-top-ten/).
-  * [OWASP Slack](https://owasp.org/slack/invite)
-* Don’t blindly trust out-of-the-box software and default
-configurations, e.g. open source libraries, Docker images, aws services, etc.
-Malicious software can be present and default configurations usually
-have simplicity as the primary goal, not security.
-* Incorporate security in the entire Software Development Lifecycle:
-  * Include security considerations when gathering requirements.
-  * Threat model continuously.
-  * Implement tests and build processes that evaluate security.
-  
-  Some examples:
-  * Ask [the four key threat model questions](https://www.threatmodelingmanifesto.org/) during backlog refinement.
-  * Enable services like [Dependabot](https://dependabot.com/) or [Snyk](https://snyk.io/) to enable alerts for dependices for your project (this can easily be done at GitHub).
-  * Fuzzing can often help discovering bugs, both security related and others.
-  
-  [More information on Secure Software Development Lifecycle](https://owasp.org/www-project-integration-standards/writeups/owasp_in_sdlc/).
-
-### Speaking about security
-
-To be safe while navigating the wild west that modern computing can
-be, make sure to:
-
-* Keep software up-to-date (turn on automatic updates for your
-operating system and programs).
-* Use a password manager (third-party or browser’s built-in depending
-on your needs) to facilitate strong unique passwords. Do not reuse
-passwords.
-* Use two-factor authentication, e.g. Authy or Google Authenticator.
-This is supported by many services such as GitHub, Slack, Gmail etc.
-In the not so unlikely event that someone does obtain your password,
-two-factor authentication can still protect you and sensitive
-information.
-* Always lock your computer when left unattended (even if you are
-just going for a quick coffee!)
-* Configure so your device is automatically locked after 1-5 minutes.
-* Remove unnecessary programs from your computer to reduce attack
-surface.
-* Encrypt your drives, especially external. Be careful about what you
-insert.
-* Be careful regarding what links you click and what you download.
-Avoid visiting unknown websites, especially if they stem from a
-suspicious email, and do not download software from untrusted sources.
-
-### Intent
+### Naming of objects and variables
 
 Names of variables, functions, methods etc. should be clear and
 descriptive, not cryptic. For example, function names might be a
@@ -218,7 +161,6 @@ for different languages which can be a good jump-off point.
 (O'Reilly book).
 * For Python: [PEP8 Style Guide](https://www.python.org/dev/peps/pep-0008/).
 * For R: [The Tidyverse Style Guide](https://style.tidyverse.org/).
-* (Further references here, please.)
 
 If the project has any kind of best practices (explicit or implicit),
 follow these.
@@ -297,14 +239,15 @@ and our code as Public Record.
 
 The preferred Open Source license that we promote is the
 [GNU General Public License version 3 (GPLv3)](https://opensource.org/licenses/GPL-3.0).
-Use this license unless there is a reason to do otherwise.  Examples of
+For course material, use [CC-by-4](https://creativecommons.org/licenses/by/4.0/deed.en).
+Use one of these licenses unless there is a reason to do otherwise.  Examples of
 other Open Source licenses includes the
 [MIT license](https://opensource.org/licenses/MIT),
 [the "new"/"revised" 3-clause BSD license](https://opensource.org/licenses/BSD-3-Clause),
 and
 [the "simplified" 2-clause BSD license](https://opensource.org/licenses/BSD-2-Clause).
 
-See also [http://choosealicense.com]() and [https://tldrlegal.com/]() for
+See also [https://choosealicense.com](https://choosealicense.com) and [https://tldrlegal.com/](https://tldrlegal.com/) for
 summaries and explanations of Open Source licenses.
 
 #### Files bundled with a piece of software
@@ -327,31 +270,8 @@ following:
 * **LICENSE** or **COPYING** (plain text).  This is simply a plain text
 file containing the license text.
 
-### Sensitive data
-
-Sensitive data includes things like passwords, usernames, server names,
-and data protected by law.
-
-* Do not ever put sensitive data in files that are pushed to GitHub
-or made public in any other way.
-* Do not *ever* put sensitive data in files that are pushed to
-GitHub or made public in any other way.
-* Some types of data may even only exist in certain folders or on
-certain machines. Do not proliferate this kind of data, *not even
-internally*. Also avoid putting this type of data in Dropbox, Google
-Drive or in similar cloud storage or shared network drive.
-* If a password is published by mistake, *you need to change the
-password* (with everything that this entails). It is *not* enough to
-remove/reverse the commit or submit a new commit with the password
-removed.
-* Code should use placeholders that point to:
-  * Local read-protected files, possibly located outside of the
-    Git repository file structure to avoid accidental inclusion as
-    part of the repository,
-  * Environment variables, or
-  * Some sort of secured (possibly remote) storage.
-* The documentation (`README`/`INSTALL`, whichever is most appropriate)
-should mention how to instantiate those variables/files, etc.
+* **CONTRIBUTING** (plain text or Markdown-formatted).
+A file with contribution guidelines to your project repository's root, docs, or `.github` folder. When someone opens a pull request or creates an issue, they will see a link to that file.
 
 ### Testing
 
@@ -480,7 +400,7 @@ release more often, thus accelerating the feedback loop with your
 customers. There is much less pressure on decisions for small changes,
 hence encouraging iterating faster.
 
-###### Read CI/CD guides
+##### Read CI/CD guides
 
 You can find some guides that will go more in depth to help you getting
 started with these practices.
@@ -488,6 +408,97 @@ started with these practices.
 * [Getting started with continuous integration](https://www.atlassian.com/continuous-delivery/continuous-integration/how-to-get-to-continuous-integration).
 * [Getting started with continuous delivery](https://www.atlassian.com/continuous-delivery/pipeline).
 * [Getting started with continuous deployment](https://www.atlassian.com/continuous-delivery/continuous-deployment).
+
+
+### Security
+#### Writing secure software
+While not always the most exciting part of writing code, it is important
+to consider the security risks with a software project to avoid costly
+patches and perhaps more importantly, reputation damage. Security risks
+analysis should be employed at the early stage of a project (it is
+usually way more expensive and complicated at a late stage) and
+continuously carried out until the end.
+
+The security risks will differ vastly between projects, but general
+guidelines are:
+
+* Educate yourself, research on what security risks are related to
+the different components of your project. Some example resources are:
+    * [Linux Foundation (LF) Core Infrastructure Initiative (CII) Best
+    Practices](https://bestpractices.coreinfrastructure.org/en).
+    * [OWASP Top 10 Web Application Security Risks](https://owasp.org/www-project-top-ten/).
+    * [OWASP Slack](https://owasp.org/slack/invite)
+* Don’t blindly trust out-of-the-box software and default
+configurations, e.g. open source libraries, Docker images, aws services, etc.
+Malicious software can be present and default configurations usually
+have simplicity as the primary goal, not security.
+* Incorporate security in the entire Software Development Lifecycle:
+    * Include security considerations when gathering requirements.
+    * Threat model continuously.
+    * Implement tests and build processes that evaluate security.
+ 
+    Some examples:
+    * Ask [the four key threat model questions](https://www.threatmodelingmanifesto.org/)
+    during backlog refinement.
+    * Enable services like [Dependabot](https://dependabot.com/) or
+    [Snyk](https://snyk.io/) to enable alerts for dependices for your
+    project (this can easily be done at GitHub).
+    * Fuzzing can often help discovering bugs, both security related
+    and others.
+ 
+  [More information on Secure Software Development Lifecycle](https://owasp.org/www-project-integration-standards/writeups/owasp_in_sdlc/).
+
+
+#### Sensitive data
+
+Sensitive data includes things like passwords, usernames, server names,
+and data protected by law.
+
+* Do not ever put sensitive data in files that are pushed to GitHub
+or made public in any other way.
+* We repeat: Do not *ever* put sensitive data in files that are pushed to
+GitHub or made public in any other way.
+* Some types of data may even only exist in certain folders or on
+certain machines. Do not proliferate this kind of data, *not even
+internally*. Also avoid putting this type of data in Dropbox, Google
+Drive or in similar cloud storage or shared network drive.
+* If a password is published by mistake, *you need to change the
+password* (with everything that this entails). It is *not* enough to
+remove/reverse the commit or submit a new commit with the password
+removed.
+* Code should use placeholders that point to:
+    * Local read-protected files, possibly located outside of the
+    Git repository file structure to avoid accidental inclusion as
+    part of the repository,
+    * Environment variables, or
+    * Some sort of secured (possibly remote) storage.
+* The documentation (`README`/`INSTALL`, whichever is most appropriate)
+should mention how to instantiate those variables/files, etc.
+
+#### Speaking about security...
+To be safe while navigating the wild west that modern computing can
+be, make sure to:
+* Keep software up-to-date (turn on automatic updates for your
+operating system and programs).
+* Use a password manager (third-party or browser’s built-in depending
+on your needs) to facilitate strong unique passwords. Do not reuse
+passwords.
+* Use two-factor authentication, e.g. Authy or Google Authenticator.
+This is supported by many services such as GitHub, Slack, Gmail etc.
+In the not so unlikely event that someone does obtain your password,
+two-factor authentication can still protect you and sensitive
+information.
+* Always lock your computer when left unattended (even if you are
+just going for a quick coffee!)
+* Configure so your device is automatically locked after 1-5 minutes.
+* Remove unnecessary programs from your computer to reduce attack
+surface.
+* Encrypt your drives, especially external. Be careful about what you
+insert.
+* Be careful regarding what links you click and what you download.
+Avoid visiting unknown websites, especially if they stem from a
+suspicious email, and do not download software from untrusted sources.
+
 
 ## How we use GitHub
 
@@ -503,7 +514,7 @@ GitHub provides excellent support for doing code reviews (more on that
 below), collecting issues (bug reports) connected with a project, and
 for organising work tasks ("projects" in GitHub speak).
 
-On GitHub, we have an Educational Account called
+On GitHub, we have an GitHub Education Account called
 "[NBISweden](https://github.com/NBISweden)" ("NBIS" was taken)
 which acts like an umbrella for all our various repositories. Code
 repositories are public (available to the world), but we have the
@@ -518,9 +529,10 @@ that require this*. The ELIXIR Open Source Principles say
 If the project is a Support project, however, you may have to use a
 private repository until the group desires the code (and its results)
 to be publicly available; do work on it with the mindset that it
-will become public at some point, though. Use the following naming
-scheme for Support project repositories:
-`<SMS/LTS/PP>-<Redmine-issue>-<year>-<descriptive name>`.
+will become public at some point, though. Give the repository a descriptive name. You may use the naming schemes from the bioinformatic support projects:
+`<SMS/LTS/PP>-<Redmine-issue>-<year>-<descriptive name>`, e.g. **SMS-6867-23-moose**
+or
+`<NBIS>-<Redmine-issue>-<year>-<descriptive name>`, e.g. **NBIS-4412-18-mast**.
 
 The source code that we produce are Public Records, and as such should
 be made publicly available as Open Source. This is a requirement
@@ -528,33 +540,33 @@ within ELIXIR and for projects funded by the Swedish government.
 
 To contribute to NBISweden repositories, or to create repositories
 there, you will need to set up a GitHub account for yourself and let the
-admins of NBISweden know. Current admins include *Jonas Hagberg* and
-*Johan Viklund*.
+admins of NBISweden know. For more information, check the NBIS Confluence.
 
 ## How we use Git
 
-When appropriate, we use the *Git-Flow branching model*. This is a way
+### Branching
+It is encouranged to follow a branching model. One good example of such a model is the *Git-Flow branching model*. This is a way
 of using Git branches as a help in the development cycle.
 
 With Git-Flow, branches are categorised into:
 
-* A **master** branch
+* A **main** branch
 * A main **development** branch
 * One or several **feature** branches
 * One or several **hotfix** branches
 
 The code on the **main** branch (often called `main` or `release`) is
 stable, properly tested and is the version of the code that a typical
-user should pick. No changes are made directly on the master branch
+user should pick. No changes are made directly on the main branch
 (but see below).
 
-Strictly speaking, Git-Flow makes a distinction between a "master"
+Strictly speaking, Git-Flow makes a distinction between a "main"
 and a "release" branch where the release branch contains the next
 release-in-making, branched off from the development branch. The
 `release` branch contains commits relating to creating the new release,
 such as adjustments to release numbers. The branch is then reviewed
-and merged into the master *and* development branches, creating a new
-release of the software on the master branch. We do not follow this, but
+and merged into the main *and* development branches, creating a new
+release of the software on the main branch. We do not follow this, but
 you are free to do so if you think it makes more sense, for example in a
 highly distributed project with many active users/developers.
 
@@ -563,7 +575,7 @@ be working, but without guarantees. For small projects, development
 might as well happen directly on the development branch and the code here
 may therefore sometimes be broken (this should ideally never happen
 though). When the development branch is deemed "done" and has undergone
-testing and review, it is merged into the master branch. The release is
+testing and review, it is merged into the main branch. The release is
 then tagged with an appropriate release version.
 
 A **feature** branch (often called `feature/some_name` where `some_name` is
@@ -585,14 +597,14 @@ be highly beneficial for small projects too, obviously (do this!).
 
 A **hotfix** branch (often called `hotfix/some_name`) is essentially
 a branch that implements a bugfix to a release. In terms of branching,
-it is thus very similar to a feature branch but for the master branch
+it is thus very similar to a feature branch but for the main branch
 rather than for the development branch. A hotfix should fix critical
 errors that were not caught in testing before the release was made.
 Hotfixes should not implement new behaviour, unless this is needed to
 fix a critical bug. Hotfixes need to undergo review before they are
-merged back into the master *and* development branches.
+merged back into the main *and* development branches.
 
-The master and development branches are never deleted, while the others
+The main and development branches are never deleted, while the others
 are transient (temporary, for the duration of the development and review
 of the feature or hotfix).
 
@@ -601,7 +613,7 @@ The benefits of this type of branching model in development are
 * Co-developers work on separate branches, and do not "step on each
 other's toes" during the development process, even if they push their
 work back to GitHub.
-* Co-developers and users have a stable master branch to use (for doing
+* Co-developers and users have a stable main branch to use (for doing
 work in the case of the user, and as reference to their own coding in
 the case of the developer).
 * Features in "feature" branches are independent of each other. Any
@@ -628,7 +640,7 @@ For smaller projects, support projects or NBIS courses/workshops,
 another branching model may be appropriate, such as
 [GitHub flow](https://guides.github.com/introduction/flow/).
 
-## General stuff about working with Git
+### General stuff about working with Git
 
 Commit often, possibly several times a day. It's easier to roll back
 a small commit than to roll back large commits. This also makes the
@@ -686,7 +698,7 @@ example to run a public web service, then:
 * Do development and testing in a private checkout.
 * Only ever do "git pull" in the live checkout.
 * A live service with active users should run a stable release from
-the master branch.
+the main branch.
 
 ### Helpful commit messages
 
@@ -726,10 +738,10 @@ look at the code), but we'd like code to be more formally reviewed at
 least
 
 * before a feature branch is merged to the main development branch.
-* when a bug is fixed on the master branch before its hotfix/bugfix
+* when a bug is fixed on the main branch before its hotfix/bugfix
 branch is merged.
 * when a release is made by merging the current state of the development
-branch (or release branch, if such a branch is used) to the master
+branch (or release branch, if such a branch is used) to the main
 branch.
 
 To be able to use GitHub or a code review, both the author and the
@@ -824,10 +836,6 @@ go. Smaller chunks are better.
 A review doesn't need to take much time. In some cases 5-10 minutes (or
 even less!) will be enough if the pull request is of reasonably small
 size.
-
-The reviewer is not expected to check out the code for testing, only
-to read it on the GitHub website. Testing is something that the author
-and/or a designated test user should do.
 
 The reviewer reviews the code from his/her own understanding of
 it. There is actually no requirement that the reviewer knows the ins
