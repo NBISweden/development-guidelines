@@ -176,6 +176,11 @@ actual example commands that will build and start the project.
 
 ### Readability
 
+Readability of code is important when working together. The goal is to
+make the code as easy as possible to parse and understand by a human.
+
+#### Formatting and layout
+
 Use consistent indentation.
 
 Make use of horizontal whitespace (code paragraphs/blocks). There is
@@ -190,10 +195,27 @@ and/or in narrower windows (commonly around 80 characters wide).
 * often makes pull requests smaller.
 * makes the code more readable.
 
-Use a tool for automatic indentation if the editor you're using does
-not do it for you, e.g. `clang-format` or `indent` for C or C++ code,
-`perltidy` for Perl code, `prettier` for JavaScript and TypeScript,
-`black` for Python, `gofmt` for Go.
+##### Automatic tools
+
+There are tools to help you with formatting in order to allow you to
+focus on the logic. These tools can usually be applied on single files
+or entire code bases.
+
+It is worth noting that when using automatic tools for formatting it
+is preferrably done in agreement with all of the contributors to the
+code base where the tools are applied. Inconsistent use of automatic
+formatting tools may cause unwanted diffs for the ones using it.
+
+Your options for automatic formatting are usually as follows:
+- Tool within your editor
+- Tool execution via git pre-commit hook
+- Tool executed manually before commit
+
+Some tools for automatic formatting are as follows, `clang-format` or
+`indent` for C or C++ code, `perltidy` for Perl code, `prettier` for
+JavaScript and TypeScript, `black` for Python, `gofmt` for Go.
+
+#### Structure and algorithms
 
 If you have to choose between an efficient but cryptic or non-intuitive
 way of doing something and a less efficient or more verbose way of
@@ -206,6 +228,22 @@ network access or disk access, not memory access or CPU. To aid in
 making the code readable, avoid complicated optimizations. This is
 not an invitation to write slow code but to write code that is easily
 understood and therefore maintainable.
+
+#### Linting
+
+Linting is a way to enforce a consistent formatting and style. It can
+usually be configured to be more or less agressive when it comes to
+what to enforce. It is recommended that merge requests are required
+to pass a linting test before it can be approved.
+
+| Language | Tools |
+|:---------|:-----|
+|Python|Flake8, mypy|
+|Typescript|ESLint|
+|shell|ShellCheck|
+|R|lintr|
+|Perl|Perl::Critic|
+
 
 ### Best programming practices
 
