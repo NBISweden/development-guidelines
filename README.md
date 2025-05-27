@@ -256,6 +256,8 @@ for different languages which can be a good jump-off point.
 (O'Reilly book).
 * For Python: [PEP8 Style Guide](https://www.python.org/dev/peps/pep-0008/).
 * For R: [The Tidyverse Style Guide](https://style.tidyverse.org/).
+* For Go: [Effective Go](https://go.dev/doc/effective_go).
+* For Typescript: [Google TypeScript Style Guide](https://google.github.io/styleguide/tsguide.html).
 * (Further references here, please.)
 
 If the project has any kind of best practices (explicit or implicit),
@@ -286,11 +288,11 @@ At the time of writing, the most frequent languages are
 * HTML (Javascript/Typescript)
 * Shell
 * R
-* Perl
+* Jupyter Notebook
 
 Based on this we can say that there exists expertise in NBIS for writing
 and maintaining software written in these languages.  We also have
-people with good knowledge of R, Ruby, JavaScript and C, although these
+people with good knowledge of _Perl_, _Ruby_, _C_ and _Go_ although these
 languages are not currently well represented in our GitHub repositories.
 
 You should obviously also consider the availability of utility libraries
@@ -393,51 +395,17 @@ should mention how to instantiate those variables/files, etc.
 
 ### Testing
 
-There are many ways to test your code. Remember when you ran your
-application and used it for the first time? Did you check the features
-and experiment using them? That’s known as exploratory testing and is a
-form of manual testing.
+We aim for having a good test coverage for all the software we produce. 
+These can be unit tests where a single function, module or component is tested
+in isolation to make sure it works as expected. It can also be integration
+tests to ensure that different parts of your software work well together.
 
-Exploratory testing is a form of testing that is done without a plan. In
-an exploratory test, you’re just exploring the application.
+To make life easier during development it can be helpful to have a script 
+that runs all tests, or all tests that belong to a certain part of the 
+software, by using a single command.
 
-To have a complete set of manual tests, all you need to do is make a
-list of all the features your application has, the different types of
-input it can accept, and the expected results. Now, every time you make
-a change to your code, you need to go through every single item on that
-list and check it.
-
-That doesn’t sound like much fun, does it?
-
-This is where automated testing comes in. Automated testing is the
-execution of your test plan (the parts of your application you want
-to test, the order in which you want to test them, and the expected
-responses) by a script instead of a human. Software testing involves the
-execution of a software component or system component to evaluate one or
-more properties of interes. In general, these properties indicate the
-extent to which the component or system under test:
-
-* meets the requirements that guided its design and development,
-* responds correctly to all kinds of inputs,
-* performs its functions within an acceptable time,
-* is sufficiently usable,
-* can be installed and run in its intended environments, and
-* achieves the general result its stakeholders desire.
-
-#### Unit Tests vs. Integration Tests
-
-What is the Unit Test?  Unit Tests are conducted by developers and test
-the unit of code (aka module, component) he or she developed.  It is
-a testing method by which individual units of source code are tested
-to determine if they are ready to use. It helps to reduce the cost of
-bug fixes since the bugs are identified during the early phases of the
-development lifecycle.
-
-What is an Integration Test?  Integration testing tests integration between
-software modules. It is a software testing technique where individual
-units of a program are combined and tested as a group. It checks the
-overall flow of the application after the integration of different
-modules.
+It can also be helpful to set up Github Actions that automatically run the
+tests when a commit is made or a PR is created.
 
 Useful links for writing tests in our most common  languages and frameworks:
 
@@ -445,87 +413,6 @@ Useful links for writing tests in our most common  languages and frameworks:
 * [React](https://reactjs.org/docs/testing-recipes.html).
 * [Javascript](https://jestjs.io/).
 * [R](https://r-pkgs.org/tests.html).
-
-#### Test-driven development
-
-Test-driven development (TDD) is a software development process that
-relies on the repetition of a very short development cycle: requirements
-are turned into very specific test cases, then the code is improved so
-that the tests pass. In simple terms, test cases for each functionality
-are created and tested first and if the test fails then the new code
-is written in order to pass the test and to make the code simple and
-bug-free.
-
-#### Continuous integration and delivery
-
-The CI/CD pipeline is one of the best practices for devops teams to
-implement, for delivering code changes more frequently and reliably. It
-is also an agile methodology best practice, as it enables software
-development teams to focus on meeting business requirements, and code
-quality because deployment steps are automated.
-
-##### Continuous integration
-
-Developers practicing continuous integration merge their changes back
-to the main branch as often as possible. The developer's changes are
-validated by creating a build and running automated tests against the
-build. By doing so, you avoid the integration hell that usually happens
-when people wait for release day to merge their changes into the release
-branch.
-
-Continuous integration puts a great emphasis on testing automation
-to check that the application is not broken whenever new commits are
-integrated into the main branch.
-
-###### What you need (cost)
-
-Your team will need to write automated tests for each new feature,
-improvement or bug fix. It should also limit the size of the changes to
-make them easier to review and merge as soon as they're ready. You need
-a continuous integration server that can monitor the main repository and
-run the tests automatically.
-
-###### What you gain
-
-Less bugs get shipped to production as regressions are captured early by
-the automated tests. Building the release is easy as all integration
-issues have been solved early. Less context switching as developers are
-alerted as soon as they break the build and can work on fixing it before
-they move to another task.
-
-##### Continuous delivery
-
-Continuous delivery is an extension of continuous integration to make
-sure that you can release new changes to your customers quickly in
-a sustainable way. This means that on top of having automated your
-testing, you also have automated your release process and you can deploy
-your application at any point of time.
-
-###### What you need (cost)
-
-You need a strong foundation in continuous integration and your test
-suite needs to cover enough of your codebase. Deployments need to be
-automated. The trigger is still manual but once a deployment is started
-there shouldn't be a need for human intervention. Your team will most
-likely need to embrace feature flags so that incomplete features do not
-affect customers in production.
-
-###### What you gain
-
-The complexity of deploying software has been taken away. Your team
-doesn't have to spend days preparing for a release anymore. You can
-release more often, thus accelerating the feedback loop with your
-customers. There is much less pressure on decisions for small changes,
-hence encouraging iterating faster.
-
-###### Read CI/CD guides
-
-You can find some guides that will go more in depth to help you getting
-started with these practices.
-
-* [Getting started with continuous integration](https://www.atlassian.com/continuous-delivery/continuous-integration/how-to-get-to-continuous-integration).
-* [Getting started with continuous delivery](https://www.atlassian.com/continuous-delivery/pipeline).
-* [Getting started with continuous deployment](https://www.atlassian.com/continuous-delivery/continuous-deployment).
 
 ## How we use GitHub
 
@@ -536,10 +423,6 @@ accessible software. This also means that we will be using Git (rather
 than Subversion, Mercurial, CVS or any other code revision system) for
 keeping track of source code and documents relating to software that we
 make available on GitHub.
-
-GitHub provides excellent support for doing code reviews (more on that
-below), collecting issues (bug reports) connected with a project, and
-for organising work tasks ("projects" in GitHub speak).
 
 On GitHub, we have an Educational Account called
 "[NBISweden](https://github.com/NBISweden)" ("NBIS" was taken)
@@ -556,9 +439,7 @@ that require this*. The ELIXIR Open Source Principles say
 If the project is a Support project, however, you may have to use a
 private repository until the group desires the code (and its results)
 to be publicly available; do work on it with the mindset that it
-will become public at some point, though. Use the following naming
-scheme for Support project repositories:
-`<SMS/LTS/PP>-<Redmine-issue>-<year>-<descriptive name>`.
+will become public at some point, though.
 
 The source code that we produce are Public Records, and as such should
 be made publicly available as Open Source. This is a requirement
@@ -566,7 +447,7 @@ within ELIXIR and for projects funded by the Swedish government.
 
 To contribute to NBISweden repositories, or to create repositories
 there, you will need to set up a GitHub account for yourself and let the
-admins of NBISweden know. Current admins include *Jonas Hagberg* and
+admins of NBISweden know. Current admins include *Dimitrios Bampalikis* and
 *Johan Viklund*.
 
 ## How we use Git
@@ -576,23 +457,26 @@ of using Git branches as a help in the development cycle.
 
 With Git-Flow, branches are categorised into:
 
-* A **master** branch
+* A **main** branch
 * A main **development** branch
 * One or several **feature** branches
 * One or several **hotfix** branches
+* One or several **bug** branches
+* One or several **documentation** branches
+* One or several **refactoring** branches
 
 The code on the **main** branch (often called `main` or `release`) is
 stable, properly tested and is the version of the code that a typical
-user should pick. No changes are made directly on the master branch
+user should pick. No changes are made directly on the main branch
 (but see below).
 
-Strictly speaking, Git-Flow makes a distinction between a "master"
+Strictly speaking, Git-Flow makes a distinction between a "main"
 and a "release" branch where the release branch contains the next
 release-in-making, branched off from the development branch. The
 `release` branch contains commits relating to creating the new release,
 such as adjustments to release numbers. The branch is then reviewed
-and merged into the master *and* development branches, creating a new
-release of the software on the master branch. We do not follow this, but
+and merged into the main *and* development branches, creating a new
+release of the software on the main branch. We do not follow this, but
 you are free to do so if you think it makes more sense, for example in a
 highly distributed project with many active users/developers.
 
@@ -601,7 +485,7 @@ be working, but without guarantees. For small projects, development
 might as well happen directly on the development branch and the code here
 may therefore sometimes be broken (this should ideally never happen
 though). When the development branch is deemed "done" and has undergone
-testing and review, it is merged into the master branch. The release is
+testing and review, it is merged into the main branch. The release is
 then tagged with an appropriate release version.
 
 A **feature** branch (often called `feature/some_name` where `some_name` is
@@ -623,14 +507,14 @@ be highly beneficial for small projects too, obviously (do this!).
 
 A **hotfix** branch (often called `hotfix/some_name`) is essentially
 a branch that implements a bugfix to a release. In terms of branching,
-it is thus very similar to a feature branch but for the master branch
+it is thus very similar to a feature branch but for the main branch
 rather than for the development branch. A hotfix should fix critical
 errors that were not caught in testing before the release was made.
 Hotfixes should not implement new behaviour, unless this is needed to
 fix a critical bug. Hotfixes need to undergo review before they are
-merged back into the master *and* development branches.
+merged back into the main *and* development branches.
 
-The master and development branches are never deleted, while the others
+The main and development branches are never deleted, while the others
 are transient (temporary, for the duration of the development and review
 of the feature or hotfix).
 
@@ -639,7 +523,7 @@ The benefits of this type of branching model in development are
 * Co-developers work on separate branches, and do not "step on each
 other's toes" during the development process, even if they push their
 work back to GitHub.
-* Co-developers and users have a stable master branch to use (for doing
+* Co-developers and users have a stable main branch to use (for doing
 work in the case of the user, and as reference to their own coding in
 the case of the developer).
 * Features in "feature" branches are independent of each other. Any
@@ -649,18 +533,6 @@ There are many different graphical user interfaces that
 help keeping track of Git and the various branches in a
 project. [SourceTree](https://www.sourcetreeapp.com) is a good free one
 for macOS and Windows, for example.
-
-The GitHub user Vincent Driessen ("nvie" on GitHub), who actually came
-up with Git-Flow in the first place, has a set of Git extensions that
-makes it easy to work with Git-Flow from the command line. See his
-[nvie/gitflow](https://github.com/nvie/gitflow) repository.
-
-For more in-depth descriptions of Git-Flow, see
-
-* [Gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
-* [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/).
-* [Git-Flow Cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/).
-* [Using git-flow to automate your git branching workflow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/).
 
 For smaller projects, support projects or NBIS courses/workshops,
 another branching model may be appropriate, such as
@@ -685,46 +557,6 @@ comments may be split into three commits. A rule of thumb is that if the
 commit message contains the word "and", it should probably be split into
 multiple commits. Also note that a single logical change (suitable for a
 single commit) may comprise changes in several files.
-
-Learn how to select chunks of changed files to do multiple
-separate commits of unrelated things. This can be done using
-`git add -p ...`.
-
-One common usage is to prepare commits with `git add` (which tells git
-the corresponding changes shall be included in the commit, in git
-terminology, this is called to update the index).
-
-Using `git add` to stage changes allows you to verify that the commit
-will contain the changes you intend, either by seing the changes
-included in the commit (with `git diff --cached`) or see if there are
-changes not included (e.g. `git status`, which also shows untracked
-files, or `git diff`). Once you are happy with the contents, you can
-create the commit with `git commit`.
-
-If you do not want or need to review individual changes that should be
-part of a commit, you can short-circuit things by calling `git commit`
-directly, e.g.
-
-```sh
-git commit -m 'My informative message' path1/file1 path2/file2
-```
-
-This also supports the usual features of `git-add`, e.g.
-`--interactive` and `--patch` (or `-p`).
-
-Avoid "force push" unless it makes everyone's life easier. And when you do,
-use `--force-with-lease` to avoid pushing when new changes have happened on
-the remote. A situation where it might make everyone's life easier is when
-you're tidying up your own branch.
-
-If a "live" checkout of the repository needs to exist somewhere, for
-example to run a public web service, then:
-
-* Don't do development in the live checkout.
-* Do development and testing in a private checkout.
-* Only ever do "git pull" in the live checkout.
-* A live service with active users should run a stable release from
-the master branch.
 
 ### Helpful commit messages
 
@@ -759,94 +591,20 @@ A code review may be an iterative process in which a piece of code
 is commented upon or discussed, changed by the original author, and
 reviewed again before being approved.
 
-Reviews can be conducted at any stage in development (just let someone
-look at the code), but we'd like code to be more formally reviewed at
+Reviews can be conducted at any stage in development. Sometimes early
+feedback is necessary for ensuring code quality so developers are
+encouraged to seek preliminary reviews when needed by creating a draft
+Pull Request (PR), but we'd like code to be more formally reviewed at
 least
 
 * before a feature branch is merged to the main development branch.
-* when a bug is fixed on the master branch before its hotfix/bugfix
+* when a bug is fixed on the main branch before its hotfix/bugfix
 branch is merged.
 * when a release is made by merging the current state of the development
-branch (or release branch, if such a branch is used) to the master
+branch (or release branch, if such a branch is used) to the main
 branch.
 
-To be able to use GitHub or a code review, both the author and the
-reviewer should have their own personal GitHub accounts.
-
-### Code reviewing steps
-
-1. The code is written on a separate branch, for example on a
-`feature/some_name` branch based on the main development branch.
-
-2. The author feels that the code is correct and finished and pushes the
-branch to GitHub one last time before the actual review.
-
-3. The author creates a "pull request" for the branch by switching to
-the branch on the GitHub web pages and clicking the button labelled "New
-pull request".
-
-4. The author finds one or several reviewers for the pull request and
-assigns them to it. A reviewer may be found
-    * by asking one of the already designated reviewers connected to the
-    project, if such a group of people has been created.
-    * by asking in the "code-review-forum" in the NBIS Slack.
-    * by meeting up with or contacting any other colleague that is not
-    directly involved with the code that is being reviewed.
-
-5. If needed, the author gives the reviewer(s) some background on the
-project, and what the code under review is supposed to do etc. Having a
-fixed group of reviewers for a project would minimize the need for this
-step. This may be done in a face-to-face meeting, on Slack, or in any
-other way that is convenient.
-
-6. If there's more than one reviewer, one of the reviewers is designated
-as the "main" reviewer. This reviewer will later do one extra thing (see
-below).
-
-7. The reviewer(s) looks at the code, specifically at the bits of code
-that the specified pull request is about.
-
-8. The reviewer(s) leaves comments and/or questions in the code by
-clicking individual lines in the web viewer. Note that these comments
-are public.
-
-9. If there are specific changes the reviewer would like to see,
-GitHub has a "suggest change" feature that is useful for this, this
-can be accessed by clicking the suggest icon ![suggest
-icon](suggest.svg "suggest changes") or by starting a fenced block
-with the language/highlight `suggestion`, e.g.
-
-  <pre>
-
-  Can we do it like this instead?
-
-  ```suggestion
-    if i != 0 {
-  ```
-  </pre>
-
-when created this way, suggested changes are easy to include.
-
-10. The reviewer(s) leaves a summary of their review by clicking "Review
-changes" and submit it as feedback
-    * without explicitly approving the pull request (it's just feedback).
-    * explicitly approving the pull request (it all looks good), or
-    * explicitly rejecting the pull request (there's something that
-    needs to be discussed and/or fixed).
-
-11. If no reviews are rejecting the pull request, the designated
-"main" reviewer will merge the pull request and delete the feature (or
-whatever) branch. Note: this is the reviewer's job, not the author's
-job. *The code review process ends here*.
-
-12. If there are things that need to be modified, further commits to the
-same feature branch may be necessary. These commits are automatically
-added to the existing pull request.
-
-13. The author asks the reviewer(s) to have a further look at the new
-changes. The process continues from step 7.
-
-### General stuff about code reviews
+### Useful tips for code reviews
 
 Just as with making commits often, it is better to review often in small
 chunks.
@@ -874,10 +632,16 @@ review from such a reviewer is to make sure that the logic of the code
 (with its comments!) is intelligible enough to be able to say "that'll
 probably work" (this is not a useless review!).
 
-The following is adapted from
-[thoughtbot/guides/code-review](https://github.com/thoughtbot/guides/tree/master/code-review)
+### Team specifics
 
-About communication (both author and reviewer):
+The exact routines for doing code reviews differ between the developer
+teams and may even differ between projects. To learn about them, ask
+your colleagues and / or check your team's internal documentation.
+
+_The following is adapted from
+[thoughtbot/guides/code-review](https://github.com/thoughtbot/guides/tree/main/code-review)_
+
+### About communication (both author and reviewer):
 
 * Ask questions and ask for clarifications. Do not make demands.
 * Many development decisions are based upon personal opinions. Discuss
