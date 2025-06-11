@@ -1,6 +1,6 @@
 # Coding Guidelines for NBIS Developers
 
-This document is is currently a work in progress, and presents practical
+This document is currently a work in progress, and presents practical
 guidelines for developers and others at NBIS who write or contribute to
 software. The guidelines cover:
 
@@ -75,42 +75,7 @@ Table of Contents
   * [Reproducibility guidelines](#reproducibility-guidelines)
     * [Release versioning](#release-versioning)
 
-## Things to be aware of when writing code
-
-### Writing secure software
-
-While not always the most exciting part of writing code, it is important
-to consider the security risks with a software project to avoid costly
-patches and perhaps more importantly, reputation damage. Security risks
-analysis should be employed at the early stage of a project (it is
-usually way more expensive and complicated at a late stage) and
-continuously carried out until the end.
-
-The security risks will differ vastly between projects, but general
-guidelines are:
-
-* Educate yourself, research on what security risks are related to
-the different components of your project. Some example resources are:
-  * [Linux Foundation (LF) Core Infrastructure Initiative (CII) Best Practices](https://bestpractices.coreinfrastructure.org/en).
-  * [OWASP Top 10 Web Application Security Risks](https://owasp.org/www-project-top-ten/).
-  * [OWASP Slack](https://owasp.org/slack/invite)
-* Don’t blindly trust out-of-the-box software and default
-configurations, e.g. open source libraries, Docker images, aws services, etc.
-Malicious software can be present and default configurations usually
-have simplicity as the primary goal, not security.
-* Incorporate security in the entire Software Development Lifecycle:
-  * Include security considerations when gathering requirements.
-  * Threat model continuously.
-  * Implement tests and build processes that evaluate security.
-  
-  Some examples:
-  * Ask [the four key threat model questions](https://www.threatmodelingmanifesto.org/) during backlog refinement.
-  * Enable services like [Dependabot](https://dependabot.com/) or [Snyk](https://snyk.io/) to enable alerts for dependices for your project (this can easily be done at GitHub).
-  * Fuzzing can often help discovering bugs, both security related and others.
-  
-  [More information on Secure Software Development Lifecycle](https://owasp.org/www-project-integration-standards/writeups/owasp_in_sdlc/).
-
-### Speaking about security
+## Security
 
 To be safe while navigating the wild west that modern computing can
 be, make sure to:
@@ -127,7 +92,7 @@ two-factor authentication can still protect you and sensitive
 information.
 * Always lock your computer when left unattended (even if you are
 just going for a quick coffee!)
-* Configure so your device is automatically locked after 1-5 minutes.
+* Configure your device to automatically screen-lock after 1-5 minutes.
 * Remove unnecessary programs from your computer to reduce attack
 surface.
 * Encrypt your drives, especially external. Be careful about what you
@@ -135,6 +100,41 @@ insert.
 * Be careful regarding what links you click and what you download.
 Avoid visiting unknown websites, especially if they stem from a
 suspicious email, and do not download software from untrusted sources.
+
+## Things to be aware of when writing code
+
+### Writing secure software
+
+While not always the most exciting part of writing code, it is important
+to consider the security risks with a software project to avoid costly
+patches and perhaps more importantly, reputation damage. Security risks
+analysis should be employed at the early stage of a project (it is
+usually way more expensive and complicated at a late stage) and
+continuously carried out until the end.
+
+The security risks will differ vastly between projects, but general
+guidelines are:
+
+* Educate yourself and research what security risks are related to
+the different components of your project. Some example resources are:
+  * [Linux Foundation (LF) Core Infrastructure Initiative (CII) Best Practices](https://bestpractices.coreinfrastructure.org/en).
+  * [OWASP Top 10 Web Application Security Risks](https://owasp.org/www-project-top-ten/).
+  * [OWASP Slack](https://owasp.org/slack/invite)
+* Don’t blindly trust out-of-the-box software and default
+configurations, e.g. open source libraries, Docker images, aws services, etc.
+Malicious software can be present and default configurations usually
+have simplicity as the primary goal, not security.
+* Incorporate security in the entire Software Development Lifecycle:
+  * Include security considerations when gathering requirements.
+  * Threat model continuously.
+  * Implement tests and build processes that evaluate security.
+  
+  Some examples:
+  * Ask [the four key threat model questions](https://www.threatmodelingmanifesto.org/) during backlog refinement.
+  * Enable services like [Dependabot](https://dependabot.com/) or [Snyk](https://snyk.io/) to enable alerts for dependices for your project (this can easily be done at GitHub).
+  * [Fuzzing](https://owasp.org/www-community/Fuzzing) can often help discovering bugs, both security related and others.
+  
+  [More information on Secure Software Development Lifecycle](https://owasp.org/www-project-integration-standards/writeups/owasp_in_sdlc/).
 
 ### Intent
 
@@ -156,15 +156,11 @@ Whether you use CamelCase or any other standard for naming variables
 and functions is less important, as long as it adheres to the naming
 conventions of the language, and is consistent within the project.
 
-Avoid global variables if the language allows you to do so. Global
-variables should otherwise be documented in the code and ideally "stand
-out" (using upper-case variable names is a common way to do this).
-
 ### Comments in code
 
 Comments should explain *why* the code does what it does. *What* it
 does should ideally already be evident from the code itself. If the code
-is cryptic and can't easily be simplified, explanations might well be
+is cryptic and can't easily be simplified, explanations might be
 needed. A good comment clarifies intent.
 
 Try to capture and document as much as possible of what's needed to get
@@ -253,11 +249,11 @@ programming language(s) that you are using.
 
 * Google has [a good set of best practices](https://google.github.io/styleguide/)
 for different languages which can be a good jump-off point.
-* For Perl: [Perl Best Practices](http://shop.oreilly.com/product/9780596001735.do)
+* For Perl: [Perl Best Practices](https://perldoc.perl.org/perlstyle)
 (O'Reilly book).
 * For Python: [PEP8 Style Guide](https://www.python.org/dev/peps/pep-0008/).
 * For R: [The Tidyverse Style Guide](https://style.tidyverse.org/).
-* For Go: [Effective Go](https://go.dev/doc/effective_go).
+* For Go: [12 Go Best Practices](https://go.dev/talks/2013/bestpractices.slide#1), [Effective Go](https://go.dev/doc/effective_go).
 * For Typescript: [Google TypeScript Style Guide](https://google.github.io/styleguide/tsguide.html).
 * (Further references here, please.)
 
@@ -410,14 +406,15 @@ tests when a commit is made or a PR is created.
 
 Useful links for writing tests in our most common  languages and frameworks:
 
-* [Python](https://realpython.com/python-testing/).
-* [React](https://reactjs.org/docs/testing-recipes.html).
-* [Javascript](https://jestjs.io/).
-* [R](https://r-pkgs.org/tests.html).
+* [Python](https://realpython.com/python-testing/)
+* [React](https://reactjs.org/docs/testing-recipes.html)
+* [Javascript](https://jestjs.io/)
+* [R](https://r-pkgs.org/tests.html)
+* [Go](https://go.dev/doc/tutorial/add-a-test)
 
 ## How we use GitHub
 
-In order to maximize exposure, and to facilitate collaborations with
+In order to maximize exposure and to facilitate collaborations with
 users and other organizations, we have opted to use GitHub and the
 infrastructure that GitHub provides for publishing all our publicly
 accessible software. This also means that we will be using Git (rather
@@ -458,7 +455,7 @@ of using Git branches as a help in the development cycle.
 
 With Git-Flow, branches are categorised into:
 
-* A **main** branch
+* A **main** branch (older repositories may contain a "master" branch instead)
 * A main **development** branch
 * One or several **feature** branches
 * One or several **hotfix** branches
@@ -593,9 +590,13 @@ Write a Git Commit Message](http://chris.beams.io/posts/git-commit/).
 
 ## How we do code reviews
 
-Through reviewing each other's code, we believe that we will produce
-better code, that we will learn more about programming, that we will
-learn more about what our colleagues are actually doing, and that
+Through reviewing each other's code, we believe that
+- we will produce
+better code,
+- we will learn more about programming,
+- we will learn more about what our colleagues are actually
+doing, and
+- that
 teamwork across NBIS is improved.
 
 A code review may be an iterative process in which a piece of code
@@ -615,6 +616,82 @@ branch is merged.
 branch (or release branch, if such a branch is used) to the main
 branch.
 
+To be able to use GitHub or a code review, both the author and the
+reviewer should have their own personal GitHub accounts.
+
+### Code reviewing steps
+
+1. The code is written on a separate branch, for example on a
+`feature/some_name` branch based on the main development branch.
+
+2. The author feels that the code is correct and finished and pushes the
+branch to GitHub one last time before the actual review.
+
+3. The author creates a "pull request" for the branch by switching to
+the branch on the GitHub web pages and clicking the button labelled "New
+pull request".
+
+4. The author finds one or several reviewers for the pull request and
+assigns them to it. A reviewer may be found
+    * by asking one of the already designated reviewers connected to the
+    project, if such a group of people has been created.
+    * by asking in the "code-review-forum" in the NBIS Slack.
+    * by meeting up with or contacting any other colleague that is not
+    directly involved with the code that is being reviewed.
+
+5. If needed, the author gives the reviewer(s) some background on the
+project, and what the code under review is supposed to do etc. Having a
+fixed group of reviewers for a project would minimize the need for this
+step. This may be done in a face-to-face meeting, on Slack, or in any
+other way that is convenient.
+
+6. If there's more than one reviewer, one of the reviewers is designated
+as the "main" reviewer. This reviewer will later do one extra thing (see
+below).
+
+7. The reviewer(s) looks at the code, specifically at the bits of code
+that the specified pull request is about.
+
+8. The reviewer(s) leaves comments and/or questions in the code by
+clicking individual lines in the web viewer. Note that these comments
+are public.
+
+9. If there are specific changes the reviewer would like to see,
+GitHub has a "suggest change" feature that is useful for this, this
+can be accessed by clicking the suggest icon ![suggest
+icon](suggest.svg "suggest changes") or by starting a fenced block
+with the language/highlight `suggestion`, e.g.
+
+  <pre>
+
+  Can we do it like this instead?
+
+  ```suggestion
+    if i != 0 {
+  ```
+  </pre>
+
+When created this way, suggested changes are easy to include.
+
+10. The reviewer(s) leaves a summary of their review by clicking "Review
+changes" and submit it as feedback
+    * without explicitly approving the pull request (it's just feedback).
+    * explicitly approving the pull request (it all looks good), or
+    * explicitly rejecting the pull request (there's something that
+    needs to be discussed and/or fixed).
+
+11. If no reviews are rejecting the pull request, the designated
+"main" reviewer will merge the pull request and delete the feature (or
+whatever) branch. Note: this is the reviewer's job, not the author's
+job. *The code review process ends here*.
+
+12. If there are things that need to be modified, further commits to the
+same feature branch may be necessary. These commits are automatically
+added to the existing pull request.
+
+13. The author asks the reviewer(s) to have a further look at the new
+changes. The process continues from step 7.
+
 ### Useful tips for code reviews
 
 Just as with making commits often, it is better to review often in small
@@ -632,9 +709,7 @@ A review doesn't need to take much time. In some cases 5-10 minutes (or
 even less!) will be enough if the pull request is of reasonably small
 size.
 
-The reviewer is not expected to check out the code for testing, only
-to read it on the GitHub website. Testing is something that the author
-and/or a designated test user should do.
+Wheter the reviewer should check out the code for testing depends on the project. Sometimes this is expected and sometimes not. 
 
 The reviewer reviews the code from his/her own understanding of
 it. There is actually no requirement that the reviewer knows the ins
