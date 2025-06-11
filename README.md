@@ -75,7 +75,7 @@ need to review them. These things are not set in stone.
 
 ### Naming of objects and variables
 
-Names should gunurally indicate *intent*.
+Names should generally indicate *intent*.
 
 Names of variables, functions, methods etc. should be clear and
 descriptive, not cryptic. For example, function names might be a verb or
@@ -138,7 +138,7 @@ focus on the logic. These tools can usually be applied on single files
 or entire code bases.
 
 It is worth noting that when using automatic tools for formatting it is
-preferrably done in agreement with all of the contributors to the code
+preferably done in agreement with all of the contributors to the code
 base where the tools are applied. Inconsistent use of automatic
 formatting tools may cause unwanted diffs for the ones using it.
 
@@ -169,9 +169,9 @@ understood and therefore maintainable.
 #### Linting
 
 Linting is a way to enforce a consistent formatting and style. It can
-usually be configured to be more or less agressive when it comes to what
-to enforce. It is recommended that merge requests are required to pass a
-linting test before it can be approved.
+usually be configured to be more or less aggressive when it comes to
+what to enforce. It is recommended that merge requests are required to
+pass a linting test before it can be approved.
 
 | Language   | Tools        |
 |:-----------|:-------------|
@@ -334,7 +334,7 @@ To make life easier during development it can be helpful to have a
 script that runs all tests, or all tests that belong to a certain part
 of the software, by using a single command.
 
-It can also be helpful to set up Github Actions that automatically run
+It can also be helpful to set up GitHub Actions that automatically run
 the tests when a commit is made or a PR is created.
 
 Useful links for writing tests in our most common languages and
@@ -342,7 +342,7 @@ frameworks:
 
 -   [Python](https://realpython.com/python-testing/).
 -   [React](https://reactjs.org/docs/testing-recipes.html).
--   [Javascript](https://jestjs.io/).
+-   [JavaScript](https://jestjs.io/).
 -   [R](https://r-pkgs.org/tests.html).
 
 #### Test-driven development
@@ -453,12 +453,12 @@ guidelines are:
     -   [OWASP Slack](https://owasp.org/slack/invite)
 
 -   Don’t blindly trust out-of-the-box software and default
-    configurations, e.g. open source libraries, Docker images, aws
+    configurations, e.g. open source libraries, Docker images, AWS
     services, etc. Malicious software can be present and default
     configurations usually have simplicity as the primary goal, not
     security.
 
--   Incorporate security in the entire Software Development Lifecycle:
+-   Incorporate security in the entire Software Development Life cycle:
 
     -   Include security considerations when gathering requirements.
     -   Threat model continuously.
@@ -581,8 +581,8 @@ and *Johan Viklund*. For more information, check the NBIS Confluence.
 
 ### Branching
 
-It is encouranged to follow a branching model. One good example of such
-a model is the *Git-Flow branching model*. This is a way of using Git
+It is encouraged to follow a branching model. One good example of such a
+model is the *Git-Flow branching model*. This is a way of using Git
 branches as a help in the development cycle.
 
 With Git-Flow, branches are categorised into:
@@ -715,7 +715,7 @@ the corresponding changes shall be included in the commit, in git
 terminology, this is called to update the index).
 
 Using `git add` to stage changes allows you to verify that the commit
-will contain the changes you intend, either by seing the changes
+will contain the changes you intend, either by seeing the changes
 included in the commit (with `git diff --cached`) or see if there are
 changes not included (e.g. `git status`, which also shows untracked
 files, or `git diff`). Once you are happy with the contents, you can
@@ -845,14 +845,13 @@ reviewer should have their own personal GitHub accounts.
     icon](suggest.svg "suggest changes") or by starting a fenced block
     with the language/highlight `suggestion`, e.g.
 
-<pre>
+    <pre>
+    Can we do it like this instead?
 
-  Can we do it like this instead?
-
-  ```suggestion
-    if i != 0 {
-  ```
-  </pre>
+    ```suggestion
+       if i != 0 {
+    ```
+    </pre>
 
 When created this way, suggested changes are easy to include.
 
@@ -910,7 +909,9 @@ your colleagues and / or check your team's internal documentation.
 *The following is adapted from
 [thoughtbot/guides/code-review](https://github.com/thoughtbot/guides/tree/main/code-review)*
 
-### About communication (both author and reviewer):
+### About communication
+
+This is relevant for both author and reviewer:
 
 -   Ask questions and ask for clarifications. Do not make demands.
 -   Many development decisions are based upon personal opinions. Discuss
