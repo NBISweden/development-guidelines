@@ -38,6 +38,7 @@ need to review them. These things are not set in stone.
 
 Table of Contents
 =================
+
 * [Coding Guidelines for NBIS Developers](#coding-guidelines-for-nbis-developers)
 * [Table of Contents](#table-of-contents)
   * [Things to be aware of when writing code](#things-to-be-aware-of-when-writing-code)
@@ -68,6 +69,7 @@ Table of Contents
   * [How we use GitHub](#how-we-use-github)
   * [How we use Git](#how-we-use-git)
     * [Branching](#branching)
+    * [Branch protection](#branch-protection)
     * [General stuff about working with Git](#general-stuff-about-working-with-git)
     * [Helpful commit messages](#helpful-commit-messages)
   * [How we do code reviews](#how-we-do-code-reviews)
@@ -80,13 +82,15 @@ Table of Contents
 
 ### Naming of objects and variables
 
+Names should gunurally indicate _intent_.
+
 Names of variables, functions, methods etc. should be clear and
 descriptive, not cryptic. For example, function names might be a
 verb or a question: `get_gene_name()`, `find_downstream_feature()`,
 `is_circular()`, or `has_multiple_flurbs()`.
 
 It is common practice to name simple loop variables `i`, `j`, and `k`,
-so there's no need to give them silly names like `the_index` unless
+so there's no need to give them names like `the_index` unless
 it's necessary for some reason or other.  Variables with longer scope
 should have slightly more informative names, like `filename_map`,
 `common_prefix`, `current_gene`, `feature_length` etc. (basically a
@@ -98,15 +102,11 @@ Whether you use CamelCase or any other standard for naming variables
 and functions is less important, as long as it adheres to the naming
 conventions of the language, and is consistent within the project.
 
-Avoid global variables if the language allows you to do so. Global
-variables should otherwise be documented in the code and ideally "stand
-out" (using upper-case variable names is a common way to do this).
-
 ### Comments in code
 
 Comments should explain *why* the code does what it does. *What* it
 does should ideally already be evident from the code itself. If the code
-is cryptic and can't easily be simplified, explanations might well be
+is cryptic and can't easily be simplified, explanations might be
 needed. A good comment clarifies intent.
 
 Try to capture and document as much as possible of what's needed to get
@@ -118,6 +118,11 @@ stating "the output is a container you can build and run", include
 actual example commands that will build and start the project.
 
 ### Readability
+
+Readability of code is important when working together. The goal is to
+make the code as easy as possible to parse and understand by a human.
+
+#### Formatting and layout
 
 Use consistent indentation.
 
@@ -133,10 +138,27 @@ and/or in narrower windows (commonly around 80 characters wide).
 * often makes pull requests smaller.
 * makes the code more readable.
 
-Use a tool for automatic indentation if the editor you're using does
-not do it for you, e.g. `clang-format` or `indent` for C or C++ code,
-`perltidy` for Perl code, `prettier` for JavaScript and TypeScript,
-`black` for Python, `gofmt` for Go.
+##### Automatic tools
+
+There are tools to help you with formatting in order to allow you to
+focus on the logic. These tools can usually be applied on single files
+or entire code bases.
+
+It is worth noting that when using automatic tools for formatting it
+is preferrably done in agreement with all of the contributors to the
+code base where the tools are applied. Inconsistent use of automatic
+formatting tools may cause unwanted diffs for the ones using it.
+
+Your options for automatic formatting are usually as follows:
+- Tool within your editor
+- Tool execution via git pre-commit hook
+- Tool executed manually before commit
+
+Some tools for automatic formatting are as follows, `clang-format` or
+`indent` for C or C++ code, `perltidy` for Perl code, `prettier` for
+JavaScript and TypeScript, `black` for Python, `gofmt` for Go.
+
+#### Structure and algorithms
 
 If you have to choose between an efficient but cryptic or non-intuitive
 way of doing something and a less efficient or more verbose way of
@@ -150,6 +172,22 @@ making the code readable, avoid complicated optimizations. This is
 not an invitation to write slow code but to write code that is easily
 understood and therefore maintainable.
 
+#### Linting
+
+Linting is a way to enforce a consistent formatting and style. It can
+usually be configured to be more or less agressive when it comes to
+what to enforce. It is recommended that merge requests are required
+to pass a linting test before it can be approved.
+
+| Language | Tools |
+|:---------|:-----|
+|Python|Flake8, mypy|
+|Typescript|ESLint|
+|shell|ShellCheck|
+|R|lintr|
+|Perl|Perl::Critic|
+
+
 ### Best programming practices
 
 Acquaintance yourself with, and follow, the best practices for the
@@ -157,10 +195,13 @@ programming language(s) that you are using.
 
 * Google has [a good set of best practices](https://google.github.io/styleguide/)
 for different languages which can be a good jump-off point.
-* For Perl: [Perl Best Practices](http://shop.oreilly.com/product/9780596001735.do)
+* For Perl: [Perl Best Practices](https://perldoc.perl.org/perlstyle)
 (O'Reilly book).
 * For Python: [PEP8 Style Guide](https://www.python.org/dev/peps/pep-0008/).
 * For R: [The Tidyverse Style Guide](https://style.tidyverse.org/).
+* For Go: [12 Go Best Practices](https://go.dev/talks/2013/bestpractices.slide#1), [Effective Go](https://go.dev/doc/effective_go).
+* For Typescript: [Google TypeScript Style Guide](https://google.github.io/styleguide/tsguide.html).
+* (Further references here, please.)
 
 If the project has any kind of best practices (explicit or implicit),
 follow these.
@@ -175,26 +216,26 @@ Follow the best practices agreed upon within the organisation
 ### What programming language to use
 
 We don't have any *specific* guideline for what programming languages
-NBIS software should be written in.  However, keep in mind that any
+NBIS software should be written in. However, keep in mind that any
 software that you produce will need to be maintained by yourself and by
 your colleagues (current and future), and that we do not want to end up
 with unmaintainable software.
 
-Therefore: for a brand new project, use a major programming language
-that we have expertise for within NBIS.
+Therefore, for a brand new project, use a major programming language
+that we have expertise in within NBIS.
 
-At the time of writing, GitHub tells us that our "top languages" in our
-NBISweden repositories are
+At the time of writing, the most frequent languages are
 
 * Python
+* Golang
 * HTML (Javascript/Typescript)
 * Shell
 * R
-* Perl
+* Jupyter Notebook
 
 Based on this we can say that there exists expertise in NBIS for writing
 and maintaining software written in these languages.  We also have
-people with good knowledge of R, Ruby, JavaScript and C, although these
+people with good knowledge of _Perl_, _Ruby_, _C_ and _Go_ although these
 languages are not currently well represented in our GitHub repositories.
 
 You should obviously also consider the availability of utility libraries
@@ -275,51 +316,17 @@ A file with contribution guidelines to your project repository's root, docs, or 
 
 ### Testing
 
-There are many ways to test your code. Remember when you ran your
-application and used it for the first time? Did you check the features
-and experiment using them? That’s known as exploratory testing and is a
-form of manual testing.
+We aim for having a good test coverage for all the software we produce. 
+These can be unit tests where a single function, module or component is tested
+in isolation to make sure it works as expected. It can also be integration
+tests to ensure that different parts of your software work well together.
 
-Exploratory testing is a form of testing that is done without a plan. In
-an exploratory test, you’re just exploring the application.
+To make life easier during development it can be helpful to have a script 
+that runs all tests, or all tests that belong to a certain part of the 
+software, by using a single command.
 
-To have a complete set of manual tests, all you need to do is make a
-list of all the features your application has, the different types of
-input it can accept, and the expected results. Now, every time you make
-a change to your code, you need to go through every single item on that
-list and check it.
-
-That doesn’t sound like much fun, does it?
-
-This is where automated testing comes in. Automated testing is the
-execution of your test plan (the parts of your application you want
-to test, the order in which you want to test them, and the expected
-responses) by a script instead of a human. Software testing involves the
-execution of a software component or system component to evaluate one or
-more properties of interes. In general, these properties indicate the
-extent to which the component or system under test:
-
-* meets the requirements that guided its design and development,
-* responds correctly to all kinds of inputs,
-* performs its functions within an acceptable time,
-* is sufficiently usable,
-* can be installed and run in its intended environments, and
-* achieves the general result its stakeholders desire.
-
-#### Unit Tests vs. Integration Tests
-
-What is the Unit Test?  Unit Tests are conducted by developers and test
-the unit of code (aka module, component) he or she developed.  It is
-a testing method by which individual units of source code are tested
-to determine if they are ready to use. It helps to reduce the cost of
-bug fixes since the bugs are identified during the early phases of the
-development lifecycle.
-
-What is an Integration Test?  Integration testing tests integration between
-software modules. It is a software testing technique where individual
-units of a program are combined and tested as a group. It checks the
-overall flow of the application after the integration of different
-modules.
+It can also be helpful to set up Github Actions that automatically run the
+tests when a commit is made or a PR is created.
 
 Useful links for writing tests in our most common  languages and frameworks:
 
@@ -409,9 +416,10 @@ started with these practices.
 * [Getting started with continuous delivery](https://www.atlassian.com/continuous-delivery/pipeline).
 * [Getting started with continuous deployment](https://www.atlassian.com/continuous-delivery/continuous-deployment).
 
-
 ### Security
+
 #### Writing secure software
+
 While not always the most exciting part of writing code, it is important
 to consider the security risks with a software project to avoid costly
 patches and perhaps more importantly, reputation damage. Security risks
@@ -502,7 +510,7 @@ suspicious email, and do not download software from untrusted sources.
 
 ## How we use GitHub
 
-In order to maximize exposure, and to facilitate collaborations with
+In order to maximize exposure and to facilitate collaborations with
 users and other organizations, we have opted to use GitHub and the
 infrastructure that GitHub provides for publishing all our publicly
 accessible software. This also means that we will be using Git (rather
@@ -540,7 +548,8 @@ within ELIXIR and for projects funded by the Swedish government.
 
 To contribute to NBISweden repositories, or to create repositories
 there, you will need to set up a GitHub account for yourself and let the
-admins of NBISweden know. For more information, check the NBIS Confluence.
+admins of NBISweden know. Current admins include *Dimitrios Bampalikis* and
+*Johan Viklund*. For more information, check the NBIS Confluence.
 
 ## How we use Git
 
@@ -550,10 +559,13 @@ of using Git branches as a help in the development cycle.
 
 With Git-Flow, branches are categorised into:
 
-* A **main** branch
+* A **main** branch (older repositories may contain a "master" branch instead)
 * A main **development** branch
 * One or several **feature** branches
 * One or several **hotfix** branches
+* One or several **bug** branches
+* One or several **documentation** branches
+* One or several **refactoring** branches
 
 The code on the **main** branch (often called `main` or `release`) is
 stable, properly tested and is the version of the code that a typical
@@ -624,23 +636,21 @@ help keeping track of Git and the various branches in a
 project. [SourceTree](https://www.sourcetreeapp.com) is a good free one
 for macOS and Windows, for example.
 
-The GitHub user Vincent Driessen ("nvie" on GitHub), who actually came
-up with Git-Flow in the first place, has a set of Git extensions that
-makes it easy to work with Git-Flow from the command line. See his
-[nvie/gitflow](https://github.com/nvie/gitflow) repository.
-
-For more in-depth descriptions of Git-Flow, see
-
-* [Gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
-* [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/).
-* [Git-Flow Cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/).
-* [Using git-flow to automate your git branching workflow](http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/).
-
 For smaller projects, support projects or NBIS courses/workshops,
 another branching model may be appropriate, such as
 [GitHub flow](https://guides.github.com/introduction/flow/).
 
-### General stuff about working with Git
+### Branch protection
+
+It is recommended to add protection to important branches such as the `main` branch to ensure code quality and stability. Branch protection rules can help prevent accidental or unauthorized changes. Some common branch protection settings include:
+
+* **Require pull request before merging:** This ensures that all changes are reviewed before being merged into the protected branch.
+* **Require a minimum number of approvals:** This requires a certain number of reviewers to approve a pull request before it can be merged.
+* **Require status checks to pass before merging:** This ensures that all automated tests and checks pass before changes can be merged.
+
+You can configure these settings in the repository settings on GitHub under the `Branches` section.
+
+## General stuff about working with Git
 
 Commit often, possibly several times a day. It's easier to roll back
 a small commit than to roll back large commits. This also makes the
@@ -724,17 +734,23 @@ Write a Git Commit Message](http://chris.beams.io/posts/git-commit/).
 
 ## How we do code reviews
 
-Through reviewing each other's code, we believe that we will produce
-better code, that we will learn more about programming, that we will
-learn more about what our colleagues are actually doing, and that
+Through reviewing each other's code, we believe that
+- we will produce
+better code,
+- we will learn more about programming,
+- we will learn more about what our colleagues are actually
+doing, and
+- that
 teamwork across NBIS is improved.
 
 A code review may be an iterative process in which a piece of code
 is commented upon or discussed, changed by the original author, and
 reviewed again before being approved.
 
-Reviews can be conducted at any stage in development (just let someone
-look at the code), but we'd like code to be more formally reviewed at
+Reviews can be conducted at any stage in development. Sometimes early
+feedback is necessary for ensuring code quality so developers are
+encouraged to seek preliminary reviews when needed by creating a draft
+Pull Request (PR), but we'd like code to be more formally reviewed at
 least
 
 * before a feature branch is merged to the main development branch.
@@ -799,7 +815,7 @@ with the language/highlight `suggestion`, e.g.
   ```
   </pre>
 
-when created this way, suggested changes are easy to include.
+When created this way, suggested changes are easy to include.
 
 10. The reviewer(s) leaves a summary of their review by clicking "Review
 changes" and submit it as feedback
@@ -820,7 +836,7 @@ added to the existing pull request.
 13. The author asks the reviewer(s) to have a further look at the new
 changes. The process continues from step 7.
 
-### General stuff about code reviews
+### Useful tips for code reviews
 
 Just as with making commits often, it is better to review often in small
 chunks.
@@ -844,10 +860,16 @@ review from such a reviewer is to make sure that the logic of the code
 (with its comments!) is intelligible enough to be able to say "that'll
 probably work" (this is not a useless review!).
 
-The following is adapted from
-[thoughtbot/guides/code-review](https://github.com/thoughtbot/guides/tree/master/code-review)
+### Team specifics
 
-About communication (both author and reviewer):
+The exact routines for doing code reviews differ between the developer
+teams and may even differ between projects. To learn about them, ask
+your colleagues and / or check your team's internal documentation.
+
+_The following is adapted from
+[thoughtbot/guides/code-review](https://github.com/thoughtbot/guides/tree/main/code-review)_
+
+### About communication (both author and reviewer):
 
 * Ask questions and ask for clarifications. Do not make demands.
 * Many development decisions are based upon personal opinions. Discuss
