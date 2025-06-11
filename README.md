@@ -131,7 +131,7 @@ no benefit of compacting code into as few lines as possible (unless
 you're doing assembly programming for some custom chip, which we don't
 do).
 
-Avoid long lines (>75-80 characters) if possible. Why? Because it
+Avoid long lines (more than 75-80 characters) if possible. Why? Because it
 
 * benefits co-developers editing code in Emacs/Vim over SSH
 and/or in narrower windows (commonly around 80 characters wide).
@@ -484,8 +484,10 @@ removed.
 should mention how to instantiate those variables/files, etc.
 
 #### Speaking about security...
+
 To be safe while navigating the wild west that modern computing can
 be, make sure to:
+
 * Keep software up-to-date (turn on automatic updates for your
 operating system and programs).
 * Use a password manager (third-party or browser’s built-in depending
@@ -506,7 +508,6 @@ insert.
 * Be careful regarding what links you click and what you download.
 Avoid visiting unknown websites, especially if they stem from a
 suspicious email, and do not download software from untrusted sources.
-
 
 ## How we use GitHub
 
