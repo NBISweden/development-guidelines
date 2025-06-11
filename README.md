@@ -38,7 +38,6 @@ need to review them. These things are not set in stone.
 
 # Table of Contents
 
--   [Coding Guidelines for NBIS Developers](#coding-guidelines-for-nbis-developers)
 -   [Table of Contents](#table-of-contents)
     -   [Things to be aware of when writing code](#things-to-be-aware-of-when-writing-code)
         -   [Naming of objects and variables](#naming-of-objects-and-variables)
