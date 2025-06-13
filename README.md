@@ -853,7 +853,7 @@ reviewer should have their own personal GitHub accounts.
     ```
     </pre>
 
-When created this way, suggested changes are easy to include.
+    When created this way, suggested changes are easy to include.
 
 10. The reviewer(s) leaves a summary of their review by clicking "Review
     changes" and submit it as feedback
